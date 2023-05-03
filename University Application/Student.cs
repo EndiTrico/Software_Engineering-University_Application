@@ -122,7 +122,7 @@ namespace University_Application
         {
             List<string> yourGrades = new List<string>();
 
-            foreach (Grades grades in new Grades().readGradesFile())
+            foreach (Grades grades in new Grades().readGrades())
             {
                 if (StudentID.Equals(grades.StudentID))
                 {
@@ -257,7 +257,7 @@ namespace University_Application
 
             foreach (Courses course in new Courses().readCoursesFromFile())
             {
-                foreach (Grades grade in new Grades().readGradesFile())
+                foreach (Grades grade in new Grades().readGrades())
                 {
                     if (grade.StudentID.Equals(StudentID))
                     {

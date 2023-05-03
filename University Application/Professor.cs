@@ -17,6 +17,7 @@ namespace University_Application
         // data fields
         private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
         private List<string> courses = new List<string>();
+        private List<string> coursesIds = new List<string>();
         private string activeCourse;
         private static List<Professor> loggedProfessors = new List<Professor>();
 
@@ -47,16 +48,19 @@ namespace University_Application
 
             con.Open();
 
-            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from junctable WHERE Professor_Id="+this.Id")";
+            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.Id+")";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader courseReader = cmd.ExecuteReader();
 
 
-            if (reader.HasRows)
+            if (courseReader.HasRows)
             {
-                con.Close();
-                return reader;
+               while(courseReader.Read())
+                {
+                    coursesIds.Add(courseReader["Course_Id"].ToString());
+                    courses.Add(courseReader["Course_Name"].ToString());
+                }
 
             }
 
@@ -129,7 +133,7 @@ namespace University_Application
             List<Grades> gradeList = new List<Grades>();
             Grades grade = new Grades();
 
-            foreach (Grades grades in grade.readGradesFile())
+            foreach (Grades grades in grade.readGrades())
             {
                 if (grades.Subject.Equals(ActiveCourse))
                     gradeList.Add(grades);
