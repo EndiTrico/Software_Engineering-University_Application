@@ -150,7 +150,7 @@ namespace University_Application
 
             foreach (Grades grades in getGrades())
             {
-                gradeList.Add(grades.Grade);
+                gradeList.Add(grades.GradeID);
             }
             return gradeList;
         }
@@ -189,7 +189,7 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade > 59)
+                if (grade.GradeID > 59)
                     studentIds.Add(grade.StudentID);
             }
 
@@ -209,7 +209,7 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade <= 59)
+                if (grade.GradeID <= 59)
                     studentIds.Add(grade.StudentID);
             }
 
@@ -228,7 +228,7 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade == showMinGrade())
+                if (grade.GradeID == showMinGrade())
                 {
                     lowestScoring = getStudentFromID(grade.StudentID);
                     break;
@@ -245,7 +245,7 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade == showMaxGrade())
+                if (grade.GradeID == showMaxGrade())
                 {
                     highestScoring = getStudentFromID(grade.StudentID);
                     break;

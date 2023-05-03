@@ -82,14 +82,14 @@ namespace University_Application
             throw new InvalidLoginInfoException("Username and Password do not match!");
         }
 
-        // Method to read the Student File
+        // DONE Method to read the Student File
         public List<Student> readStudent()
         {
             List<Student> studentList = new List<Student>();
             OleDbConnection connection = new OleDbConnection(connectionString);
             connection.Open();
 
-            OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Student", connection);
+            OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Students", connection);
             OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader();
 
             while (readerStudentsTable.Read())
@@ -126,42 +126,64 @@ namespace University_Application
 
             readerStudentsTable.Close();
             connection.Close();
-#
+
             return studentList;
         }
 
-        // Method to show all the university courses
+        // DONE Method to show all the university courses
         public List<string> showAllCourses()
         {
             List<string> allCourses = new List<string>();
 
-            foreach (Course course in new Course().readCourses())
+            foreach (Courses course in new Courses().readCourses())
             {
-                allCourses.Add(course.Subject);
+                allCourses.Add(course.CourseName);
             }
             return allCourses;
         }
 
+        // DONE
         // Method to show the grades for the student
         public List<string> showGrades()
         {
-            List<string> yourGrades = new List<string>();
-
-            foreach (Grades grades in new Grades().readGrades())
+            List<string> myGrades = new List<string>();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+            
+            foreach (Grades grades in new Grades().readGradesForAStudent(this.studentID))
             {
-                if (StudentID.Equals(grades.Student))
-                {
-                    yourGrades.Add(grades.Subject + " " + grades.Grade);
-                }
-            }
+                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID=@ID", connection);
+                coursesTable.Parameters.AddWithValue("@ID", grades.CourseID);
+                OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+                
+                myGrades.Add(readerCoursesTable.GetString(0) + " " + grades.Score);
 
-            return yourGrades;
+=               readerCoursesTable.Close();
+            }
+            connection.Close();
+            return myGrades;
         }
 
         // Write the course in the file
-        public void enroll(string text, string studID)
+        public void enroll(string courseName, int studID)
         {
-            List<Student> student = readStudent();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+            coursesTable.Parameters.AddWithValue("@Student_ID", "John");
+
+
+            OleDbCommand command = new OleDbCommand("INSERT INTO Students_Courses (Student_ID, Student_ID) VALUES (@StudentID, @Course_ID)", connection);
+            command.Parameters.AddWithValue("@Student_ID", "John");
+            command.Parameters.AddWithValue("@Student_ID", "Doe");
+            int rowsAffected = command.ExecuteNonQuery();
+
+            connection.Close();
+
+
+
+            /*List<Student> student = readStudent();
 
             using (StreamWriter writer1 = new StreamWriter(path[0] + "StudentFile.txt"))
             {
@@ -182,7 +204,7 @@ namespace University_Application
                 }
                 writer1.Flush();
                 writer1.Close();
-            }
+            } */
         }
 
         // Drop a course
@@ -279,7 +301,7 @@ namespace University_Application
                 {
                     if (grade.StudentID.Equals(StudentID))
                     {
-                        gpa += grade.Grade * course.Credits;
+                        gpa += grade.GradeID * course.Credits;
                         token += course.Credits;
                     }
                 }
