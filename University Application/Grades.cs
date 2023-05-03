@@ -11,7 +11,7 @@ namespace University_Application
 {
     public class Grades
     {
-        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb"
+        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
   
         private int gradeId;
@@ -52,8 +52,11 @@ namespace University_Application
 
             if (reader.HasRows)
             {
-                Grades grade = new Grades(Convert.ToInt32(reader["Grade_Id"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
-                list.Add(grade);
+                while (reader.Read())
+                {
+                    Grades grade = new Grades(Convert.ToInt32(reader["Grade_ID"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
+                    list.Add(grade);
+                }
             }
             reader.Close();
             return list;

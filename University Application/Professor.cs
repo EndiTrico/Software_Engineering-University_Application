@@ -30,7 +30,7 @@ namespace University_Application
         public static List<Professor> LoggedProfessors { get => loggedProfessors; set => loggedProfessors = value; }
 
         // constructors
-        public Professor(string id, string name, string surname, string username, string password) : base(id, name, surname, username, password) { }
+        public Professor(int id, string name, string surname, string username, string password) : base(id, name, surname, username, password) { }
 
         public Professor(string username, string password)
         {
@@ -40,7 +40,7 @@ namespace University_Application
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
             reader.Read();
                   
-            this.Id = reader["Professor_Id"].ToString();
+            this.ID = Convert.ToInt32(reader["Professor_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
 
@@ -107,7 +107,7 @@ namespace University_Application
             List<Student> students = new List<Student>();
             Student student = new Student();
 
-            foreach (Student stud in student.readStudentFile())
+            foreach (Student stud in student.readStudent())
             {
                 if (stud.Courses.Contains(ActiveCourse))
                     students.Add(stud);
