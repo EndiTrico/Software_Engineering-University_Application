@@ -135,7 +135,7 @@ namespace University_Application
         {
             List<string> allCourses = new List<string>();
 
-            foreach (Courses course in new Courses().readCourses())
+            foreach (Course course in new Course().readCourses())
             {
                 allCourses.Add(course.Subject);
             }
@@ -218,7 +218,7 @@ namespace University_Application
             List<string> availableCourses = new List<string>();
             int token = 0;
 
-            foreach (Courses course in new Courses().readCourses())
+            foreach (Course course in new Course().readCourses())
             {
                 token = 0;
 
@@ -246,7 +246,7 @@ namespace University_Application
         {
             List<string> credits = new List<string>();
 
-            foreach (Courses course in new Courses().readCourses())
+            foreach (Course course in new Course().readCourses())
             {
                 foreach (string mycourse in Courses)
                 {
@@ -261,7 +261,7 @@ namespace University_Application
         {
             List<string> allCourses = new List<string>();
 
-            foreach (Courses course in new Courses().readCourses())
+            foreach (Course course in new Course().readCourses())
             {
                 allCourses.Add(course.Subject + " - " + course.Credits + " credits");
             }
@@ -273,7 +273,7 @@ namespace University_Application
             double gpa = 0;
             double token = 0;
 
-            foreach (Courses course in new Courses().readCourses())
+            foreach (Course course in new Course().readCourses())
             {
                 foreach (Grades grade in new Grades().readGradesFile())
                 {
