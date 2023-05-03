@@ -19,6 +19,7 @@ namespace University_Application
         private List<string> courses = new List<string>();
         private List<string> coursesIds = new List<string>();
         private string activeCourse;
+        private int activeCourseId;
         private static List<Professor> loggedProfessors = new List<Professor>();
 
         string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
@@ -46,7 +47,10 @@ namespace University_Application
 
             OleDbConnection con = new OleDbConnection(connection);
 
-            con.Open();
+            if (con.State != System.Data.ConnectionState.Open)
+            {
+                con.Open();
+            }
 
             String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.Id+")";
 
@@ -72,7 +76,10 @@ namespace University_Application
         {
             OleDbConnection con = new OleDbConnection(connection);
 
-            con.Open();
+            if (con.State != System.Data.ConnectionState.Open)
+            {
+                con.Open();
+            }
 
             String sql = "SELECT * FROM Professors WHERE Username =" + username + " AND Password=" + password + "'";
 
@@ -117,7 +124,7 @@ namespace University_Application
         }
 
         // method to get student who is in the course from given ID
-        public Student getStudentFromID(string Id)
+        public Student getStudentFromID(int Id)
         {
             foreach (Student student in getStudents())
             {
@@ -135,7 +142,7 @@ namespace University_Application
 
             foreach (Grades grades in grade.readGrades())
             {
-                if (grades.Subject.Equals(ActiveCourse))
+                if (grades.Course.Equals(ActiveCourse))
                     gradeList.Add(grades);
             }
 
@@ -161,39 +168,46 @@ namespace University_Application
             if (data.Length == 0)
                 throw new InvalidInputException("You did not enter any grades!\nThe format is: STUDENTID,GRADE");
 
-            using (StreamWriter writer = new StreamWriter(path[0] + "GradesFile.txt", true))
-            {
+         
 
                 foreach (string grade in data)
                 {
                     var inputs = grade.Split(',');
 
-                    if (inputs.Length != 2)
-                        throw new InvalidInputException("The input given was not correctly written!\nThe format is: STUDENTID,GRADE");
-
-                    if (getStudentFromID(inputs[0]) == null)
-                        throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
-
-                    writer.Write("\n" + Professor.getRecentProfessor().ActiveCourse + "," + grade);
+                OleDbConnection con = new OleDbConnection(connection);
+               
+                if (con.State != System.Data.ConnectionState.Open)
+                {
+                    con.Open();
                 }
 
-                writer.Close();
+
+                if (inputs.Length != 2)
+                        throw new InvalidInputException("The input given was not correctly written!\nThe format is: STUDENTID,GRADE");
+
+                    if (getStudentFromID(Convert.ToInt32(inputs[0])) == null)
+                        throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
+
+                String sql = "INSERT INTO TABLE Grades(Student_ID, Course_ID, Grade_Score) VALUES ("+inputs[0]+","+activeCourseId+","+ inputs[1]+")";
+                OleDbCommand cmd = new OleDbCommand(sql, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
             }
+
         }
 
         // method to show passing students
         public List<Student> showPassingStudents()
         {
             List<Student> studentList = new List<Student>();
-            List<string> studentIds = new List<string>();
+            List<int> studentIds = new List<int>();
 
             foreach (Grades grade in getGrades())
             {
                 if (grade.Grade > 59)
-                    studentIds.Add(grade.StudentID);
+                    studentIds.Add(grade.Student);
             }
 
-            foreach (string Id in studentIds)
+            foreach (int Id in studentIds)
             {
                 studentList.Add(getStudentFromID(Id));
             }
@@ -205,15 +219,15 @@ namespace University_Application
         public List<Student> showFailingStudents()
         {
             List<Student> studentList = new List<Student>();
-            List<string> studentIds = new List<string>();
+            List<int> studentIds = new List<int>();
 
             foreach (Grades grade in getGrades())
             {
                 if (grade.Grade <= 59)
-                    studentIds.Add(grade.StudentID);
+                    studentIds.Add(grade.Student);
             }
 
-            foreach (string Id in studentIds)
+            foreach (int Id in studentIds)
             {
                 studentList.Add(getStudentFromID(Id));
             }
@@ -230,7 +244,7 @@ namespace University_Application
             {
                 if (grade.Grade == showMinGrade())
                 {
-                    lowestScoring = getStudentFromID(grade.StudentID);
+                    lowestScoring = getStudentFromID(grade.Student);
                     break;
                 }
             }
@@ -247,7 +261,7 @@ namespace University_Application
             {
                 if (grade.Grade == showMaxGrade())
                 {
-                    highestScoring = getStudentFromID(grade.StudentID);
+                    highestScoring = getStudentFromID(grade.Student);
                     break;
                 }
             }
@@ -308,6 +322,32 @@ namespace University_Application
             return total / gradeList.Count;
         }
 
+        private void setActiveCourseId()
+        {
+            if (ActiveCourse != null)
+            {
+                OleDbConnection con = new OleDbConnection(connection);
+                if (con.State != System.Data.ConnectionState.Open)
+                {
+                    con.Open();
+                }
+
+                String sql = "SELECT * FROM Courses WHERE Course_Name=" + ActiveCourse;
+
+                OleDbCommand cmd = new OleDbCommand(sql, con);
+                OleDbDataReader reader = cmd.ExecuteReader();
+
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        activeCourseId = reader.GetInt32(0);
+                    }
+                }
+            }
+
+        }
 
         // method to get a string representation of Professor
         public override string ToString()
