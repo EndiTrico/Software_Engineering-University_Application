@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
+using System.Data.OleDb;
 
 namespace University_Application
 {
     public class Student : Person, Login
     {
         public string major;
-        public string studentID;
+        public int studentID;
         public List<string> courses = new List<string>();
 
         string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
+        
+        static string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database_University.mdb";
 
 
-        public string StudentID { set => studentID = value; get => studentID; }
+        public int StudentID { set => studentID = value; get => studentID; }
 
         public string Major { set => major = value; get => major; }
 
@@ -26,14 +29,14 @@ namespace University_Application
 
         }
 
-        public Student(string name, string surname, string username, string password, string studentID, string major, List<String> courses) : base(name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password,  string major, List<String> courses) : base(studentID, name, surname, username, password)
         {
             this.StudentID = studentID;
             this.Major = major;
             this.Courses = courses;
         }
 
-        public Student(string name, string surname, string username, string password, string studentID, string major) : base(name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password,  string major) : base(studentID, name, surname, username, password)
         {
             this.StudentID = studentID;
             this.Major = major;
@@ -82,8 +85,31 @@ namespace University_Application
         // Method to read the Student File
         public List<Student> readStudentFile()
         {
-            List<Student> student = new List<Student>();
-            StreamReader input = new StreamReader(path[0] + "StudentFile.txt");
+            List<Student> studentList = new List<Student>();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Student", connection);
+            OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader();
+
+            OleDbCommand studentsCoursesTable = new OleDbCommand("SELECT * FROM Student", connection);
+            OleDbDataReader readerStudentsCoursesTable = studentsTable.ExecuteReader();
+
+            while (readerStudentsTable.Read())
+            {
+                Student student = new Student(Convert.ToInt32(readerStudentsTable["Student_ID"]), 
+                    readerStudentsTable["First_Name"].ToString(), readerStudentsTable["Last_Name"].ToString(), 
+                    readerStudentsTable["Username"].ToString(), readerStudentsTable["Password"].ToString(),
+                    readerStudentsTable["Major"].ToString());
+
+                command = new OleDbCommand("SELECT * FROM Student", connection)
+                studentList.Add(student);
+            }
+
+            reader.Close();
+            connection.Close();
+            /*
+            StreamReader input = new StreamReader(connectionString);
 
             string line;
 
@@ -102,6 +128,7 @@ namespace University_Application
                 student.Add(s);
             }
             input.Close();
+            */
             return student;
         }
 
