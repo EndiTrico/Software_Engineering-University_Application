@@ -1,51 +1,58 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace University_Application
 {
     public class Grades
     {
-        private string subject;
-        private string studentID;
-        private double grade;
+        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb"
 
-        string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
+  
+        private int gradeId;
+        private int courseId;
+        private int studentid;
+        private int score;
 
-        public string Subject { get => subject; set => subject = value; }
-        public string StudentID { get => studentID; set => studentID = value; }
-        public double Grade { get => grade; set => grade = value; }
+        public int Grade { get => gradeId; set => gradeId = value; }
+        public int Course { get => courseId; set => courseId = value; }
+        public int Student { get => studentid; set => studentid = value; }
+        public int Score { get => score; set => score = value; }
 
-        public Grades(string subject, string studentID, double grade)
+
+        public Grades(int gradeId, int subjectId, int studentId, int score)
         {
-            Subject = subject;
-            StudentID = studentID;
-            Grade = grade;
+            Grade = gradeId;
+            Course = subjectId;
+            Student = studentId;
+            Score = score;
         }
 
-        public Grades(string subject, string studentID)
-        {
-            Subject = subject;
-            StudentID = studentID;
-        }
 
         public Grades() { }
 
-        public List<Grades> readGradesFile()
+        public List<Grades> readGrades()
         {
-            List<Grades> list = new List<Grades>();
-            StreamReader reader = new StreamReader(path[0] + "GradesFile.txt");
+            List<Grades> list = new List<Grades> ();
+            OleDbConnection con = new OleDbConnection(connection);
+            if (con.State != System.Data.ConnectionState.Open) {
+                con.Open();
+            }
 
-            while (!reader.EndOfStream)
+            String sql = "SELECT * FROM Grades";
+
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
             {
-
-                var line = reader.ReadLine();
-                var data = line.Split(',');
-
-                Grades grade = new Grades(data[0], data[1], Convert.ToDouble(data[2]));
+                Grades grade = new Grades(Convert.ToInt32(reader["Grade_Id"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
                 list.Add(grade);
             }
             reader.Close();
@@ -54,7 +61,7 @@ namespace University_Application
 
         public override string ToString()
         {
-            return this.Subject + ", " + this.StudentID + ", " + this.Grade;
+            return this.Student + ", " + this.Grade;
         }
     }
 }
