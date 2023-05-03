@@ -22,6 +22,9 @@ namespace University_Application
         private string major;
         private List<string> courses;
 
+        static string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " + Application.StartupPath + "/Database_University.mdb";
+
+
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
@@ -118,7 +121,7 @@ namespace University_Application
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            List<string> myCourses = new Student(name, surname, username, password, studentID, major, courses).showStudentCourses();
+            List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).showStudentCourses();
 
             if (myCourses.Count != 0)
             {
@@ -236,6 +239,11 @@ namespace University_Application
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

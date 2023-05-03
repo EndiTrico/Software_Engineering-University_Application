@@ -14,7 +14,7 @@ namespace University_Application
 
         public List<Professor> professorList = new List<Professor>();
         public List<Student> studentList = new List<Student>();
-        public List<Courses> coursesList = new List<Courses>();
+        public List<Course> coursesList = new List<Course>();
 
         string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
 
@@ -92,7 +92,7 @@ namespace University_Application
                 }
             }
         }
-        public void addCourse(Courses course)
+        public void addCourse(Course course)
         {
             coursesList.Add(course);
 
@@ -102,7 +102,7 @@ namespace University_Application
                     professorList.ElementAt(i).Courses.Add(course.Subject);
             }
         }
-        public void removeCourse(Courses course)
+        public void removeCourse(Course course)
         {
             for (int i = 0; i < coursesList.Count; i++)
             {
@@ -169,7 +169,7 @@ namespace University_Application
             while ((CoursesInput = CoursesFile.ReadLine()) != null)
             {
                 string[] data = CoursesInput.Split(',');
-                Courses course = new Courses(data[0], data[1], Convert.ToDouble(data[2]), data[3]);
+                Course course = new Courses(data[0], data[1], Convert.ToDouble(data[2]), data[3]);
                 coursesList.Add(course);
             }
 

@@ -11,7 +11,7 @@ namespace University_Application
 {
     public class Grades
     {
-        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb"
+        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
   
         private int gradeId;
@@ -19,17 +19,17 @@ namespace University_Application
         private int studentid;
         private int score;
 
-        public int Grade { get => gradeId; set => gradeId = value; }
-        public int Course { get => courseId; set => courseId = value; }
-        public int Student { get => studentid; set => studentid = value; }
+        public int GradeID { get => gradeId; set => gradeId = value; }
+        public int CourseID { get => courseId; set => courseId = value; }
+        public int StudentID { get => studentid; set => studentid = value; }
         public int Score { get => score; set => score = value; }
 
 
         public Grades(int gradeId, int subjectId, int studentId, int score)
         {
-            Grade = gradeId;
-            Course = subjectId;
-            Student = studentId;
+            GradeID = gradeId;
+            CourseID = subjectId;
+            StudentID = studentId;
             Score = score;
         }
 
@@ -49,11 +49,39 @@ namespace University_Application
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader reader = cmd.ExecuteReader();
 
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    Grades grade = new Grades(Convert.ToInt32(reader["Grade_ID"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
+                    list.Add(grade);
+                }
+            }
+            reader.Close();
+            return list;
+        }
+
+        public List<Grades> readGradesForAStudent(int studentID)
+        {
+            List<Grades> list = new List<Grades>();
+            OleDbConnection con = new OleDbConnection(connection);
+            if (con.State != System.Data.ConnectionState.Open)
+            {
+                con.Open();
+            }
+
+
+            OleDbCommand cmd = new OleDbCommand("SELECT * FROM Grades WHERE Student_ID = @ID", con);
+            cmd.Parameters.AddWithValue("@ID", studentID);
+            OleDbDataReader reader = cmd.ExecuteReader();
 
             if (reader.HasRows)
             {
-                Grades grade = new Grades(Convert.ToInt32(reader["Grade_Id"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
-                list.Add(grade);
+                while (reader.Read())
+                {
+                    Grades grade = new Grades(Convert.ToInt32(reader["Grade_ID"]), Convert.ToInt32(reader["Course_ID"]), Convert.ToInt32(reader["Student_ID"]), Convert.ToInt32(reader["Grade_Score"]));
+                    list.Add(grade);
+                }
             }
             reader.Close();
             return list;
@@ -61,7 +89,7 @@ namespace University_Application
 
         public override string ToString()
         {
-            return this.Student + ", " + this.Grade;
+            return this.StudentID + ", " + this.GradeID;
         }
     }
 }

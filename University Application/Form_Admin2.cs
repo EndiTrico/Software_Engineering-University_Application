@@ -75,7 +75,7 @@ namespace University_Application
         }
         public void addCourse()
         {
-            Courses course = new Courses(textBox1.Text, textBox2.Text, Convert.ToDouble(textBox3.Text), comboBox1.SelectedItem.ToString());
+            Course course = new Courses(textBox1.Text, textBox2.Text, Convert.ToDouble(textBox3.Text), comboBox1.SelectedItem.ToString());
             admin.addCourse(course);
         }
 

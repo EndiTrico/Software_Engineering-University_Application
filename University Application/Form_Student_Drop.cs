@@ -15,21 +15,19 @@ namespace University_Application
 {
     public partial class Form_Student_Drop : Form
     {
+        private int studentID;
         private string name;
         private string surname;
         private string username;
         private string password;
-        private string studentID;
         private string major;
-        private List<string> courses;
 
+        public int StudentID { get => studentID; set => studentID = value; }
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public string StudentID { get => studentID; set => studentID = value; }
         public string Major { get => major; set => major = value; }
-        public List<string> Courses { get => courses; set => courses = value; }
 
         public Form_Student_Drop()
         {
@@ -43,18 +41,17 @@ namespace University_Application
 
         }
 
-        public Form_Student_Drop(string name, string surname, string username, string password, string studentID, string major, List<string> courses)
+        public Form_Student_Drop(int studentID, string name, string surname, string username, string password, string major, List<string> courses)
         {
             InitializeComponent();
+            this.StudentID = studentID;
             this.Name = name;
             this.Surname = surname;
             this.Username = username;
             this.Password = password;
-            this.StudentID = studentID;
             this.Major = major;
-            this.Courses = courses;
 
-            foreach (string s in new Student(name, surname, username, password, studentID, major, courses).showStudentCourses())
+            foreach (string s in new Student(studentID, name, surname, username, password, major).showStudentCourses())
             {
                 comboBox1.Items.Add(s);
             }
@@ -66,7 +63,7 @@ namespace University_Application
 
         private void button_Back_Click(object sender, EventArgs e)
         {
-            Form_Student student = new Form_Student(name, surname, username, password, studentID, major, courses);
+            Form_Student student = new Form_Student(studentID, name, surname, username, password, major);
             this.Hide();
             student.Show();
         }
@@ -93,7 +90,7 @@ namespace University_Application
             else
             {
                 MessageBox.Show("The course is dropped successfully.", "Done ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new Student(name, surname, username, password, studentID, major, courses).drop(comboBox1.Text, StudentID);
+                new Student(studentID, name, surname, username, password, major).drop(comboBox1.Text, StudentID);
                 Form_Student student = new Form_Student(username, password);
                 this.Hide();
                 student.Show();

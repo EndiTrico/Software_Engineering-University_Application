@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,30 +10,55 @@ namespace University_Application
 {
     public class Courses
     {
-        string subject;
-        string time;
-        double credits;
-        string professor;
+        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
-        public string Subject { get => subject; set => subject = value; }
-        public string Time { get => time; set => time = value; }
-        public double Credits { get => credits; set => credits = value; }
-        public string Professor { get => professor; set => professor = value; }
+        int id;
+        string courseName;
+        int credits;
+        int hours;
+
+        public int ID { get => id; set => id = value; }
+        public string CourseName { get => courseName; set => courseName = value; }
+        public int Credits { get => credits; set => credits = value; }
+        public int Hours { get => hours; set => hours = value; }
 
         public Courses()
         {
 
         }
-        public Courses(string subject, string time, double credits, string professor)
+        public Courses(int id, string courseName, int credits, int hours)
         {
-            this.Subject = subject;
-            this.Time = time;
+            this.ID = id;
+            this.CourseName = courseName;
             this.Credits = credits;
-            this.Professor = professor;
+            this.Hours = hours;
         }
-        public List<Courses> readCoursesFromFile()
+
+        // DONE
+        public List<Courses> readCourses()
         {
-            List<Courses> list = new List<Courses>();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses", connection);
+            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+
+            List<Courses> coursesList = new List<Courses>();
+
+            while (readerCoursesTable.Read())
+            {
+                Courses course = new Courses(Convert.ToInt32(readerCoursesTable["Course_ID"]),
+                    readerCoursesTable["Course_Name"].ToString(), Convert.ToInt32(readerCoursesTable["Credits"]),
+                    Convert.ToInt32(readerCoursesTable["Hours"]));
+
+                coursesList.Add(course);
+            }
+
+            readerCoursesTable.Close();
+            connection.Close();
+
+            return coursesList;
+            /*List<Courses> list = new List<Courses>();
 
             string[] path1 = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
 
@@ -52,12 +78,12 @@ namespace University_Application
             reader.Close();
 
             return list;
-
+            */
         }
 
         public override string ToString()
         {
-            return this.Subject + "," + this.Time + "," + this.Credits + "," + this.Professor;
+            return this.ID + "," + this.CourseName + "," + this.Credits + "," + this.Hours;
         }
     }
 }

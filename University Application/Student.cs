@@ -3,19 +3,22 @@ using System.Collections.Generic;
 using System.IO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
+using System.Data.OleDb;
 
 namespace University_Application
 {
     public class Student : Person, Login
     {
         public string major;
-        public string studentID;
+        public int studentID;
         public List<string> courses = new List<string>();
 
         string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
+        
+        static string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Database_University.mdb";
 
 
-        public string StudentID { set => studentID = value; get => studentID; }
+        public int StudentID { set => studentID = value; get => studentID; }
 
         public string Major { set => major = value; get => major; }
 
@@ -26,14 +29,14 @@ namespace University_Application
 
         }
 
-        public Student(string name, string surname, string username, string password, string studentID, string major, List<String> courses) : base(name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password,  string major, List<String> courses) : base(studentID, name, surname, username, password)
         {
             this.StudentID = studentID;
             this.Major = major;
             this.Courses = courses;
         }
 
-        public Student(string name, string surname, string username, string password, string studentID, string major) : base(name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password,  string major) : base(studentID, name, surname, username, password)
         {
             this.StudentID = studentID;
             this.Major = major;
@@ -46,7 +49,7 @@ namespace University_Application
                 Username = username;
                 Password = password;
 
-                foreach (Student stud in readStudentFile())
+                foreach (Student stud in readStudent())
                 {
                     if (stud.Username.Equals(username) && stud.Password.Equals(password))
                     {
@@ -66,7 +69,7 @@ namespace University_Application
         // Method to check the username and password
         public bool isUsernameAndPasswordValid(string username, string password)
         {
-            List<Student> student = readStudentFile();
+            List<Student> student = readStudent();
 
             foreach (Student stud in student)
             {
@@ -79,64 +82,108 @@ namespace University_Application
             throw new InvalidLoginInfoException("Username and Password do not match!");
         }
 
-        // Method to read the Student File
-        public List<Student> readStudentFile()
+        // DONE Method to read the Student File
+        public List<Student> readStudent()
         {
-            List<Student> student = new List<Student>();
-            StreamReader input = new StreamReader(path[0] + "StudentFile.txt");
+            List<Student> studentList = new List<Student>();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
 
-            string line;
+            OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Students", connection);
+            OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader();
 
-            while ((line = input.ReadLine()) != null)
+            while (readerStudentsTable.Read())
             {
-                string[] entries = line.Split(',');
-                Student s = new Student(entries[0], entries[1], entries[2], entries[3], entries[4], entries[5]);
+                int table_studentID = Convert.ToInt32(readerStudentsTable["Student_ID"]);
+                string table_firstName = readerStudentsTable["First_Name"].ToString();
+                string table_lastName = readerStudentsTable["Last_Name"].ToString();
+                string table_username = readerStudentsTable["Username"].ToString();
+                string table_password = readerStudentsTable["Password"].ToString();
+                string table_major = readerStudentsTable["Major"].ToString();                
 
-                if (entries.Length > 5)
+                Student student = new Student(table_studentID, table_firstName, table_lastName, table_username,
+                    table_password, table_major);
+
+                OleDbCommand studentsCoursesTable = new OleDbCommand
+                ("SELECT Course_ID FROM Students_Courses WHERE Student_ID=" + table_studentID , connection);
+                OleDbDataReader readerStudentsCoursesTable = studentsCoursesTable.ExecuteReader();
+
+                int table_courseID;
+                while (readerStudentsCoursesTable.Read())
                 {
-                    for (int i = 6; i < entries.Length; i++)
-                    {
-                        s.Courses.Add(entries[i]);
-                    }
+                    table_courseID = Convert.ToInt32(readerStudentsTable["Course_ID"]);
+                    
+                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = @ID", connection);
+                    coursesTable.Parameters.AddWithValue("@ID", table_courseID);
+                    OleDbDataReader readerCoursesTable = studentsTable.ExecuteReader();
+
+                    student.Courses.Add(readerCoursesTable.GetString(0));
+                    readerCoursesTable.Close();
                 }
-                student.Add(s);
+                readerStudentsCoursesTable.Close();
+                studentList.Add(student);
             }
-            input.Close();
-            return student;
+
+            readerStudentsTable.Close();
+            connection.Close();
+
+            return studentList;
         }
 
-        // Method to show all the university courses
+        // DONE Method to show all the university courses
         public List<string> showAllCourses()
         {
             List<string> allCourses = new List<string>();
 
-            foreach (Courses course in new Courses().readCoursesFromFile())
+            foreach (Courses course in new Courses().readCourses())
             {
-                allCourses.Add(course.Subject);
+                allCourses.Add(course.CourseName);
             }
             return allCourses;
         }
 
+        // DONE
         // Method to show the grades for the student
         public List<string> showGrades()
         {
-            List<string> yourGrades = new List<string>();
-
-            foreach (Grades grades in new Grades().readGrades())
+            List<string> myGrades = new List<string>();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+            
+            foreach (Grades grades in new Grades().readGradesForAStudent(this.studentID))
             {
-                if (StudentID.Equals(grades.StudentID))
-                {
-                    yourGrades.Add(grades.Subject + " " + grades.Grade);
-                }
-            }
+                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID=@ID", connection);
+                coursesTable.Parameters.AddWithValue("@ID", grades.CourseID);
+                OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+                
+                myGrades.Add(readerCoursesTable.GetString(0) + " " + grades.Score);
 
-            return yourGrades;
+=               readerCoursesTable.Close();
+            }
+            connection.Close();
+            return myGrades;
         }
 
-        // Write the course in the file
-        public void enroll(string text, string studID)
+        // DONE Write the course in the file
+        public void enroll(string courseName, int studID)
         {
-            List<Student> student = readStudentFile();
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+            coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
+            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+
+
+            OleDbCommand command = new OleDbCommand("INSERT INTO Students_Courses VALUES (@StudentID, @Course_ID)", connection);
+            command.Parameters.AddWithValue("@Student_ID", studID);
+            command.Parameters.AddWithValue("@Course_ID", readerCoursesTable.GetString(0));
+            //int rowsAffected = command.ExecuteNonQuery();
+
+            readerCoursesTable.Close();
+            connection.Close();
+
+            /*List<Student> student = readStudent();
 
             using (StreamWriter writer1 = new StreamWriter(path[0] + "StudentFile.txt"))
             {
@@ -157,13 +204,29 @@ namespace University_Application
                 }
                 writer1.Flush();
                 writer1.Close();
-            }
+            } */
         }
 
-        // Drop a course
-        public void drop(string text, string studid)
+        // DONE Drop a course
+        public void drop(string courseName, int studid)
         {
-            List<Student> student = readStudentFile();
+
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+            coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
+            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+
+
+            OleDbCommand command = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @StudentID AND Course_ID = @CourseID", connection);
+            command.Parameters.AddWithValue("@StudentID", studid);
+            command.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
+            //int rowsAffected = command.ExecuteNonQuery();
+
+            readerCoursesTable.Close();
+            connection.Close();
+            /*List<Student> student = readStudent();
 
             using (StreamWriter writer1 = new StreamWriter(path[0] + "StudentFile.txt", false))
             {
@@ -184,7 +247,7 @@ namespace University_Application
                 }
                 writer1.Flush();
                 writer1.Close();
-            }
+            }*/
         }
 
         // Method to show all courses, except the courses that he is in
@@ -193,7 +256,7 @@ namespace University_Application
             List<string> availableCourses = new List<string>();
             int token = 0;
 
-            foreach (Courses course in new Courses().readCoursesFromFile())
+            foreach (Course course in new Course().readCourses())
             {
                 token = 0;
 
@@ -214,21 +277,14 @@ namespace University_Application
         // Method to check all student courses
         public List<string> showStudentCourses()
         {
-            List<string> myCourses = new List<string>();
-
-            foreach (string course in Courses)
-            {
-                myCourses.Add(course);
-            }
-
-            return myCourses;
+            return Courses;
         }
 
         public List<string> showStudentCredits()
         {
             List<string> credits = new List<string>();
 
-            foreach (Courses course in new Courses().readCoursesFromFile())
+            foreach (Course course in new Course().readCourses())
             {
                 foreach (string mycourse in Courses)
                 {
@@ -243,7 +299,7 @@ namespace University_Application
         {
             List<string> allCourses = new List<string>();
 
-            foreach (Courses course in new Courses().readCoursesFromFile())
+            foreach (Course course in new Course().readCourses())
             {
                 allCourses.Add(course.Subject + " - " + course.Credits + " credits");
             }
@@ -255,13 +311,13 @@ namespace University_Application
             double gpa = 0;
             double token = 0;
 
-            foreach (Courses course in new Courses().readCoursesFromFile())
+            foreach (Course course in new Course().readCourses())
             {
-                foreach (Grades grade in new Grades().readGrades())
+                foreach (Grades grade in new Grades().readGradesFile())
                 {
                     if (grade.StudentID.Equals(StudentID))
                     {
-                        gpa += grade.Grade * course.Credits;
+                        gpa += grade.GradeID * course.Credits;
                         token += course.Credits;
                     }
                 }

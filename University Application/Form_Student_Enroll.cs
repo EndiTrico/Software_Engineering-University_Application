@@ -15,35 +15,32 @@ namespace University_Application
 {
     public partial class Form_Student_Enroll : Form
     {
+        private int studentID;
         private string name;
         private string surname;
         private string username;
         private string password;
-        private string studentID;
         private string major;
-        private List<string> courses;
 
+        public int StudentID { get => studentID; set => studentID = value; }
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public string StudentID { get => studentID; set => studentID = value; }
         public string Major { get => major; set => major = value; }
-        public List<string> Courses { get => courses; set => courses = value; }
 
         public Form_Student_Enroll()
         {
             InitializeComponent();
 
-            Student stud = new Student();
-            foreach (string s in stud.allCoursesExcludingStudentCourses())
+            foreach (string s in new Student().allCoursesExcludingStudentCourses())
             {
                 comboBox1.Items.Add(s);
             }
 
         }
 
-        public Form_Student_Enroll(string name, string surname, string username, string password, string studentID, string major, List<string> courses)
+        public Form_Student_Enroll(int studentID, string name, string surname, string username, string password, string major, List<string> courses)
         {
             InitializeComponent();
             this.Name = name;
@@ -52,9 +49,8 @@ namespace University_Application
             this.Password = password;
             this.StudentID = studentID;
             this.Major = major;
-            this.Courses = courses;
 
-            foreach (string s in new Student(name, surname, username, password, studentID, major, courses).allCoursesExcludingStudentCourses())
+            foreach (string s in new Student(studentID, name, surname, username, password, major).allCoursesExcludingStudentCourses())
             {
                 comboBox1.Items.Add(s);
             }
@@ -67,7 +63,7 @@ namespace University_Application
 
         private void button_Back_Click(object sender, EventArgs e)
         {
-            Form_Student student = new Form_Student(name, surname, username, password, studentID, major, courses);
+            Form_Student student = new Form_Student(studentID, name, surname, username, password, major);
             this.Hide();
             student.Show();
         }
@@ -85,7 +81,7 @@ namespace University_Application
             }
             else
             {
-                new Student(name, surname, username, password, studentID, major, courses).enroll(comboBox1.Text, StudentID);
+                new Student(studentID, name, surname, username, password, major).enroll(comboBox1.Text, StudentID);
                 MessageBox.Show("The course is added successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form_Student student = new Form_Student(username, password);
                 this.Hide();
