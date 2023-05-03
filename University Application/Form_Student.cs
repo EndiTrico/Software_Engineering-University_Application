@@ -121,7 +121,7 @@ namespace University_Application
         private void button3_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            List<string> myCourses = new Student(name, surname, username, password, studentID, major, courses).showStudentCourses();
+            List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).showStudentCourses();
 
             if (myCourses.Count != 0)
             {
@@ -239,6 +239,11 @@ namespace University_Application
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

@@ -13,24 +13,28 @@ namespace University_Application
         private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
         int id;
-        int hours;
+        string courseName;
         int credits;
+        int hours;
 
         public int ID { get => id; set => id = value; }
-        public string Time { get => hours; set => hours = value; }
-        public double Credits { get => credits; set => credits = value; }
+        public string CourseName { get => courseName; set => courseName = value; }
+        public int Credits { get => credits; set => credits = value; }
+        public int Hours { get => hours; set => hours = value; }
 
         public Courses()
         {
 
         }
-        public Courses(int id, string time, double credits, string professor)
+        public Courses(int id, string courseName, int credits, int hours)
         {
             this.ID = id;
-            this.Time = time;
+            this.CourseName = courseName;
             this.Credits = credits;
-            this.Professor = professor;
+            this.Hours = hours;
         }
+
+        // DONE
         public List<Courses> readCourses()
         {
             OleDbConnection connection = new OleDbConnection(connectionString);
@@ -44,12 +48,16 @@ namespace University_Application
             while (readerCoursesTable.Read())
             {
                 Courses course = new Courses(Convert.ToInt32(readerCoursesTable["Course_ID"]),
-                    readerCoursesTable["Course_Name"].ToString(), readerCoursesTable["Credits"].ToString(),
-                    readerCoursesTable["Hours"].ToString());
-                string table_major = readerStudentsTable["Major"].ToString())
-                coursesList.Add(new Course)
+                    readerCoursesTable["Course_Name"].ToString(), Convert.ToInt32(readerCoursesTable["Credits"]),
+                    Convert.ToInt32(readerCoursesTable["Hours"]));
+
+                coursesList.Add(course);
             }
 
+            readerCoursesTable.Close();
+            connection.Close();
+
+            return coursesList;
             /*List<Courses> list = new List<Courses>();
 
             string[] path1 = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
@@ -75,7 +83,7 @@ namespace University_Application
 
         public override string ToString()
         {
-            return this.Subject + "," + this.Time + "," + this.Credits + "," + this.Professor;
+            return this.ID + "," + this.CourseName + "," + this.Credits + "," + this.Hours;
         }
     }
 }

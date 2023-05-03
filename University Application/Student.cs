@@ -164,24 +164,24 @@ namespace University_Application
             return myGrades;
         }
 
-        // Write the course in the file
+        // DONE Write the course in the file
         public void enroll(string courseName, int studID)
         {
             OleDbConnection connection = new OleDbConnection(connectionString);
             connection.Open();
 
             OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
-            coursesTable.Parameters.AddWithValue("@Student_ID", "John");
+            coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
+            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
 
 
-            OleDbCommand command = new OleDbCommand("INSERT INTO Students_Courses (Student_ID, Student_ID) VALUES (@StudentID, @Course_ID)", connection);
-            command.Parameters.AddWithValue("@Student_ID", "John");
-            command.Parameters.AddWithValue("@Student_ID", "Doe");
-            int rowsAffected = command.ExecuteNonQuery();
+            OleDbCommand command = new OleDbCommand("INSERT INTO Students_Courses VALUES (@StudentID, @Course_ID)", connection);
+            command.Parameters.AddWithValue("@Student_ID", studID);
+            command.Parameters.AddWithValue("@Course_ID", readerCoursesTable.GetString(0));
+            //int rowsAffected = command.ExecuteNonQuery();
 
+            readerCoursesTable.Close();
             connection.Close();
-
-
 
             /*List<Student> student = readStudent();
 
@@ -207,10 +207,26 @@ namespace University_Application
             } */
         }
 
-        // Drop a course
-        public void drop(string text, string studid)
+        // DONE Drop a course
+        public void drop(string courseName, int studid)
         {
-            List<Student> student = readStudent();
+
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+            coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
+            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+
+
+            OleDbCommand command = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @StudentID AND Course_ID = @CourseID", connection);
+            command.Parameters.AddWithValue("@StudentID", studid);
+            command.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
+            //int rowsAffected = command.ExecuteNonQuery();
+
+            readerCoursesTable.Close();
+            connection.Close();
+            /*List<Student> student = readStudent();
 
             using (StreamWriter writer1 = new StreamWriter(path[0] + "StudentFile.txt", false))
             {
@@ -231,7 +247,7 @@ namespace University_Application
                 }
                 writer1.Flush();
                 writer1.Close();
-            }
+            }*/
         }
 
         // Method to show all courses, except the courses that he is in
