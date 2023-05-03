@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
+using System.Data.OleDb;
 
 namespace University_Application
 {
     public class Professor : Person, Login
     {
         // data fields
+        private String connection = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
         private List<string> courses = new List<string>();
         private string activeCourse;
         private static List<Professor> loggedProfessors = new List<Professor>();
@@ -27,39 +29,63 @@ namespace University_Application
         public static List<Professor> LoggedProfessors { get => loggedProfessors; set => loggedProfessors = value; }
 
         // constructors
-        public Professor(string name, string surname, string username, string password) : base(name, surname, username, password) { }
+        public Professor(string id, string name, string surname, string username, string password) : base(id, name, surname, username, password) { }
 
         public Professor(string username, string password)
         {
             this.Username = username;
             this.Password = password;
 
-            if (isUsernameAndPasswordValid(Username, Password))
+            OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
+            reader.Read();
+                  
+            this.Id = reader["Professor_Id"].ToString();
+            this.Name = reader["First_Name"].ToString();
+            this.Surname = reader["Last_Name"].ToString();
+
+            OleDbConnection con = new OleDbConnection(connection);
+
+            con.Open();
+
+            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from junctable WHERE Professor_Id="+this.Id")";
+
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbDataReader courseReader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
             {
-                foreach (Professor prof in readProfessorFile())
-                {
-                    if (prof.Username.Equals(username) && prof.Password.Equals(password))
-                    {
-                        this.Name = prof.Name;
-                        this.Surname = prof.Surname;
-                        this.Courses = prof.Courses;
-                        break;
-                    }
-                }
+                con.Close();
+                return reader;
+
             }
+
         }
+           
 
         // method to determine if the login info is valid
-        public bool isUsernameAndPasswordValid(string username, string password)
+        public OleDbDataReader isUsernameAndPasswordValid(string username, string password)
         {
-            List<Professor> list = readProfessorFile();
+            OleDbConnection con = new OleDbConnection(connection);
 
-            foreach (Professor prof in list)
+            con.Open();
+
+            String sql = "SELECT * FROM Professors WHERE Username =" + username + " AND Password=" + password + "'";
+
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
             {
-                if (prof.Username.Equals(username) && prof.Password.Equals(password))
-                    return true;
+                con.Close();
+                return reader;
+
             }
-            throw new InvalidLoginInfoException("Username and Password do not match!");
+            else
+            {
+                throw new InvalidLoginInfoException("Username and Password do not match!");
+            }
         }
 
         // method to get the most recently logged professor
@@ -68,31 +94,7 @@ namespace University_Application
             return LoggedProfessors.Last();
         }
 
-        // method to read data from Professor File
-        public List<Professor> readProfessorFile()
-        {
-
-            List<Professor> list = new List<Professor>();
-
-            using (StreamReader reader = new StreamReader(path[0] + "ProfessorFile.txt"))
-            {
-
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var data = line.Split(',');
-
-                    Professor prof = new Professor(data[0], data[1], data[2], data[3]);
-
-                    for (int i = 4; i < data.Length; i++)
-                        prof.Courses.Add(data[i]);
-
-                    list.Add(prof);
-                }
-                reader.Close();
-            }
-            return list;
-        }
+       
 
         // method to show the students of a professor's course
 
