@@ -48,6 +48,11 @@
   <ItemGroup>
     <Compile Include="Admin.cs" />
     <Compile Include="Courses.cs" />
+    <Compile Include="Database_University_DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database_University_DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form_Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +153,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Database_University_DataSet.xsc">
+      <DependentUpon>Database_University_DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Database_University_DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Database_University_DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Database_University_DataSet.xss">
+      <DependentUpon>Database_University_DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,6 +197,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\White Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database_University.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
