@@ -92,16 +92,32 @@ namespace University_Application
             OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Student", connection);
             OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader();
 
-            OleDbCommand studentsCoursesTable = new OleDbCommand("SELECT * FROM Student", connection);
+            OleDbCommand studentsCoursesTable = new OleDbCommand("SELECT * FROM Students_Courses", connection);
             OleDbDataReader readerStudentsCoursesTable = studentsTable.ExecuteReader();
+
+            OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses", connection);
+            OleDbDataReader readerCoursesTable = studentsTable.ExecuteReader();
+
 
             while (readerStudentsTable.Read())
             {
-                Student student = new Student(Convert.ToInt32(readerStudentsTable["Student_ID"]), 
-                    readerStudentsTable["First_Name"].ToString(), readerStudentsTable["Last_Name"].ToString(), 
-                    readerStudentsTable["Username"].ToString(), readerStudentsTable["Password"].ToString(),
-                    readerStudentsTable["Major"].ToString());
+                int table_studentID = Convert.ToInt32(readerStudentsTable["Student_ID"]);
+                string table_firstName = readerStudentsTable["First_Name"].ToString();
+                string table_lastName = readerStudentsTable["Last_Name"].ToString();
+                string table_username = readerStudentsTable["Username"].ToString();
+                string table_password = readerStudentsTable["Password"].ToString();
+                string table_major = readerStudentsTable["Major"].ToString();                
 
+                Student student = new Student(table_studentID, table_firstName, table_lastName, table_username,
+                    table_password, table_major);
+
+                while (readerStudentsCoursesTable.Read())
+                {
+                    if(Convert.ToInt32(readerStudentsTable["Student_ID"]) == table_studentID){
+                        student.Courses.Add()
+                    }
+                }
+                
                 command = new OleDbCommand("SELECT * FROM Student", connection)
                 studentList.Add(student);
             }
@@ -149,7 +165,7 @@ namespace University_Application
         {
             List<string> yourGrades = new List<string>();
 
-            foreach (Grades grades in new Grades().readGrades())
+            foreach (Grades grades in new Grades().readGradesFile())
             {
                 if (StudentID.Equals(grades.StudentID))
                 {
@@ -284,7 +300,7 @@ namespace University_Application
 
             foreach (Courses course in new Courses().readCoursesFromFile())
             {
-                foreach (Grades grade in new Grades().readGrades())
+                foreach (Grades grade in new Grades().readGradesFile())
                 {
                     if (grade.StudentID.Equals(StudentID))
                     {

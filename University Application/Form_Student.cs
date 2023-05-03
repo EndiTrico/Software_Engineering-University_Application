@@ -22,6 +22,9 @@ namespace University_Application
         private string major;
         private List<string> courses;
 
+        static string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " + Application.StartupPath + "/Database_University.mdb";
+
+
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
