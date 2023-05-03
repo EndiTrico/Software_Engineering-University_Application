@@ -1,0 +1,8 @@
+Nevila,Resulaj,NResulaj,unyt202,Visual Basic,C#
+Nertila,Gjini,NGjini,unyt111,Calculus,Statistics
+Besmira,Lahi,BLahi,unyt114,Intro to Psychology,Photography,Intro to Sociology
+Elona,Gjebrea,EGjebrea,unyt225,Biology,Physics
+Gerta,Jakupi,GJakupi,unyt226,Financial Accounting,Managerial Accounting
+Juna,Miluka,JMiluka,unyt228,Intro to Micro,Intro to Macro
+Arta,Sinamati,ASinamati,unyt229,Corporate Finance,Money and Banking
+Ina,Papadhopulli,IPapadhopulli,unyt230,Java,System Analysis,Data Structures

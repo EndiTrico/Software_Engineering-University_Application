@@ -1,0 +1,17 @@
+Visual Basic,4,4,Nevila Resulaj
+C#,3,3,Nevila Resulaj
+Calculus,4,4,Nertila Gjini
+Statistics,3,3,Nertila Gjini
+Intro to Sociology,3,3,Besmira Lahi
+Photography,3,3,Besmira Lahi
+Physics,3,3,Elona Gjebrea
+Biology,3,3,Elona Gjebrea
+Financial Accounting,3,3,Gerta Jakupi
+Managerial Accounting,3,3,Gerta Jakupi
+Intro to Micro,3,3,Juna Miluka
+Intro to Macro,3,3,Juna Miluka
+Corporate Finance,4,4,Arta Sinamati
+Money and Banking,3,3,Arta Sinamati
+Java,4,4,Ina Papadhopulli
+Data Structures,3,3,Ina Papadhopulli
+System Analysis,3,3,Ina Papadhopulli

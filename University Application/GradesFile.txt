@@ -1,0 +1,28 @@
+Financial Accounting,1111,45
+Financial Accounting,1112,62
+Financial Accounting,1113,50
+Statistics,1111,89
+Money and Banking,1111,100
+Money and Banking,1118,88
+Intro to Micro,1112,75
+Intro to Micro,1113,69
+Intro to Micro,1118,40
+Physics,1113,60
+Physics,1115,98
+Physics,1116,100
+Physics,1117,45
+Calculus,1114,0
+Calculus,1115,47
+Calculus,1117,54
+Java,1114,74
+Java,1116,87
+Java,1117,92
+Data Structures,1114,52
+Photography,1115,40
+Photography,1116,68
+Intro to Psychology,1117,74
+Intro to Psychology,1117,100
+C#,1114,90
+C#,1116,100
+Calculus,1110, 100
+Calculus,1119, 55
