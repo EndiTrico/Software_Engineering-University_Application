@@ -15,7 +15,7 @@ namespace University_Application
         public string major;
         public List<string> courses = new List<string>();
 
-        private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Utente\\Documents\\GitHub\\Software_Engineering-University_Application\\University Application\\Database_University.mdb";
+        private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
         public string Major { set => major = value; get => major; }
 
@@ -38,7 +38,12 @@ namespace University_Application
         }
 
         public Student(string name, string surname, string username, string password, string major)
+
         {
+            this.Name = name;
+            this.Surname = surname;
+            this.Username = username;
+            this.Password = password;
             this.Major = major;
         }
 

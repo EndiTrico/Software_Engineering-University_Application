@@ -29,7 +29,6 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin));
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -43,7 +42,7 @@ namespace University_Application
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Impact", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Impact", 13F);
             this.label4.ForeColor = System.Drawing.Color.DarkBlue;
             this.label4.Location = new System.Drawing.Point(12, 120);
             this.label4.Name = "label4";
@@ -71,7 +70,7 @@ namespace University_Application
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Impact", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Impact", 13.2F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button1.Location = new System.Drawing.Point(140, 0);
             this.button1.Name = "button1";
@@ -88,7 +87,7 @@ namespace University_Application
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Lucida Console", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonExit.Font = new System.Drawing.Font("Lucida Console", 12.75F, System.Drawing.FontStyle.Bold);
             this.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.Location = new System.Drawing.Point(182, 0);
             this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -104,7 +103,7 @@ namespace University_Application
             this.checkedListBox_Admin.BackColor = System.Drawing.Color.DarkBlue;
             this.checkedListBox_Admin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox_Admin.CheckOnClick = true;
-            this.checkedListBox_Admin.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkedListBox_Admin.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.checkedListBox_Admin.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.checkedListBox_Admin.FormattingEnabled = true;
             this.checkedListBox_Admin.Items.AddRange(new object[] {
@@ -124,7 +123,7 @@ namespace University_Application
             // 
             this.button_select.BackColor = System.Drawing.Color.DarkBlue;
             this.button_select.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button_select.Location = new System.Drawing.Point(38, 215);
+            this.button_select.Location = new System.Drawing.Point(50, 215);
             this.button_select.Name = "button_select";
             this.button_select.Size = new System.Drawing.Size(114, 54);
             this.button_select.TabIndex = 4;
@@ -139,7 +138,7 @@ namespace University_Application
             this.button_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.button_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold);
             this.button_Back.ForeColor = System.Drawing.Color.DarkBlue;
             this.button_Back.Location = new System.Drawing.Point(-5, 0);
             this.button_Back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -159,7 +158,7 @@ namespace University_Application
             this.Controls.Add(this.button_Back);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel2);
-            this.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Admin";

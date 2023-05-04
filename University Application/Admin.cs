@@ -18,7 +18,6 @@ namespace University_Application
         public List<Student> studentList = new List<Student>();
         public List<Courses> coursesList = new List<Courses>();
 
-        string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
 
         public Admin()
         {
@@ -47,16 +46,20 @@ namespace University_Application
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professors (First_Name, Last_Name, Username, Password) VALUES (?, ?, ?, ?)", connection))
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
-                    professorTable.Parameters.AddWithValue("?", professor.Name);
-                    professorTable.Parameters.AddWithValue("?", professor.Surname);
-                    professorTable.Parameters.AddWithValue("?", professor.Username);
-                    professorTable.Parameters.AddWithValue("?", professor.Password);
-
                     connection.Open();
-                    int rowsAffected = professorTable.ExecuteNonQuery();
                 }
+
+                    using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professors ([First_Name], [Last_Name], [Username], [Password]) VALUES (?, ?, ?, ?)", connection))
+                    {
+                        professorTable.Parameters.AddWithValue("@a", professor.Name);
+                        professorTable.Parameters.AddWithValue("@b", professor.Surname);
+                        professorTable.Parameters.AddWithValue("@c", professor.Username);
+                        professorTable.Parameters.AddWithValue("@d", professor.Password);
+
+                        int rowsAffected = professorTable.ExecuteNonQuery();
+                    }
             }
             readDatabase();
         }
@@ -68,11 +71,16 @@ namespace University_Application
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = @id", connection))
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
-                    professorsTable.Parameters.AddWithValue("@id", professor.Id);
-                    int rowsAffected = professorsTable.ExecuteNonQuery();
+                    connection.Open();
                 }
+                    using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = ?", connection))
+                    {
+                        professorsTable.Parameters.AddWithValue("@id", professor.Id);
+                        int rowsAffected = professorsTable.ExecuteNonQuery();
+                    }
+                
             }
 
 
@@ -111,19 +119,23 @@ namespace University_Application
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand studentsTable = new OleDbCommand("INSERT INTO Students(First_Name, Last_Name, Username, Password, Major) VALUES (?, ?, ?, ?, ?)", connection))
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
-                    studentsTable.Parameters.AddWithValue("?", student.Name);
-                    studentsTable.Parameters.AddWithValue("?", student.Surname);
-                    studentsTable.Parameters.AddWithValue("?", student.Username);
-                    studentsTable.Parameters.AddWithValue("?", student.Password);
-                    studentsTable.Parameters.AddWithValue("?", student.Major);
-
                     connection.Open();
-                    int rowsAffected = studentsTable.ExecuteNonQuery();
-
                 }
-            }
+                        using (OleDbCommand studentsTable = new OleDbCommand("INSERT INTO Students ([First_Name], [Last_Name], [Username], [Password], [Major]) VALUES (?, ?, ?, ?, ?)", connection))
+                        {
+                            studentsTable.Parameters.AddWithValue("@a", student.Name);
+                            studentsTable.Parameters.AddWithValue("@b", student.Surname);
+                            studentsTable.Parameters.AddWithValue("@c", student.Username);
+                            studentsTable.Parameters.AddWithValue("@d", student.Password);
+                            studentsTable.Parameters.AddWithValue("@e", student.Major);
+
+                            int rowsAffected = studentsTable.ExecuteNonQuery();
+
+                        }
+                    }
+           
             readDatabase();
         }
 
@@ -134,10 +146,13 @@ namespace University_Application
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection))
+                if(connection.State != System.Data.ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+                using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = ?", connection))
                 {
                     studentsTable.Parameters.AddWithValue("@id", student.Id);
-                    connection.Open();
                     int rowsAffected = studentsTable.ExecuteNonQuery();
                 }
             }
@@ -160,45 +175,47 @@ namespace University_Application
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand coursesTable = new OleDbCommand("INSERT INTO Courses(Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection))
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
-                    coursesTable.Parameters.AddWithValue("?", course.CourseName);
-                    coursesTable.Parameters.AddWithValue("?", course.Credits);
-                    coursesTable.Parameters.AddWithValue("?", course.Hours);
                     connection.Open();
-                    int rowsAffected = coursesTable.ExecuteNonQuery();
                 }
-
-                using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = @CourseName", connection))
-                {
-                    coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
-                    connection.Open();
-
-                    using (OleDbDataReader reader = coursesTable1.ExecuteReader())
+                    using (OleDbCommand coursesTable = new OleDbCommand("INSERT INTO Courses (Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection))
                     {
-                        courseId = reader.GetInt32(0);
+                        coursesTable.Parameters.AddWithValue("@a", course.CourseName);
+                        coursesTable.Parameters.AddWithValue("@b", course.Credits);
+                        coursesTable.Parameters.AddWithValue("@c", course.Hours);
+                        int rowsAffected = coursesTable.ExecuteNonQuery();
                     }
-                }
 
-                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = @Username", connection))
-                {
-                    professorsTable.Parameters.AddWithValue("@Username", professorUsername);
-                    connection.Open();
-
-                    using (OleDbDataReader reader = professorsTable.ExecuteReader())
+                    using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection))
                     {
-                        professorId = reader.GetInt32(0);
+                        coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
+
+                        using (OleDbDataReader reader = coursesTable1.ExecuteReader())
+                        {
+                        reader.Read();
+                            courseId = Convert.ToInt32(reader["Course_ID"].ToString());
+                        }
                     }
-                }
 
-                using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
-                {
-                    professorsStudentsTable.Parameters.AddWithValue("?", professorId);
-                    professorsStudentsTable.Parameters.AddWithValue("?", courseId);
-                    connection.Open();
+                    using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = ?", connection))
+                    {
+                        professorsTable.Parameters.AddWithValue("@Username", professorUsername);
 
-                    int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
-                }
+                        using (OleDbDataReader reader = professorsTable.ExecuteReader())
+                        {
+                        reader.Read();
+                            professorId = Convert.ToInt32(reader["Professor_ID"].ToString());
+                    }
+                    }
+
+                    using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
+                    {
+                        professorsStudentsTable.Parameters.AddWithValue("@a", professorId);
+                        professorsStudentsTable.Parameters.AddWithValue("@b", courseId);
+
+                        int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
+                    }
             }
 
             readDatabase();
@@ -215,7 +232,12 @@ namespace University_Application
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand coursesTable = new OleDbCommand("DELETE FROM Courses WHERE Courses_ID = @id", connection))
+                if(connection.State != System.Data.ConnectionState.Open)
+                {
+                    connection.Open();
+                }
+
+                    using (OleDbCommand coursesTable = new OleDbCommand("DELETE FROM Courses WHERE Courses_ID = ?", connection))
                 {
                     coursesTable.Parameters.AddWithValue("@id", course.Id);
                     int rowsAffected = coursesTable.ExecuteNonQuery();

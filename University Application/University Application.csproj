@@ -149,6 +149,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Student.cs" />
+    <EmbeddedResource Include="Form_Admin.resx">
+      <DependentUpon>Form_Admin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Admin2.resx">
       <DependentUpon>Form_Admin2.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Professor.resx">
       <DependentUpon>Form_Professor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Role.resx">
+      <DependentUpon>Form_Role.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Splash.resx">
       <DependentUpon>Form_Splash.cs</DependentUpon>

@@ -45,10 +45,10 @@ namespace University_Application
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(12, 146);
+            this.label1.Location = new System.Drawing.Point(10, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(131, 24);
             this.label1.TabIndex = 7;
@@ -59,11 +59,11 @@ namespace University_Application
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.Snow;
-            this.button1.Location = new System.Drawing.Point(335, 200);
+            this.button1.Location = new System.Drawing.Point(317, 162);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(187, 38);
+            this.button1.Size = new System.Drawing.Size(165, 38);
             this.button1.TabIndex = 8;
             this.button1.Text = "Continue";
             this.button1.UseVisualStyleBackColor = false;
@@ -74,25 +74,24 @@ namespace University_Application
             this.comboBox1.BackColor = System.Drawing.Color.Snow;
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Admin",
             "Professor",
             "Student"});
-            this.comboBox1.Location = new System.Drawing.Point(149, 146);
+            this.comboBox1.Location = new System.Drawing.Point(166, 127);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(124, 26);
+            this.comboBox1.Size = new System.Drawing.Size(133, 26);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.Text = "Choose a Role";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
-            //this.pictureBox1.Image = global::University_Application.Properties.Resources.Empire_State_College_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(335, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(322, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(187, 133);
+            this.pictureBox1.Size = new System.Drawing.Size(160, 115);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -102,9 +101,9 @@ namespace University_Application
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(12, 18);
+            this.label2.Location = new System.Drawing.Point(10, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(280, 40);
             this.label2.TabIndex = 10;
@@ -115,9 +114,9 @@ namespace University_Application
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(12, 58);
+            this.label3.Location = new System.Drawing.Point(10, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(315, 40);
             this.label3.TabIndex = 11;
@@ -127,12 +126,13 @@ namespace University_Application
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(566, 107);
+            this.panel1.Size = new System.Drawing.Size(517, 93);
             this.panel1.TabIndex = 12;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -144,11 +144,11 @@ namespace University_Application
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.buttonExit.ForeColor = System.Drawing.Color.Snow;
-            this.buttonExit.Location = new System.Drawing.Point(519, 0);
+            this.buttonExit.Location = new System.Drawing.Point(477, 0);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(47, 34);
+            this.buttonExit.Size = new System.Drawing.Size(40, 29);
             this.buttonExit.TabIndex = 13;
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -156,11 +156,10 @@ namespace University_Application
             // 
             // Form_Role
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(566, 261);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(516, 226);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);

@@ -37,7 +37,12 @@ namespace University_Application
 
         }
 
-        public Professor(string name, string surname, string username, string password) { }
+        public Professor(string name, string surname, string username, string password) {
+            this.Username = username;
+            this.Password = password;
+            this.Name = name;
+            this.Surname = surname;
+        }
         public Professor(int id, string name, string surname, string username, string password) : base(id, name, surname, username, password) { }
 
         public Professor(string username, string password)
