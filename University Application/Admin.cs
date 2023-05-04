@@ -169,7 +169,7 @@ namespace University_Application
                     int rowsAffected = coursesTable.ExecuteNonQuery();
                 }
 
-                using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName", connection))
+                using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = @CourseName", connection))
                 {
                     coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
                     connection.Open();
@@ -180,7 +180,7 @@ namespace University_Application
                     }
                 }
 
-                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username=@Username", connection))
+                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = @Username", connection))
                 {
                     professorsTable.Parameters.AddWithValue("@Username", professorUsername);
                     connection.Open();
@@ -280,6 +280,7 @@ namespace University_Application
             CoursesFile.Close();
             */
         }
+        /*
         public void writeFiles()
         {
             using (StreamWriter ProfessorFile = new StreamWriter(path[0] + "ProfessorFile.txt", false))
@@ -307,6 +308,6 @@ namespace University_Application
                     CoursesFile.WriteLine(coursesList.ElementAt(i).ToString());
                 }
             }
-        }
+        }*/
     }
 }

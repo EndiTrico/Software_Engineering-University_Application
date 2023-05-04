@@ -309,7 +309,7 @@ namespace University_Application
                 connection.Open();
 
                 string excludedCourseNameString = string.Join(",", Courses.Select(x => $"'{x}'"));
-                OleDbCommand coursesTable = new OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
+                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
                 
                 using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
                 {
