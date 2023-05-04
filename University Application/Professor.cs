@@ -29,6 +29,13 @@ namespace University_Application
         public static List<Professor> LoggedProfessors { get => loggedProfessors; set => loggedProfessors = value; }
 
         // constructors
+
+        public Professor()
+        {
+
+        }
+
+        public Professor(string name, string surname, string username, string password) { }
         public Professor(int id, string name, string surname, string username, string password) : base(id, name, surname, username, password) { }
 
         public Professor(string username, string password)
@@ -50,7 +57,7 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.ID+")";
+            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.Id +")";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader courseReader = cmd.ExecuteReader();
@@ -109,7 +116,7 @@ namespace University_Application
             List<Student> students = new List<Student>();
             Student student = new Student();
 
-            foreach (Student stud in student.readStudent())
+            foreach (Student stud in student.readStudents())
             {
                 if (stud.Courses.Contains(ActiveCourse))
                     students.Add(stud);

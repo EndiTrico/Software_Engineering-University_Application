@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace University_Application
 {
-    public class Admin 
+    public class Admin
     {
         private static string username = "admin";
         private static string password = "admin123";
@@ -45,14 +45,37 @@ namespace University_Application
 
         public void addProfessor(Professor professor)
         {
-            professorList.Add(professor);
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professor(First_Name, Last_Name, Username, Password) VALUES (?, ?, ?, ?)", connection))
+                {
+                    professorTable.Parameters.AddWithValue("?", professor.Name);
+                    professorTable.Parameters.AddWithValue("?", professor.Surname);
+                    professorTable.Parameters.AddWithValue("?", professor.Username);
+                    professorTable.Parameters.AddWithValue("?", professor.Password);
+
+                    connection.Open();
+                    int rowsAffected = professorTable.ExecuteNonQuery();
+                }
+            }
+            readDatabase();
         }
 
         // DONE
         public void removeProfessor(Professor professor)
         {
             professorList.RemoveAt(professorList.IndexOf(professor));
-            removeProfessorFromDatabase(professor);
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = @id", connection))
+                {
+                    professorsTable.Parameters.AddWithValue("@id", professor.Id);
+                    int rowsAffected = professorsTable.ExecuteNonQuery();
+                }
+            }
+
+
             /*string name = prof.Name;
             string surname = prof.Surname;
             for (int i = 0; i < professorList.Count; i++)
@@ -83,36 +106,42 @@ namespace University_Application
             }*/
         }
 
-        public void removeProfessorFromDatabase(Professor professor)
+        // DONE
+        public void addStudent(Student student)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand professorsCoursesTable = new OleDbCommand("DELETE FROM Professors_Courses WHERE Professor_ID = @id", connection))
+                using (OleDbCommand studentsTable = new OleDbCommand("INSERT INTO Students(First_Name, Last_Name, Username, Password, Major) VALUES (?, ?, ?, ?, ?)", connection))
                 {
-                    professorsCoursesTable.Parameters.AddWithValue("@id", professor.Id);
+                    studentsTable.Parameters.AddWithValue("?", student.Name);
+                    studentsTable.Parameters.AddWithValue("?", student.Surname);
+                    studentsTable.Parameters.AddWithValue("?", student.Username);
+                    studentsTable.Parameters.AddWithValue("?", student.Password);
+                    studentsTable.Parameters.AddWithValue("?", student.Major);
+
                     connection.Open();
+                    int rowsAffected = studentsTable.ExecuteNonQuery();
 
-                    professorsCoursesTable.ExecuteNonQuery();
-
-                    using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = @id", connection))
-                    {
-                        professorsTable.Parameters.AddWithValue("@id", professor.Id);
-                        int rowsAffected = professorsTable.ExecuteNonQuery();
-                    }
                 }
             }
+            readDatabase();
         }
 
         // DONE
-        public void addStudent(Student stud)
-        {
-            studentList.Add(stud);
-        }
-
         public void removeStudent(Student student)
         {
             studentList.RemoveAt(studentList.IndexOf(student));
-            
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection))
+                {
+                    studentsTable.Parameters.AddWithValue("@id", student.Id);
+                    connection.Open();
+                    int rowsAffected = studentsTable.ExecuteNonQuery();
+                }
+            }
+
             /*for (int i = 0; i < studentList.Count; i++)
             {
                 if (student.Equals(studentList.ElementAt(i)))
@@ -123,72 +152,81 @@ namespace University_Application
             }*/
         }
 
-        public void removeStudentFromDatabase(Student student)
+
+        public void addCourse(Courses course, String professorUsername)
         {
+            int courseId;
+            int professorId;
+
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand studentsCoursesTable = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @id", connection))
+                using (OleDbCommand coursesTable = new OleDbCommand("INSERT INTO Courses(Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection))
                 {
-                    studentsCoursesTable.Parameters.AddWithValue("@id", student.Id);
+                    coursesTable.Parameters.AddWithValue("?", course.CourseName);
+                    coursesTable.Parameters.AddWithValue("?", course.Credits);
+                    coursesTable.Parameters.AddWithValue("?", course.Hours);
+                    connection.Open();
+                    int rowsAffected = coursesTable.ExecuteNonQuery();
+                }
+
+                using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName", connection))
+                {
+                    coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
                     connection.Open();
 
-                    studentsCoursesTable.ExecuteNonQuery();
-
-                    using (OleDbCommand gradesTable = new OleDbCommand("DELETE FROM Grades WHERE Student_ID = @id", connection))
+                    using (OleDbDataReader reader = coursesTable1.ExecuteReader())
                     {
-                        gradesTable.Parameters.AddWithValue("@id", student.Id);
-                        gradesTable.ExecuteNonQuery();
-
-                        using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection))
-                        {
-                            studentsTable.Parameters.AddWithValue("@id", student.Id);
-                            int rowsAffected = studentsTable.ExecuteNonQuery();
-                        }
+                        courseId = reader.GetInt32(0);
                     }
                 }
+
+                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username=@Username", connection))
+                {
+                    professorsTable.Parameters.AddWithValue("@Username", professorUsername);
+                    connection.Open();
+
+                    using (OleDbDataReader reader = professorsTable.ExecuteReader())
+                    {
+                        professorId = reader.GetInt32(0);
+                    }
+                }
+
+                using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
+                {
+                    professorsStudentsTable.Parameters.AddWithValue("?", professorId);
+                    professorsStudentsTable.Parameters.AddWithValue("?", courseId);
+                    connection.Open();
+
+                    int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
+                }
             }
-        }
 
-        public void addCourse(Course course)
-        {
-            coursesList.Add(course);
-
+            readDatabase();
+            /*
             for (int i = 0; i < professorList.Count; i++)
             {
                 if (course.Professor.Equals(professorList.ElementAt(i).Name + " " + professorList.ElementAt(i).Surname))
                     professorList.ElementAt(i).Courses.Add(course.Subject);
             }
+            */
         }
-        public void removeCourse(Course course)
+
+        public void removeCourse(Courses course)
         {
-            for (int i = 0; i < coursesList.Count; i++)
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                if (course.Equals(coursesList.ElementAt(i)))
+                using (OleDbCommand coursesTable = new OleDbCommand("DELETE FROM Courses WHERE Courses_ID = @id", connection))
                 {
-                    for (int j = 0; j < professorList.Count; j++)
-                    {
-                        if (course.Professor.Equals(professorList.ElementAt(j).Name + " " + professorList.ElementAt(j).Name))
-                            professorList.ElementAt(j).Courses.Remove(course.Subject);
-                    }
-                    for (int k = 0; k < studentList.Count; k++)
-                    {
-                        if (studentList.ElementAt(k).Courses.Count > 0)
-                        {
-                            for (int x = 0; x < studentList.ElementAt(k).Courses.Count; x++)
-                            {
-                                if (course.Subject.Equals(studentList.ElementAt(k).Courses[x]))
-                                    studentList.ElementAt(k).Courses.RemoveAt(x);
-                            }
-                        }
-                    }
-                    coursesList.RemoveAt(i);
+                    coursesTable.Parameters.AddWithValue("@id", course.Id);
+                    int rowsAffected = coursesTable.ExecuteNonQuery();
                 }
             }
         }
 
         private void readDatabase()
         {
-            studentList = new Student().readStudent();
+            studentList = new Student().readStudents();
+            professorList = new Professor().readProfessors();
             coursesList = new Courses().readCourses();
             /*
 

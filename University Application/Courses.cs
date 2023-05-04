@@ -17,7 +17,7 @@ namespace University_Application
         int credits;
         int hours;
 
-        public int ID { get => id; set => id = value; }
+        public int Id { get => id; set => id = value; }
         public string CourseName { get => courseName; set => courseName = value; }
         public int Credits { get => credits; set => credits = value; }
         public int Hours { get => hours; set => hours = value; }
@@ -28,7 +28,14 @@ namespace University_Application
         }
         public Courses(int id, string courseName, int credits, int hours)
         {
-            this.ID = id;
+            this.Id = id;
+            this.CourseName = courseName;
+            this.Credits = credits;
+            this.Hours = hours;
+        }
+
+        public Courses(string courseName, int credits, int hours)
+        {
             this.CourseName = courseName;
             this.Credits = credits;
             this.Hours = hours;
@@ -83,7 +90,7 @@ namespace University_Application
 
         public override string ToString()
         {
-            return this.ID + "," + this.CourseName + "," + this.Credits + "," + this.Hours;
+            return this.Id + "," + this.CourseName + "," + this.Credits + "," + this.Hours;
         }
     }
 }

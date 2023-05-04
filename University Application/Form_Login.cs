@@ -80,13 +80,11 @@ namespace University_Application
                 {
                     try
                     {
+                        Student student = new Student(textBox_Username.Text, textBox_Pass.Text);
 
-                        if (new Student(textBox_Username.Text, textBox_Pass.Text).isUsernameAndPasswordValid(textBox_Username.Text, textBox_Pass.Text))
-                        {
-                            Form_Student formStud = new Form_Student(textBox_Username.Text, textBox_Pass.Text);
-                            this.Hide();
-                            formStud.Show();
-                        }
+                        Form_Student formStud = new Form_Student(textBox_Username.Text, textBox_Pass.Text);
+                        this.Hide();
+                        formStud.Show();
                     }
                     catch (InvalidLoginInfoException ex)
                     {

@@ -24,13 +24,18 @@ namespace University_Application
 
         }
 
-        public Student(int studentID, string name, string surname, string username, string password,  string major, List<String> courses) : base(studentID, name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password, string major, List<String> courses) : base(studentID, name, surname, username, password)
         {
             this.Major = major;
             this.Courses = courses;
         }
 
-        public Student(int studentID, string name, string surname, string username, string password,  string major) : base(studentID, name, surname, username, password)
+        public Student(int studentID, string name, string surname, string username, string password, string major) : base(studentID, name, surname, username, password)
+        {
+            this.Major = major;
+        }
+
+        public Student(string name, string surname, string username, string password, string major)
         {
             this.Major = major;
         }
@@ -85,65 +90,73 @@ namespace University_Application
             String sql = "SELECT * FROM Students WHERE Username =" + username + " AND Password=" + password + "'";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbDataReader reader = cmd.ExecuteReader();
-
-
-            if (reader.HasRows)
+            using (OleDbDataReader reader = cmd.ExecuteReader())
             {
-                con.Close();
-                return reader;
 
-            }
-            else
-            {
-                throw new InvalidLoginInfoException("Username and Password do not match!");
+                if (reader.HasRows)
+                {
+                    con.Close();
+                    return reader;
+                }
+                else
+                {
+                    throw new InvalidLoginInfoException("Username and Password do not match!");
+                }
             }
         }
+
         // DONE Method to read the Student File
-        public List<Student> readStudent()
+        public List<Student> readStudents()
         {
             List<Student> studentList = new List<Student>();
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Students", connection);
-            OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader();
-
-            while (readerStudentsTable.Read())
+            
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                int table_studentID = Convert.ToInt32(readerStudentsTable["Student_ID"]);
-                string table_firstName = readerStudentsTable["First_Name"].ToString();
-                string table_lastName = readerStudentsTable["Last_Name"].ToString();
-                string table_username = readerStudentsTable["Username"].ToString();
-                string table_password = readerStudentsTable["Password"].ToString();
-                string table_major = readerStudentsTable["Major"].ToString();                
-
-                Student student = new Student(table_studentID, table_firstName, table_lastName, table_username,
-                    table_password, table_major);
-
-                OleDbCommand studentsCoursesTable = new OleDbCommand
-                ("SELECT Course_ID FROM Students_Courses WHERE Student_ID=" + table_studentID , connection);
-                OleDbDataReader readerStudentsCoursesTable = studentsCoursesTable.ExecuteReader();
-
-                int table_courseID;
-                while (readerStudentsCoursesTable.Read())
+                connection.Open();
+                OleDbCommand studentsTable = new OleDbCommand("SELECT * FROM Students", connection);
+                
+                using (OleDbDataReader readerStudentsTable = studentsTable.ExecuteReader())
                 {
-                    table_courseID = Convert.ToInt32(readerStudentsTable["Course_ID"]);
-                    
-                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = @ID", connection);
-                    coursesTable.Parameters.AddWithValue("@ID", table_courseID);
-                    OleDbDataReader readerCoursesTable = studentsTable.ExecuteReader();
+                    while (readerStudentsTable.Read())
+                    {
+                        int table_studentID = Convert.ToInt32(readerStudentsTable["Student_ID"]);
+                        string table_firstName = readerStudentsTable["First_Name"].ToString();
+                        string table_lastName = readerStudentsTable["Last_Name"].ToString();
+                        string table_username = readerStudentsTable["Username"].ToString();
+                        string table_password = readerStudentsTable["Password"].ToString();
+                        string table_major = readerStudentsTable["Major"].ToString();
 
-                    student.Courses.Add(readerCoursesTable.GetString(0));
-                    readerCoursesTable.Close();
+                        Student student = new Student(table_studentID, table_firstName, table_lastName, table_username,
+                            table_password, table_major);
+
+                        OleDbCommand studentsCoursesTable = new OleDbCommand
+                        ("SELECT Course_ID FROM Students_Courses WHERE Student_ID=" + table_studentID, connection);
+                        
+                        using (OleDbDataReader readerStudentsCoursesTable = studentsCoursesTable.ExecuteReader())
+                        {
+                            int table_courseID;
+                            while (readerStudentsCoursesTable.Read())
+                            {
+                                table_courseID = Convert.ToInt32(readerStudentsCoursesTable["Course_ID"]);
+
+                                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = @ID", connection);
+                                coursesTable.Parameters.AddWithValue("@ID", table_courseID);
+                                
+                                using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                                {
+                                    if (readerCoursesTable.HasRows)
+                                    {
+                                        student.Courses.Add(readerCoursesTable.GetString(1));
+                                    }
+
+                                }
+                            }
+                        }
+                        studentList.Add(student);
+                    }
+
                 }
-                readerStudentsCoursesTable.Close();
-                studentList.Add(student);
             }
-
-            readerStudentsTable.Close();
-            connection.Close();
-
             return studentList;
         }
 
@@ -164,82 +177,87 @@ namespace University_Application
         public List<string> showGrades()
         {
             List<string> myGrades = new List<string>();
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
-            
-            foreach (Grades grades in new Grades().readGradesForAStudent(this.Id))
-            {
-                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID=@ID", connection);
-                coursesTable.Parameters.AddWithValue("@ID", grades.CourseID);
-                OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-                
-                myGrades.Add(readerCoursesTable.GetString(0) + " " + grades.Score);
 
-                readerCoursesTable.Close();
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                connection.Open();
+
+                foreach (Grades grades in new Grades().readGradesForAStudent(this.Id))
+                {
+                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID=@ID", connection);
+                    coursesTable.Parameters.AddWithValue("@ID", grades.CourseID);
+                    
+                    using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                    {
+                        myGrades.Add(readerCoursesTable.GetString(1) + " " + grades.Score);
+                    }
+                }
             }
-            connection.Close();
             return myGrades;
         }
 
         // DONE Write the course in the file
         public void enroll(string courseName, int studID)
         {
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                connection.Open();
 
-            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
-            coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
-            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-
-
-            OleDbCommand command = new OleDbCommand("INSERT INTO Students_Courses VALUES (@StudentID, @CourseID)", connection);
-            command.Parameters.AddWithValue("@StudentID", studID);
-            command.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
-            //int rowsAffected = command.ExecuteNonQuery();
-
-            readerCoursesTable.Close();
-            connection.Close();
+                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+                coursesTable.Parameters.AddWithValue("@Student_ID", courseName);
+                
+                using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                {
+                    OleDbCommand studentsCoursesTable = new OleDbCommand("INSERT INTO Students_Courses VALUES (@StudentID, @CourseID)", connection);
+                    studentsCoursesTable.Parameters.AddWithValue("@StudentID", studID);
+                    studentsCoursesTable.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
+                    int rowsAffected = studentsCoursesTable.ExecuteNonQuery();
+                }
+            }
         }
 
         // DONE Drop a course
         public void drop(string courseName, int studid)
         {
 
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                connection.Open();
 
-            OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
-            coursesTable.Parameters.AddWithValue("@CourseName", courseName);
-            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-
-
-            OleDbCommand command = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @StudentID AND Course_ID = @CourseID", connection);
-            command.Parameters.AddWithValue("@StudentID", studid);
-            command.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
-            //int rowsAffected = command.ExecuteNonQuery();
-
-            readerCoursesTable.Close();
-            connection.Close();
+                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name=@CourseName)", connection);
+                coursesTable.Parameters.AddWithValue("@CourseName", courseName);
+                
+                using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                {
+                    OleDbCommand studentsCoursesTable = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @StudentID AND Course_ID = @CourseID", connection);
+                    studentsCoursesTable.Parameters.AddWithValue("@StudentID", studid);
+                    studentsCoursesTable.Parameters.AddWithValue("@CourseID", readerCoursesTable.GetString(0));
+                    int rowsAffected = studentsCoursesTable.ExecuteNonQuery();
+                }
+            }
         }
 
         // DONE Method to show all courses, except the courses that he is in
         public List<string> allCoursesExcludingStudentCourses()
         {
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            string excludedCourseNameString = string.Join(",", Courses.Select(x => $"'{x}'"));
-            OleDbCommand coursesTable = new OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
-            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-
-
             List<string> availableCourses = new List<string>();
 
-            while (readerCoursesTable.Read())
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                availableCourses.Add(readerCoursesTable.GetString(0));
-            }
+                connection.Open();
 
+                string excludedCourseNameString = string.Join(",", Courses.Select(x => $"'{x}'"));
+                OleDbCommand coursesTable = new OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
+                
+                using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                {
+
+                    while (readerCoursesTable.Read())
+                    {
+                        availableCourses.Add(readerCoursesTable.GetString(0));
+                    }
+                }
+            }
             return availableCourses;
         }
 
@@ -284,22 +302,22 @@ namespace University_Application
             int[] creditsOfGradedCoursesAndScore = new int[2];
             double gpa;
 
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            foreach (Grades grade in new Grades().readGradesForAStudent(Id))
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                OleDbCommand coursesTable = new OleDbCommand("SELECT Credits from Courses WHERE Course_ID=@CourseID)", connection);
-                coursesTable.Parameters.AddWithValue("@CourseID", grade.CourseID);
-                OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+                connection.Open();
 
-                creditsOfGradedCoursesAndScore[0] += Convert.ToInt32(readerCoursesTable.GetString(0));
-                creditsOfGradedCoursesAndScore[1] += Convert.ToInt32(grade.Score);
-
-                readerCoursesTable.Close();
+                foreach (Grades grade in new Grades().readGradesForAStudent(Id))
+                {
+                    OleDbCommand coursesTable = new OleDbCommand("SELECT Credits from Courses WHERE Course_ID=@CourseID)", connection);
+                    coursesTable.Parameters.AddWithValue("@CourseID", grade.CourseID);
+                    
+                    using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                    {
+                        creditsOfGradedCoursesAndScore[0] += Convert.ToInt32(readerCoursesTable.GetString(0));
+                        creditsOfGradedCoursesAndScore[1] += Convert.ToInt32(grade.Score);
+                    }
+                }
             }
-
-            connection.Close();
 
             if (creditsOfGradedCoursesAndScore[0] == 0)
             {

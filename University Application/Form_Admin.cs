@@ -91,13 +91,11 @@ namespace University_Application
 
         private void buttonExit_Click_1(object sender, EventArgs e)
         {
-            admin.writeFiles();
             this.Close();
         }
 
         private void button_Back_Click_1(object sender, EventArgs e)
         {
-            admin.writeFiles();
             Form_Login login = new Form_Login();
             this.Close();
             login.Show();

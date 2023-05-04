@@ -45,7 +45,7 @@ namespace University_Application
                 this.label1.Text = "Select course to remove: ";
                 for (int i = 0; i < admin.coursesList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.coursesList.ElementAt(i).Subject + " " + admin.coursesList.ElementAt(i).Professor);
+                    comboBox1.Items.Add(admin.coursesList.ElementAt(i).CourseName);
                 }
             }
         }

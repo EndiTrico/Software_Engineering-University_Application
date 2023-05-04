@@ -27,12 +27,10 @@ namespace University_Application
             //fixing the display for different user choice
             if (index == 1)
             {
-                label5.Hide();
                 label6.Hide();
-                textBox5.Hide();
                 comboBox1.Hide();
-                label1.Text = "Name: ";
-                label2.Text = "Surname: ";
+                label1.Text = "First Name: ";
+                label2.Text = "Last Name: ";
                 label3.Text = "Username: ";
                 label4.Text = "Password: ";
             }
@@ -42,41 +40,40 @@ namespace University_Application
                 label2.Text = "Surname: ";
                 label3.Text = "Username: ";
                 label4.Text = "Password: ";
-                label5.Text = "Student ID: ";
+
                 label6.Text = "Major: ";
             }
             if (index == 3)
             {
-                label1.Text = "Subject: ";
-                label2.Text = "Time: ";
-                label3.Text = "Credits: ";
+                label1.Text = "Course Name: ";
+                label2.Text = "Credits: ";
+                label3.Text = "Hours: ";
                 label4.Hide();
-                label5.Hide();
-                label6.Text = " Professor: ";
-                textBox5.Hide();
+
+                label6.Text = "Professor: ";
                 textBox4.Hide();
                 comboBox1.Items.Clear();
                 for (int i = 0; i < admin.professorList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.professorList.ElementAt(i).Name + " " + admin.professorList.ElementAt(i).Surname);
+                    comboBox1.Items.Add(admin.professorList.ElementAt(i).Username);
                 }
             }
         }
 
         public void addProfessor()
         {
-            Professor prof = new Professor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
-            admin.addProfessor(prof);
+            Professor professor = new Professor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
+            admin.addProfessor(professor);
         }
         public void addStudent()
         {
-            Student stud = new Student(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, comboBox1.SelectedItem.ToString());
-            admin.addStudent(stud);
+            Student student = new Student(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, comboBox1.SelectedItem.ToString());
+            admin.addStudent(student);
         }
         public void addCourse()
         {
-            Course course = new Courses(textBox1.Text, textBox2.Text, Convert.ToDouble(textBox3.Text), comboBox1.SelectedItem.ToString());
-            admin.addCourse(course);
+            Courses course = new Courses(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
+            admin.addCourse(course, comboBox1.SelectedItem.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
