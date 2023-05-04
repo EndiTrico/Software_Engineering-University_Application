@@ -229,12 +229,12 @@ namespace University_Application
             richTextBox1.Clear();
 
 
-            if (new Student(studentID, name, surname, username, password, major, courses).showGPA().Equals("No GPA"))
+            if (new Student(studentID, name, surname, username, password, major, courses).showGPA() == -1)
             {
                 MessageBox.Show("There is not any grade to calculate", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                richTextBox1.AppendText(new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
+                richTextBox1.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
 
         }
 
