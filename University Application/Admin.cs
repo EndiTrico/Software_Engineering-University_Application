@@ -47,7 +47,7 @@ namespace University_Application
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professor(First_Name, Last_Name, Username, Password) VALUES (?, ?, ?, ?)", connection))
+                using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professors (First_Name, Last_Name, Username, Password) VALUES (?, ?, ?, ?)", connection))
                 {
                     professorTable.Parameters.AddWithValue("?", professor.Name);
                     professorTable.Parameters.AddWithValue("?", professor.Surname);

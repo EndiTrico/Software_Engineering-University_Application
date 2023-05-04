@@ -96,8 +96,8 @@ namespace University_Application
             String sql = "SELECT * FROM Professors WHERE Username = ? AND Password = ?";
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbParameterCollection paramCollection = cmd.Parameters;
-             paramCollection.Add(new OleDbParameter("Username", username));
-             paramCollection.Add(new OleDbParameter("Password", password));
+            paramCollection.Add(new OleDbParameter("Username", username));
+            paramCollection.Add(new OleDbParameter("Password", password));
 
             OleDbDataReader reader = cmd.ExecuteReader();
             
@@ -201,7 +201,7 @@ namespace University_Application
                     if (getStudentFromID(Convert.ToInt32(inputs[0])) == null)
                         throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
 
-                String sql = "INSERT INTO TABLE Grades(Student_ID, Course_ID, Grade_Score) VALUES ("+inputs[0]+","+activeCourseId+","+ inputs[1]+")";
+                String sql = "INSERT INTO Grades(Student_ID, Course_ID, Grade_Score) VALUES ("+inputs[0]+","+activeCourseId+","+ inputs[1]+")";
                 OleDbCommand cmd = new OleDbCommand(sql, con);
                 OleDbDataReader reader = cmd.ExecuteReader();
             }
@@ -409,8 +409,8 @@ namespace University_Application
                         OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
                         coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
                         OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-
-                    prof.Courses.Add(readerCoursesTable.GetString(0));
+                        readerCoursesTable.Read();
+                        prof.Courses.Add(readerCoursesTable["Course_Name"].ToString());
                     readerCoursesTable.Close();
                 }
                 readerProfessorCoursesTable.Close();
