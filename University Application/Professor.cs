@@ -348,6 +348,60 @@ namespace University_Application
 
         }
 
+        public List<Professor> readProfessors()
+        {
+            List<Professor> professors = new List<Professor>();
+            OleDbConnection con = new OleDbConnection(connection);
+
+            if (con.State != System.Data.ConnectionState.Open)
+            {
+                con.Open();
+            }
+            String sql = "SELECT * FROM Professors";
+
+            OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbDataReader reader = cmd.ExecuteReader();
+
+
+            if (reader.HasRows)
+
+                while (reader.Read())
+                 {
+                int professorId = Convert.ToInt32(reader["Professor_ID"]);
+                string table_firstName = reader["First_Name"].ToString();
+                string table_lastName = reader["Last_Name"].ToString();
+                string table_username = reader["Username"].ToString();
+                string table_password = reader["Password"].ToString();;
+
+                Professor prof = new Professor(professorId, table_firstName, table_lastName, table_username,
+                    table_password);
+
+                OleDbCommand professorCoursesTable = new OleDbCommand
+                ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID=" + professorId, con);
+                OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
+
+                int table_courseID;
+                while (readerProfessorCoursesTable.Read())
+                {
+                    table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
+
+                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = @ID", con);
+                    coursesTable.Parameters.AddWithValue("@ID", table_courseID);
+                    OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+
+                    prof.Courses.Add(readerCoursesTable.GetString(0));
+                    readerCoursesTable.Close();
+                }
+                readerProfessorCoursesTable.Close();
+                professors.Add(prof);
+            }
+
+            reader.Close();
+            con.Close();
+
+            return professors;
+        }
+
         // method to get a string representation of Professor
         public override string ToString()
         {
