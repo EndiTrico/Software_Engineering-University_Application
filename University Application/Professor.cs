@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
 using System.Data.OleDb;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace University_Application
 {
@@ -44,6 +45,7 @@ namespace University_Application
             this.Password = password;
 
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
+            
             reader.Read();
                   
             this.id = Convert.ToInt32(reader["Professor_ID"].ToString());
@@ -57,20 +59,25 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.Id +")";
+            String sql = "SELECT * FROM Courses WHERE Course_Id IN (SELECT Course_Id from Professors_Courses WHERE Professor_Id = ?)";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbDataReader courseReader = cmd.ExecuteReader();
+            OleDbParameterCollection paramCollection = cmd.Parameters;
+            paramCollection.Add(new OleDbParameter("Professor_Id", this.Id));
 
-
-            if (courseReader.HasRows)
+            using (OleDbDataReader courseReader = cmd.ExecuteReader())
             {
-               while(courseReader.Read())
-                {
-                    coursesIds.Add(courseReader["Course_Id"].ToString());
-                    courses.Add(courseReader["Course_Name"].ToString());
-                }
 
+
+                if (courseReader.HasRows)
+                {
+                    while (courseReader.Read())
+                    {
+                        coursesIds.Add(courseReader["Course_Id"].ToString());
+                        courses.Add(courseReader["Course_Name"].ToString());
+                    }
+
+                }
             }
 
         }
@@ -86,22 +93,26 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Professors WHERE Username =" + username + " AND Password=" + password + "'";
-
+            String sql = "SELECT * FROM Professors WHERE Username = ? AND Password = ?";
             OleDbCommand cmd = new OleDbCommand(sql, con);
+            OleDbParameterCollection paramCollection = cmd.Parameters;
+             paramCollection.Add(new OleDbParameter("Username", username));
+             paramCollection.Add(new OleDbParameter("Password", password));
+
             OleDbDataReader reader = cmd.ExecuteReader();
+            
 
 
-            if (reader.HasRows)
-            {
-                con.Close();
-                return reader;
+                if (reader.HasRows)
+                {
+                    return reader;
 
-            }
-            else
-            {
-                throw new InvalidLoginInfoException("Username and Password do not match!");
-            }
+                }
+                else
+                {
+                    throw new InvalidLoginInfoException("Username and Password do not match!");
+                }
+            
         }
 
         // method to get the most recently logged professor
@@ -325,7 +336,7 @@ namespace University_Application
             return total / gradeList.Count;
         }
 
-        private void setActiveCourseId()
+        public void setActiveCourseId()
         {
             if (ActiveCourse != null)
             {
@@ -335,9 +346,12 @@ namespace University_Application
                     con.Open();
                 }
 
-                String sql = "SELECT * FROM Courses WHERE Course_Name=" + ActiveCourse;
+                String sql = "SELECT * FROM Courses WHERE Course_Name = ?";
+
 
                 OleDbCommand cmd = new OleDbCommand(sql, con);
+                OleDbParameterCollection paramCollection = cmd.Parameters;
+                paramCollection.Add(new OleDbParameter("Course_Name", activeCourse));
                 OleDbDataReader reader = cmd.ExecuteReader();
 
 
@@ -381,17 +395,20 @@ namespace University_Application
                     table_password);
 
                 OleDbCommand professorCoursesTable = new OleDbCommand
-                ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID=" + professorId, con);
-                OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
+                ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", con);
+                    OleDbParameterCollection paramCollection = professorCoursesTable.Parameters;
+                    paramCollection.Add(new OleDbParameter("Professor_ID", professorId));
+                    OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
 
                 int table_courseID;
                 while (readerProfessorCoursesTable.Read())
                 {
                     table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
 
-                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = @ID", con);
-                    coursesTable.Parameters.AddWithValue("@ID", table_courseID);
-                    OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", con);
+                        OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
+                        coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
+                        OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
 
                     prof.Courses.Add(readerCoursesTable.GetString(0));
                     readerCoursesTable.Close();

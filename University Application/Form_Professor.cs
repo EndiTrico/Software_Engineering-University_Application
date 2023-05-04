@@ -87,6 +87,7 @@ namespace University_Application
         private void comboBox_Course_SelectedIndexChanged(object sender, EventArgs e)
         {
             Professor.getRecentProfessor().ActiveCourse = (string)comboBox_Course.SelectedItem;
+            Professor.getRecentProfessor().setActiveCourseId();
         }
 
 
