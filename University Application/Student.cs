@@ -50,11 +50,10 @@ namespace University_Application
             con.Open();
             
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
-/*
+
             this.id = Convert.ToInt32(reader["Student_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
-*/
 
             String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Students_Courses WHERE Student_Id=" + this.Id + ")";
 
@@ -90,12 +89,12 @@ namespace University_Application
             using (OleDbDataReader reader = cmd.ExecuteReader())
             {
                 if (reader.HasRows)
-                {
+                {/*
                     reader.Read();
                     this.id = Convert.ToInt32(reader["Student_ID"].ToString());
                     this.Name = reader["First_Name"].ToString();
                     this.Surname = reader["Last_Name"].ToString();
-                    return reader;
+                    */return reader;
                 }
                 else
                 {
