@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace University_Application
 
         public List<Professor> professorList = new List<Professor>();
         public List<Student> studentList = new List<Student>();
-        public List<Course> coursesList = new List<Course>();
+        public List<Courses> coursesList = new List<Courses>();
 
         string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
 
@@ -36,9 +37,12 @@ namespace University_Application
         //check the validity of the username and the password of the admin
         public bool isUsernameAndPasswordValid(string username, string password)
         {
-            if (username.Equals(this.getUsername()) && password.Equals(this.getPassword()))
+       
+
+            /* if (username.Equals(this.getUsername()) && password.Equals(this.getPassword()))
                 return true;
             throw new InvalidLoginInfoException("Username and Password do not match!");
+        */
         }
 
         public void addProfessor(Professor prof)

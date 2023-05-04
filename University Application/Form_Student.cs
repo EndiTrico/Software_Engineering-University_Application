@@ -18,18 +18,18 @@ namespace University_Application
         private string surname;
         private string username;
         private string password;
-        private string studentID;
+        private int studentID;
         private string major;
         private List<string> courses;
 
-        static string connectionString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source= " + Application.StartupPath + "/Database_University.mdb";
+        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
 
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public string StudentID { get => studentID; set => studentID = value; }
+        public int StudentID { get => studentID; set => studentID = value; }
         public string Major { get => major; set => major = value; }
         public List<string> Courses { get => courses; set => courses = value; }
 
@@ -47,14 +47,14 @@ namespace University_Application
             this.Surname = stud.Surname;
             this.Username = stud.Username;
             this.Password = stud.Password;
-            this.StudentID = stud.StudentID;
+            this.StudentID = stud.Id;
             this.Major = stud.Major;
             this.Courses = stud.Courses;
             label1.Text = Name + " " + Surname;
 
         }
 
-        public Form_Student(string name, string surname, string username, string password, string studentID, string major, List<string> courses)
+        public Form_Student(int studentID, string name, string surname, string username, string password, string major, List<string> courses)
         {
             InitializeComponent();
             this.Name = name;
@@ -84,14 +84,14 @@ namespace University_Application
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form_Student_Enroll form = new Form_Student_Enroll(name, surname, username, password, studentID, major, courses);
+            Form_Student_Enroll form = new Form_Student_Enroll(studentID, name, surname, username, password, major, courses);
             this.Hide();
             form.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form_Student_Drop form = new Form_Student_Drop(name, surname, username, password, studentID, major, courses);
+            Form_Student_Drop form = new Form_Student_Drop(studentID, name, surname, username, password, major, courses);
             this.Hide();
             form.Show();
         }
@@ -150,7 +150,7 @@ namespace University_Application
         private void button4_Click(object sender, EventArgs e)
         {
             richTextBox1.Clear();
-            List<string> grades = new Student(name, surname, username, password, studentID, major, courses).showGrades();
+            List<string> grades = new Student(studentID, name, surname, username, password, major, courses).showGrades();
 
             if (grades.Count != 0)
             {
@@ -169,7 +169,7 @@ namespace University_Application
         {
             richTextBox1.Clear();
 
-            List<string> allCourses = new Student(name, surname, username, password, studentID, major, courses).showAllCourses();
+            List<string> allCourses = new Student(studentID, name, surname, username, password, major, courses).showAllCourses();
 
             if (allCourses.Count != 0)
             {
@@ -190,7 +190,7 @@ namespace University_Application
         {
             richTextBox1.Clear();
 
-            List<string> allCourses = new Student(name, surname, username, password, studentID, major, courses).showAllCredits();
+            List<string> allCourses = new Student(studentID, name, surname, username, password, major, courses).showAllCredits();
 
             if (allCourses.Count != 0)
             {
@@ -209,7 +209,7 @@ namespace University_Application
         {
             richTextBox1.Clear();
 
-            List<string> myCoursesCredits = new Student(name, surname, username, password, studentID, major, courses).showStudentCredits();
+            List<string> myCoursesCredits = new Student(studentID, name, surname, username, password, major, courses).showStudentCredits();
 
             if (myCoursesCredits.Count != 0)
             {
@@ -229,12 +229,12 @@ namespace University_Application
             richTextBox1.Clear();
 
 
-            if (new Student(name, surname, username, password, studentID, major, courses).showGPA().Equals("No GPA"))
+            if (new Student(studentID, name, surname, username, password, major, courses).showGPA().Equals("No GPA"))
             {
                 MessageBox.Show("There is not any grade to calculate", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                richTextBox1.AppendText(new Student(name, surname, username, password, studentID, major, courses).showGPA() + Environment.NewLine);
+                richTextBox1.AppendText(new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
 
         }
 

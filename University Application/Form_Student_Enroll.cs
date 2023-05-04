@@ -21,6 +21,7 @@ namespace University_Application
         private string username;
         private string password;
         private string major;
+        private List<string> courses;
 
         public int StudentID { get => studentID; set => studentID = value; }
         public new string Name { get => name; set => name = value; }
@@ -28,6 +29,8 @@ namespace University_Application
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Major { get => major; set => major = value; }
+        public List<string> Courses { get => courses; set => courses = value; }
+
 
         public Form_Student_Enroll()
         {
@@ -43,18 +46,20 @@ namespace University_Application
         public Form_Student_Enroll(int studentID, string name, string surname, string username, string password, string major, List<string> courses)
         {
             InitializeComponent();
+            this.StudentID = studentID;
             this.Name = name;
             this.Surname = surname;
             this.Username = username;
             this.Password = password;
-            this.StudentID = studentID;
             this.Major = major;
+            this.Courses = courses;
 
-            foreach (string s in new Student(studentID, name, surname, username, password, major).allCoursesExcludingStudentCourses())
+            foreach (string s in new Student(studentID, name, surname, username, password, major, courses).allCoursesExcludingStudentCourses())
             {
                 comboBox1.Items.Add(s);
             }
         }
+
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -63,13 +68,14 @@ namespace University_Application
 
         private void button_Back_Click(object sender, EventArgs e)
         {
-            Form_Student student = new Form_Student(studentID, name, surname, username, password, major);
+            Form_Student student = new Form_Student(studentID, name, surname, username, password, major, courses);
             this.Hide();
             student.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void button1_Click(object sender, EventArgs e)

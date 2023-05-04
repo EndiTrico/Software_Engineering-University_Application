@@ -8,12 +8,13 @@ namespace University_Application
 {
     public abstract class Person
     {
+        protected int id;
         protected string name;
         protected string surname;
         protected string username;
         protected string password;
-        protected int ID;
 
+        public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
@@ -21,7 +22,7 @@ namespace University_Application
 
         protected Person(int id,string name, string surname, string username, string password)
         {
-            this.ID = id;
+            this.Id = id;
             this.Name = name;
             this.Surname = surname;
             this.Username = username;
