@@ -22,8 +22,6 @@ namespace University_Application
         private int activeCourseId;
         private static List<Professor> loggedProfessors = new List<Professor>();
 
-        string[] path = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
-
 
         // attributes
         public List<string> Courses { get => courses; set => courses = value; }
@@ -52,7 +50,7 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.Id+")";
+            String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Professors_Courses WHERE Professor_Id="+this.ID+")";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader courseReader = cmd.ExecuteReader();
@@ -139,7 +137,7 @@ namespace University_Application
 
             foreach (Grades grades in grade.readGrades())
             {
-                if (grades.Course.Equals(ActiveCourse))
+                if (grades.CourseID.Equals(activeCourseId))
                     gradeList.Add(grades);
             }
 
@@ -154,7 +152,7 @@ namespace University_Application
 
             foreach (Grades grades in getGrades())
             {
-                gradeList.Add(grades.GradeID);
+                gradeList.Add(grades.Score);
             }
             return gradeList;
         }
@@ -200,8 +198,8 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade > 59)
-                    studentIds.Add(grade.Student);
+                if (grade.Score > 59)
+                    studentIds.Add(grade.StudentID);
             }
 
             foreach (int Id in studentIds)
@@ -220,8 +218,9 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.Grade <= 59)
-                    studentIds.Add(grade.Student);
+
+                if (grade.Score <= 59)
+                    studentIds.Add(grade.StudentID);
             }
 
             foreach (int Id in studentIds)
@@ -239,9 +238,9 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.GradeID == showMinGrade())
+                if (grade.Score == showMinGrade())
                 {
-                    lowestScoring = getStudentFromID(grade.Student);
+                    lowestScoring = getStudentFromID(grade.StudentID);
                     break;
                 }
             }
@@ -256,9 +255,9 @@ namespace University_Application
 
             foreach (Grades grade in getGrades())
             {
-                if (grade.GradeID == showMaxGrade())
+                if (grade.Score == showMaxGrade())
                 {
-                    highestScoring = getStudentFromID(grade.Student);
+                    highestScoring = getStudentFromID(grade.StudentID);
                     break;
                 }
             }
