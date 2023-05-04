@@ -5,6 +5,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
 using System.Data.OleDb;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace University_Application
 {
@@ -13,7 +14,7 @@ namespace University_Application
         public string major;
         public List<string> courses = new List<string>();
 
-        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
+        private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Utente\\Documents\\GitHub\\Software_Engineering-University_Application\\University Application\\Database_University.mdb";
 
         public string Major { set => major = value; get => major; }
 
@@ -45,25 +46,20 @@ namespace University_Application
             this.Username = username;
             this.Password = password;
 
+            OleDbConnection con = new OleDbConnection(connectionString);
+            con.Open();
+            
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
-            reader.Read();
-
+/*
             this.id = Convert.ToInt32(reader["Student_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
-
-            OleDbConnection con = new OleDbConnection(connectionString);
-
-            if (con.State != System.Data.ConnectionState.Open)
-            {
-                con.Open();
-            }
+*/
 
             String sql = "SELECT * FROM Courses WHERE Course_Id = (SELECT Course_Id from Students_Courses WHERE Student_Id=" + this.Id + ")";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbDataReader courseReader = cmd.ExecuteReader();
-
 
             if (courseReader.HasRows)
             {
@@ -87,15 +83,18 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Students WHERE Username =" + username + " AND Password=" + password + "'";
+            OleDbCommand cmd = new OleDbCommand("SELECT * FROM Students WHERE Username = @username AND Password = @password", con);
+            cmd.Parameters.AddWithValue("@username", username);
+            cmd.Parameters.AddWithValue("@password", password);
 
-            OleDbCommand cmd = new OleDbCommand(sql, con);
             using (OleDbDataReader reader = cmd.ExecuteReader())
             {
-
                 if (reader.HasRows)
                 {
-                    con.Close();
+                    reader.Read();
+                    this.id = Convert.ToInt32(reader["Student_ID"].ToString());
+                    this.Name = reader["First_Name"].ToString();
+                    this.Surname = reader["Last_Name"].ToString();
                     return reader;
                 }
                 else
