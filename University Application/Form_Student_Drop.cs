@@ -21,6 +21,7 @@ namespace University_Application
         private string username;
         private string password;
         private string major;
+        private List<string> courses;
 
         public int StudentID { get => studentID; set => studentID = value; }
         public new string Name { get => name; set => name = value; }
@@ -28,6 +29,8 @@ namespace University_Application
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Major { get => major; set => major = value; }
+        public List<string> Courses { get => courses; set => courses = value; }
+
 
         public Form_Student_Drop()
         {
@@ -50,12 +53,14 @@ namespace University_Application
             this.Username = username;
             this.Password = password;
             this.Major = major;
+            this.Courses = courses;
 
-            foreach (string s in new Student(studentID, name, surname, username, password, major).showStudentCourses())
+            foreach (string s in new Student(studentID, name, surname, username, password, major, courses).showStudentCourses())
             {
                 comboBox1.Items.Add(s);
             }
         }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -63,7 +68,7 @@ namespace University_Application
 
         private void button_Back_Click(object sender, EventArgs e)
         {
-            Form_Student student = new Form_Student(studentID, name, surname, username, password, major);
+            Form_Student student = new Form_Student(studentID, name, surname, username, password, major, courses);
             this.Hide();
             student.Show();
         }

@@ -41,7 +41,7 @@ namespace University_Application
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
             reader.Read();
                   
-            this.ID = Convert.ToInt32(reader["Professor_ID"].ToString());
+            this.id = Convert.ToInt32(reader["Professor_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
 
@@ -105,10 +105,7 @@ namespace University_Application
             return LoggedProfessors.Last();
         }
 
-       
-
         // method to show the students of a professor's course
-
         public List<Student> getStudents()
         {
             List<Student> students = new List<Student>();
@@ -128,7 +125,7 @@ namespace University_Application
         {
             foreach (Student student in getStudents())
             {
-                if (student.StudentID.Equals(Id))
+                if (student.Id.Equals(Id))
                     return student;
             }
             return null;
