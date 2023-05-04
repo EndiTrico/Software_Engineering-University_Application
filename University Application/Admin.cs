@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace University_Application
 {
-    public class Admin : Login
+    public class Admin 
     {
         private static string username = "admin";
         private static string password = "admin123";
+        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
         public List<Professor> professorList = new List<Professor>();
         public List<Student> studentList = new List<Student>();
@@ -21,7 +22,7 @@ namespace University_Application
 
         public Admin()
         {
-            this.readFiles();
+            this.readDatabase();
         }
 
         public string getUsername()
@@ -37,22 +38,22 @@ namespace University_Application
         //check the validity of the username and the password of the admin
         public bool isUsernameAndPasswordValid(string username, string password)
         {
-       
-
-            /* if (username.Equals(this.getUsername()) && password.Equals(this.getPassword()))
+            if (username.Equals(this.getUsername()) && password.Equals(this.getPassword()))
                 return true;
             throw new InvalidLoginInfoException("Username and Password do not match!");
-        */
         }
 
-        public void addProfessor(Professor prof)
+        public void addProfessor(Professor professor)
         {
-            professorList.Add(prof);
+            professorList.Add(professor);
         }
 
-        public void removeProfessor(Professor prof)
+        // DONE
+        public void removeProfessor(Professor professor)
         {
-            string name = prof.Name;
+            professorList.RemoveAt(professorList.IndexOf(professor));
+            removeProfessorFromDatabase(professor);
+            /*string name = prof.Name;
             string surname = prof.Surname;
             for (int i = 0; i < professorList.Count; i++)
             {
@@ -79,23 +80,75 @@ namespace University_Application
                     coursesList.RemoveAt(j);
                     j--;
                 }
+            }*/
+        }
+
+        public void removeProfessorFromDatabase(Professor professor)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand professorsCoursesTable = new OleDbCommand("DELETE FROM Professors_Courses WHERE Professor_ID = @id", connection))
+                {
+                    professorsCoursesTable.Parameters.AddWithValue("@id", professor.Id);
+                    connection.Open();
+
+                    professorsCoursesTable.ExecuteNonQuery();
+
+                    using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = @id", connection))
+                    {
+                        professorsTable.Parameters.AddWithValue("@id", professor.Id);
+                        int rowsAffected = professorsTable.ExecuteNonQuery();
+                    }
+                }
             }
         }
+
+        // DONE
         public void addStudent(Student stud)
         {
             studentList.Add(stud);
         }
-        public void removeStudent(Student stud)
+
+        public void removeStudent(Student student)
         {
-            for (int i = 0; i < studentList.Count; i++)
+            studentList.RemoveAt(studentList.IndexOf(student));
+            
+            /*for (int i = 0; i < studentList.Count; i++)
             {
-                if (stud.Equals(studentList.ElementAt(i)))
+                if (student.Equals(studentList.ElementAt(i)))
                 {
                     studentList.RemoveAt(i);
                     break;
                 }
+            }*/
+        }
+
+        public void removeStudentFromDatabase(Student student)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                using (OleDbCommand studentsCoursesTable = new OleDbCommand("DELETE FROM Students_Courses WHERE Student_ID = @id", connection))
+                {
+                    studentsCoursesTable.Parameters.AddWithValue("@id", student.Id);
+                    connection.Open();
+
+                    studentsCoursesTable.ExecuteNonQuery();
+
+                    using (OleDbCommand gradesTable = new OleDbCommand("DELETE FROM Grades WHERE Student_ID = @id", connection))
+                    {
+                        gradesTable.Parameters.AddWithValue("@id", student.Id);
+                        gradesTable.ExecuteNonQuery();
+
+                        using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection))
+                        {
+                            studentsTable.Parameters.AddWithValue("@id", student.Id);
+                            int rowsAffected = studentsTable.ExecuteNonQuery();
+                        }
+                    }
+                }
             }
         }
+
         public void addCourse(Course course)
         {
             coursesList.Add(course);
@@ -133,9 +186,16 @@ namespace University_Application
             }
         }
 
-        private void readFiles()
+        private void readDatabase()
         {
+            studentList = new Student().readStudent();
+            coursesList = new Courses().readCourses();
+            /*
+
             string ProffesorInput, StudentInput, CoursesInput;
+            
+
+
 
             StreamReader ProfessorFile = new StreamReader(path[0] + "ProfessorFile.txt");
 
@@ -180,7 +240,7 @@ namespace University_Application
             ProfessorFile.Close();
             StudentFile.Close();
             CoursesFile.Close();
-
+            */
         }
         public void writeFiles()
         {
