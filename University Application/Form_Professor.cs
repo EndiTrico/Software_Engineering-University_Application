@@ -30,7 +30,7 @@ namespace University_Application
             richTextBox1.Clear();
             if (comboBox_Course.SelectedIndex != -1)
             {
-                List<Double> scores = Professor.getRecentProfessor().getScores();
+                List<int> scores = Professor.getRecentProfessor().getScores();
                 List<Student> students = Professor.getRecentProfessor().getStudents();
 
                 if (scores.Count == 0)
@@ -57,7 +57,7 @@ namespace University_Application
             if (comboBox_Course.SelectedIndex != -1)
             {
 
-                List<Double> scores = Professor.getRecentProfessor().getScores();
+                List<int> scores = Professor.getRecentProfessor().getScores();
                 List<Student> students = Professor.getRecentProfessor().getStudents();
 
                 if (scores.Count == 0)
@@ -136,7 +136,7 @@ namespace University_Application
             richTextBox1.Clear();
             if (comboBox_Course.SelectedIndex != -1)
             {
-                List<Double> scores = Professor.getRecentProfessor().getScores();
+                List<int> scores = Professor.getRecentProfessor().getScores();
                 List<Student> students = Professor.getRecentProfessor().getStudents();
 
                 if (scores.Count == 0)

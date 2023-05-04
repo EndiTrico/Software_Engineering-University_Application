@@ -155,11 +155,17 @@
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Professor.resx">
+      <DependentUpon>Form_Professor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Splash.resx">
       <DependentUpon>Form_Splash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Student.resx">
       <DependentUpon>Form_Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Welcome.resx">
+      <DependentUpon>Form_Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

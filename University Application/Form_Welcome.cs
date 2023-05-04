@@ -31,7 +31,7 @@ namespace University_Application
                 try
                 {
                     ctlMDI = (MdiClient)ctl;
-                    ctlMDI.BackColor = Color.FromArgb(255, 249, 155, 29);
+                    ctlMDI.BackColor = Color.WhiteSmoke;
                     menuStrip1.Enabled = true;
                 }
                 catch (InvalidCastException ex)

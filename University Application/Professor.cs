@@ -10,6 +10,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using University_Application;
 using System.Data.OleDb;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace University_Application
 {
@@ -59,11 +60,11 @@ namespace University_Application
                 con.Open();
             }
 
-            String sql = "SELECT * FROM Courses WHERE Course_Id IN (SELECT Course_Id from Professors_Courses WHERE Professor_Id = ?)";
+            string sql = "SELECT * FROM Courses WHERE Course_ID IN (SELECT Course_ID from Professors_Courses WHERE Professor_ID = ?)";
 
             OleDbCommand cmd = new OleDbCommand(sql, con);
             OleDbParameterCollection paramCollection = cmd.Parameters;
-            paramCollection.Add(new OleDbParameter("Professor_Id", this.Id));
+            paramCollection.Add(new OleDbParameter("Professor_ID", this.Id));
 
             using (OleDbDataReader courseReader = cmd.ExecuteReader())
             {
@@ -73,7 +74,7 @@ namespace University_Application
                 {
                     while (courseReader.Read())
                     {
-                        coursesIds.Add(courseReader["Course_Id"].ToString());
+                        coursesIds.Add(courseReader["Course_ID"].ToString());
                         courses.Add(courseReader["Course_Name"].ToString());
                     }
 
@@ -100,19 +101,15 @@ namespace University_Application
             paramCollection.Add(new OleDbParameter("Password", password));
 
             OleDbDataReader reader = cmd.ExecuteReader();
-            
-
 
                 if (reader.HasRows)
                 {
                     return reader;
-
                 }
                 else
                 {
                     throw new InvalidLoginInfoException("Username and Password do not match!");
-                }
-            
+                } 
         }
 
         // method to get the most recently logged professor
@@ -164,9 +161,9 @@ namespace University_Application
 
 
         // method to get all the scores of a professor's course
-        public List<Double> getScores()
+        public List<int> getScores()
         {
-            List<Double> gradeList = new List<Double>();
+            List<int> gradeList = new List<int>();
 
             foreach (Grades grades in getGrades())
             {
@@ -181,29 +178,41 @@ namespace University_Application
             if (data.Length == 0)
                 throw new InvalidInputException("You did not enter any grades!\nThe format is: STUDENTID,GRADE");
 
-         
-
                 foreach (string grade in data)
                 {
                     var inputs = grade.Split(',');
 
+                if (inputs.Length != 2)
+                        throw new InvalidInputException("The input given was not correctly written!\nThe format is: STUDENTID,GRADE");
+
+                 if (getStudentFromID(Convert.ToInt32(inputs[0])) == null)
+                        throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
+
                 OleDbConnection con = new OleDbConnection(connection);
-               
+
                 if (con.State != System.Data.ConnectionState.Open)
                 {
                     con.Open();
                 }
+                OleDbCommand command = new OleDbCommand("select count(*) from Grades where Student_ID = ? AND Course_ID = ?", con);
+                
+                OleDbParameterCollection paramCollection = command.Parameters;
+                paramCollection.Add(new OleDbParameter("Student_ID", inputs[0]));
+                paramCollection.Add(new OleDbParameter("Course_ID", activeCourseId));
+                int result = Convert.ToInt32(command.ExecuteScalar());
 
+                string sql;
+                if (result == 0) {
+                     sql = "INSERT INTO Grades (Grade_Score, Student_ID, Course_ID) VALUES (?, ?, ?)";   
+                } else {
+                    sql = "UPDATE Grades SET Grade_Score = ? WHERE Student_ID = ? AND Course_ID = ?";
+                }
 
-                if (inputs.Length != 2)
-                        throw new InvalidInputException("The input given was not correctly written!\nThe format is: STUDENTID,GRADE");
-
-                    if (getStudentFromID(Convert.ToInt32(inputs[0])) == null)
-                        throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
-
-                String sql = "INSERT INTO Grades(Student_ID, Course_ID, Grade_Score) VALUES ("+inputs[0]+","+activeCourseId+","+ inputs[1]+")";
                 OleDbCommand cmd = new OleDbCommand(sql, con);
-                OleDbDataReader reader = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("@Grade_Score", inputs[1]);
+                cmd.Parameters.AddWithValue("@Student_ID", inputs[0]);
+                cmd.Parameters.AddWithValue("@Course_ID", activeCourseId);
+                cmd.ExecuteNonQuery();
             }
 
         }
@@ -287,7 +296,7 @@ namespace University_Application
         // method to get the minimum grade of a professor's course
         public double showMinGrade()
         {
-            List<Double> gradeList = getScores();
+            List<int> gradeList = getScores();
 
             double min = gradeList.ElementAt(0);
 
@@ -306,7 +315,7 @@ namespace University_Application
 
         public double showMaxGrade()
         {
-            List<Double> gradeList = getScores();
+            List<int> gradeList = getScores();
 
             double max = gradeList.ElementAt(0);
             for (int i = 1; i < gradeList.Count; i++)
@@ -324,13 +333,13 @@ namespace University_Application
 
         public double showAverage()
         {
-            List<Double> gradeList = getScores();
+            List<int> gradeList = getScores();
 
             double total = 0.0;
             if (gradeList.Count == 0)
                 return total;
 
-            foreach (Double grade in gradeList)
+            foreach (int grade in gradeList)
                 total += grade;
 
             return total / gradeList.Count;
@@ -396,20 +405,20 @@ namespace University_Application
 
                 OleDbCommand professorCoursesTable = new OleDbCommand
                 ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", con);
-                    OleDbParameterCollection paramCollection = professorCoursesTable.Parameters;
-                    paramCollection.Add(new OleDbParameter("Professor_ID", professorId));
-                    OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
+                    
+                OleDbParameterCollection paramCollection = professorCoursesTable.Parameters;
+                paramCollection.Add(new OleDbParameter("Professor_ID", professorId));
+                OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
 
-                int table_courseID;
                 while (readerProfessorCoursesTable.Read())
                 {
-                    table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
+                    int table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
 
                     OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", con);
-                        OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
-                        coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
-                        OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-                        readerCoursesTable.Read();
+                    OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
+                    coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
+                    OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
+                    readerCoursesTable.Read();
                         prof.Courses.Add(readerCoursesTable["Course_Name"].ToString());
                     readerCoursesTable.Close();
                 }
@@ -419,7 +428,6 @@ namespace University_Application
 
             reader.Close();
             con.Close();
-
             return professors;
         }
 

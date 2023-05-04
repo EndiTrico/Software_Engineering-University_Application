@@ -89,9 +89,9 @@ namespace University_Application
             this.button_Continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Continue.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
             this.button_Continue.ForeColor = System.Drawing.Color.Snow;
-            this.button_Continue.Location = new System.Drawing.Point(137, 142);
+            this.button_Continue.Location = new System.Drawing.Point(123, 154);
             this.button_Continue.Name = "button_Continue";
-            this.button_Continue.Size = new System.Drawing.Size(114, 35);
+            this.button_Continue.Size = new System.Drawing.Size(126, 48);
             this.button_Continue.TabIndex = 6;
             this.button_Continue.Text = "LogIn";
             this.button_Continue.UseVisualStyleBackColor = false;
@@ -102,7 +102,7 @@ namespace University_Application
             this.textBox_Username.AllowDrop = true;
             this.textBox_Username.BackColor = System.Drawing.Color.White;
             this.textBox_Username.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox_Username.Location = new System.Drawing.Point(99, 66);
+            this.textBox_Username.Location = new System.Drawing.Point(117, 66);
             this.textBox_Username.Name = "textBox_Username";
             this.textBox_Username.Size = new System.Drawing.Size(153, 23);
             this.textBox_Username.TabIndex = 10;
@@ -112,7 +112,7 @@ namespace University_Application
             this.CheckBox_Show.AutoSize = true;
             this.CheckBox_Show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CheckBox_Show.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.CheckBox_Show.Location = new System.Drawing.Point(256, 102);
+            this.CheckBox_Show.Location = new System.Drawing.Point(276, 103);
             this.CheckBox_Show.Name = "CheckBox_Show";
             this.CheckBox_Show.Size = new System.Drawing.Size(61, 23);
             this.CheckBox_Show.TabIndex = 15;
@@ -125,7 +125,7 @@ namespace University_Application
             this.textBox_Pass.AllowDrop = true;
             this.textBox_Pass.BackColor = System.Drawing.Color.White;
             this.textBox_Pass.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9F, System.Drawing.FontStyle.Bold);
-            this.textBox_Pass.Location = new System.Drawing.Point(99, 102);
+            this.textBox_Pass.Location = new System.Drawing.Point(117, 102);
             this.textBox_Pass.Name = "textBox_Pass";
             this.textBox_Pass.Size = new System.Drawing.Size(153, 23);
             this.textBox_Pass.TabIndex = 16;
@@ -155,7 +155,7 @@ namespace University_Application
             this.label_Role.BackColor = System.Drawing.Color.Transparent;
             this.label_Role.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
             this.label_Role.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.label_Role.Location = new System.Drawing.Point(169, 8);
+            this.label_Role.Location = new System.Drawing.Point(190, 8);
             this.label_Role.Name = "label_Role";
             this.label_Role.Size = new System.Drawing.Size(80, 40);
             this.label_Role.TabIndex = 21;
@@ -180,9 +180,9 @@ namespace University_Application
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(308, -2);
+            this.panel1.Location = new System.Drawing.Point(343, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(221, 231);
+            this.panel1.Size = new System.Drawing.Size(218, 237);
             this.panel1.TabIndex = 22;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -209,7 +209,7 @@ namespace University_Application
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(525, 200);
+            this.ClientSize = new System.Drawing.Size(558, 235);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label_Role);
             this.Controls.Add(this.button_Back);
