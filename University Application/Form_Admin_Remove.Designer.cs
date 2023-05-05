@@ -1,7 +1,7 @@
 ﻿
 namespace University_Application
 {
-    partial class Form_Admin3
+    partial class Form_Admin_Remove
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin_Remove));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();

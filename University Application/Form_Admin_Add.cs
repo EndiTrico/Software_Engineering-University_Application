@@ -13,12 +13,12 @@ using University_Application;
 
 namespace University_Application
 {
-    public partial class Form_Admin2 : Form
+    public partial class Form_Admin_Add : Form
     {
         Admin admin;
         int index;
 
-        public Form_Admin2(int index, ref Admin admin)
+        public Form_Admin_Add(int index, ref Admin admin)
         {
             InitializeComponent();
             this.admin = admin;
@@ -27,27 +27,30 @@ namespace University_Application
             //fixing the display for different user choice
             if (index == 1)
             {
+                lblWelcome.Text = "Add Professor";
                 label6.Hide();
                 comboBox1.Hide();
-                label1.Text = "First Name: ";
-                label2.Text = "Last Name: ";
-                label3.Text = "Username: ";
-                label4.Text = "Password: ";
+                lblFirstName.Text = "First Name: ";
+                lblLast_Name.Text = "Last Name: ";
+                lbl3.Text = "Username: ";
+                lbl4.Text = "Password: ";
             }
             if (index == 2)
             {
-                label1.Text = "Name: ";
-                label2.Text = "Surname: ";
-                label3.Text = "Username: ";
-                label4.Text = "Password: ";
+                lblWelcome.Text = "Add Student";
+                lblFirstName.Text = "First Name: ";
+                lblLast_Name.Text = "Last Name: ";
+                lbl3.Text = "Username: ";
+                lbl4.Text = "Password: ";
                 label6.Text = "Major: ";
             }
             if (index == 3)
             {
-                label1.Text = "Course Name: ";
-                label2.Text = "Credits: ";
-                label3.Text = "Hours: ";
-                label4.Hide();
+                lblWelcome.Text = "Add Course";
+                lblFirstName.Text = "Course Name: ";
+                lblLast_Name.Text = "Credits: ";
+                lbl3.Text = "Hours: ";
+                lbl4.Hide();
                 label6.Text = "Professor: ";
                 textBox4.Hide();
                 comboBox1.Items.Clear();
@@ -116,9 +119,5 @@ namespace University_Application
             this.Close();
         }
 
-        private void Form_Admin2_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

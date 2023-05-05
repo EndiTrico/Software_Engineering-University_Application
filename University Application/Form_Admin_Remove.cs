@@ -12,11 +12,11 @@ using University_Application;
 
 namespace University_Application
 {
-    public partial class Form_Admin3 : Form
+    public partial class Form_Admin_Remove : Form
     {
         int index;
         Admin admin;
-        public Form_Admin3(int index, ref Admin admin)
+        public Form_Admin_Remove(int index, ref Admin admin)
         {
             InitializeComponent();
             this.index = index;

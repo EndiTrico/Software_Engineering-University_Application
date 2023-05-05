@@ -74,17 +74,17 @@
     <Compile Include="Form_Admin.Designer.cs">
       <DependentUpon>Form_Admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Admin2.cs">
+    <Compile Include="Form_Admin_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Admin2.Designer.cs">
-      <DependentUpon>Form_Admin2.cs</DependentUpon>
+    <Compile Include="Form_Admin_Add.Designer.cs">
+      <DependentUpon>Form_Admin_Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Admin3.cs">
+    <Compile Include="Form_Admin_Remove.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Admin3.Designer.cs">
-      <DependentUpon>Form_Admin3.cs</DependentUpon>
+    <Compile Include="Form_Admin_Remove.Designer.cs">
+      <DependentUpon>Form_Admin_Remove.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Login.cs">
       <SubType>Form</SubType>
@@ -157,8 +157,8 @@
     <EmbeddedResource Include="Form_Admin.resx">
       <DependentUpon>Form_Admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Admin2.resx">
-      <DependentUpon>Form_Admin2.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Admin_Add.resx">
+      <DependentUpon>Form_Admin_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
@@ -229,6 +229,7 @@
     <Content Include="Database_University.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\SUNY_Blue_Logo.png" />
     <None Include="Resources\Empire_State_College_White_Logo.png" />
     <None Include="Resources\SUNY_White_Logo.png" />
     <None Include="Resources\Empire_State_College_Blue_Logo.jpg" />

@@ -50,9 +50,9 @@ namespace University_Application
             this.panel_Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel_Output.Controls.Add(this.richTextBox1);
             this.panel_Output.Controls.Add(this.comboBox_Course);
-            this.panel_Output.Location = new System.Drawing.Point(215, 31);
+            this.panel_Output.Location = new System.Drawing.Point(215, 32);
             this.panel_Output.Name = "panel_Output";
-            this.panel_Output.Size = new System.Drawing.Size(304, 300);
+            this.panel_Output.Size = new System.Drawing.Size(304, 299);
             this.panel_Output.TabIndex = 0;
             // 
             // richTextBox1
