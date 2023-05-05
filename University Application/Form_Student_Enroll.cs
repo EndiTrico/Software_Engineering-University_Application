@@ -38,7 +38,7 @@ namespace University_Application
 
             foreach (string s in new Student().allCoursesExcludingStudentCourses())
             {
-                comboBox1.Items.Add(s);
+                comboBoxChooseCourse.Items.Add(s);
             }
 
         }
@@ -56,7 +56,7 @@ namespace University_Application
 
             foreach (string s in new Student(studentID, name, surname, username, password, major, courses).allCoursesExcludingStudentCourses())
             {
-                comboBox1.Items.Add(s);
+                comboBoxChooseCourse.Items.Add(s);
             }
         }
 
@@ -81,13 +81,13 @@ namespace University_Application
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedIndex == -1)
+            if (comboBoxChooseCourse.SelectedIndex == -1)
             {
                 MessageBox.Show("You need to select a course", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                new Student(studentID, name, surname, username, password, major).enroll(comboBox1.Text, StudentID);
+                new Student(studentID, name, surname, username, password, major).enroll(comboBoxChooseCourse.Text, StudentID);
                 MessageBox.Show("The course is added successfully", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form_Student student = new Form_Student(username, password);
                 this.Hide();

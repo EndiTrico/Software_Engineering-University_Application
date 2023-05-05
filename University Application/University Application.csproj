@@ -170,6 +170,12 @@
     <EmbeddedResource Include="Form_Student.resx">
       <DependentUpon>Form_Student.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Student_Drop.resx">
+      <DependentUpon>Form_Student_Drop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Student_Enroll.resx">
+      <DependentUpon>Form_Student_Enroll.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Welcome.resx">
       <DependentUpon>Form_Welcome.cs</DependentUpon>
     </EmbeddedResource>

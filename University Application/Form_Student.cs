@@ -50,7 +50,7 @@ namespace University_Application
             this.StudentID = stud.Id;
             this.Major = stud.Major;
             this.Courses = stud.Courses;
-            label1.Text = Name + " " + Surname;
+            lblMyName.Text = Name + " " + Surname;
 
         }
 
@@ -64,7 +64,7 @@ namespace University_Application
             this.StudentID = studentID;
             this.Major = major;
             this.Courses = courses;
-            label1.Text = Name + " " + Surname;
+            lblMyName.Text = Name + " " + Surname;
         }
 
         private void Form_Student_Load(object sender, EventArgs e)
@@ -120,16 +120,16 @@ namespace University_Application
 
         private void button3_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
             List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).showStudentCourses();
 
             if (myCourses.Count != 0)
             {
-                richTextBox1.AppendText("The Courses That I Am Taking Are: " + Environment.NewLine);
+                richTxtBoxResult.AppendText("The Courses That I Am Taking Are: " + Environment.NewLine);
 
                 foreach (string courses in myCourses)
                 {
-                    richTextBox1.AppendText(courses + Environment.NewLine);
+                    richTxtBoxResult.AppendText(courses + Environment.NewLine);
                 }
             }
             else
@@ -149,16 +149,16 @@ namespace University_Application
 
         private void button4_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
             List<string> grades = new Student(studentID, name, surname, username, password, major, courses).showGrades();
 
             if (grades.Count != 0)
             {
-                richTextBox1.AppendText("The Grades of My Courses Are: " + Environment.NewLine);
+                richTxtBoxResult.AppendText("The Grades of My Courses Are: " + Environment.NewLine);
 
                 foreach (string grade in grades)
                 {
-                    richTextBox1.AppendText(grade + Environment.NewLine);
+                    richTxtBoxResult.AppendText(grade + Environment.NewLine);
                 }
             }
             else
@@ -167,17 +167,17 @@ namespace University_Application
 
         private void button5_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
 
             List<string> allCourses = new Student(studentID, name, surname, username, password, major, courses).showAllCourses();
 
             if (allCourses.Count != 0)
             {
-                richTextBox1.AppendText("The Courses in the University Are: " + Environment.NewLine);
+                richTxtBoxResult.AppendText("The Courses in the University Are: " + Environment.NewLine);
 
                 foreach (string course in allCourses)
                 {
-                    richTextBox1.AppendText(course + Environment.NewLine);
+                    richTxtBoxResult.AppendText(course + Environment.NewLine);
                 }
             }
             else
@@ -188,17 +188,17 @@ namespace University_Application
 
         private void button6_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
 
             List<string> allCourses = new Student(studentID, name, surname, username, password, major, courses).showAllCredits();
 
             if (allCourses.Count != 0)
             {
-                richTextBox1.AppendText("Credits of All the Courses are: " + Environment.NewLine);
+                richTxtBoxResult.AppendText("Credits of All the Courses are: " + Environment.NewLine);
 
                 foreach (string course in allCourses)
                 {
-                    richTextBox1.AppendText(course + Environment.NewLine);
+                    richTxtBoxResult.AppendText(course + Environment.NewLine);
                 }
             }
             else
@@ -207,17 +207,17 @@ namespace University_Application
 
         private void button7_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
 
             List<string> myCoursesCredits = new Student(studentID, name, surname, username, password, major, courses).showStudentCredits();
 
             if (myCoursesCredits.Count != 0)
             {
-                richTextBox1.AppendText("Credits of My Courses are: " + Environment.NewLine);
+                richTxtBoxResult.AppendText("Credits of My Courses are: " + Environment.NewLine);
 
                 foreach (string credit in myCoursesCredits)
                 {
-                    richTextBox1.AppendText(credit + Environment.NewLine);
+                    richTxtBoxResult.AppendText(credit + Environment.NewLine);
                 }
             }
             else
@@ -226,7 +226,7 @@ namespace University_Application
 
         private void button8_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
+            richTxtBoxResult.Clear();
 
 
             if (new Student(studentID, name, surname, username, password, major, courses).showGPA() == -1)
@@ -234,7 +234,7 @@ namespace University_Application
                 MessageBox.Show("There is not any grade to calculate", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
-                richTextBox1.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
+                richTxtBoxResult.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
 
         }
 

@@ -243,13 +243,13 @@ namespace University_Application
                 connection.Open();
 
                 string excludedCourseNameString = string.Join(",", Courses.Select(x => $"'{x}'"));
-                OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
+                OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
 
                 using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
                 {
                     while (readerCoursesTable.Read())
                     {
-                        availableCourses.Add(readerCoursesTable.GetString(0));
+                        availableCourses.Add(readerCoursesTable["Course_Name"].ToString());
                     }
                 }
             }
@@ -265,22 +265,30 @@ namespace University_Application
         // DONE
         public List<string> showStudentCredits()
         {
-            List<string> credits = new List<string>();
+            List<string> myCredits = new List<string>();
 
-            foreach (Courses course in new Courses().readCourses())
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                foreach (string mycourse in Courses)
+                connection.Open();
+
+                OleDbCommand command = new OleDbCommand(@"SELECT c.Course_Name, c.Credits FROM Courses c 
+                INNER JOIN Students_Courses sc ON c.Course_ID = sc.Course_ID WHERE sc.Student_ID = @StudentID", connection);
+                command.Parameters.AddWithValue("@StudentID", Id);
+
+                using (OleDbDataReader reader = command.ExecuteReader())
                 {
-                    if (course.CourseName.Equals(mycourse))
-                        credits.Add(course.CourseName + " - " + course.Credits + " credits");
+                    while (reader.Read())
+                    {
+                        myCredits.Add(reader["Course_Name"].ToString() + " - " + reader["Credits"].ToString() + " credits");
+                    }
                 }
             }
-            return credits;
+            return myCredits;
         }
 
         // DONE
         public List<string> showAllCredits()
-        {
+        {    
             List<string> allCourses = new List<string>();
 
             foreach (Courses course in new Courses().readCourses())
