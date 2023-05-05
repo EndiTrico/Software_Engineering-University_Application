@@ -160,6 +160,9 @@
     <EmbeddedResource Include="Form_Admin_Add.resx">
       <DependentUpon>Form_Admin_Add.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Admin_Remove.resx">
+      <DependentUpon>Form_Admin_Remove.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
     </EmbeddedResource>

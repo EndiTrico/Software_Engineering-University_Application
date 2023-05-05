@@ -10,7 +10,7 @@ namespace University_Application
 {
     public class Courses
     {
-        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
+        private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
         int id;
         string courseName;
@@ -65,27 +65,6 @@ namespace University_Application
             connection.Close();
 
             return coursesList;
-            /*List<Courses> list = new List<Courses>();
-
-            string[] path1 = Environment.CurrentDirectory.Split(new string[] { "bin" }, StringSplitOptions.None);
-
-            StreamReader reader = new StreamReader(path1[0] + "CoursesFile.txt");
-
-            while (!reader.EndOfStream)
-            {
-
-                var line = reader.ReadLine();
-                var data = line.Split(',');
-
-                Courses course = new Courses(data[0], data[1], Convert.ToDouble(data[2]), data[3]);
-
-                list.Add(course);
-            }
-
-            reader.Close();
-
-            return list;
-            */
         }
 
         public override string ToString()

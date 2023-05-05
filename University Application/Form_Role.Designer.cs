@@ -75,7 +75,7 @@ namespace University_Application
             this.comboBoxRole.BackColor = System.Drawing.Color.Snow;
             this.comboBoxRole.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxRole.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.comboBoxRole.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRole.FormattingEnabled = true;
             this.comboBoxRole.Items.AddRange(new object[] {
             "Admin",

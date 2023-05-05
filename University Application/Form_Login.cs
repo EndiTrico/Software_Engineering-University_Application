@@ -30,7 +30,7 @@ namespace University_Application
         {
             if (txtBoxPassword.TextLength == 0 || txtBoxUsername.TextLength == 0)
             {
-                MessageBox.Show("You did not enter the required credentials!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Enter Username and Password!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else
@@ -51,7 +51,7 @@ namespace University_Application
                     }
                     catch (InvalidLoginInfoException ex)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (number == 1)
@@ -66,7 +66,7 @@ namespace University_Application
                     }
                     catch (InvalidLoginInfoException ex)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (number == 2)
@@ -81,12 +81,12 @@ namespace University_Application
                     }
                     catch (InvalidLoginInfoException ex)
                     {
-                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
                 else
-                    MessageBox.Show("Something is wrong!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Something is Wrong!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -122,7 +122,7 @@ namespace University_Application
 
             }
             else
-                lblRole.Text = "Error";
+                lblRole.Text = "Error Message";
 
 
         }

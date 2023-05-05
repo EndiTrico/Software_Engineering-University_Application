@@ -51,15 +51,15 @@ namespace University_Application
                     connection.Open();
                 }
 
-                    using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professors ([First_Name], [Last_Name], [Username], [Password]) VALUES (?, ?, ?, ?)", connection))
-                    {
-                        professorTable.Parameters.AddWithValue("@a", professor.Name);
-                        professorTable.Parameters.AddWithValue("@b", professor.Surname);
-                        professorTable.Parameters.AddWithValue("@c", professor.Username);
-                        professorTable.Parameters.AddWithValue("@d", professor.Password);
+                using (OleDbCommand professorTable = new OleDbCommand("INSERT INTO Professors ([First_Name], [Last_Name], [Username], [Password]) VALUES (?, ?, ?, ?)", connection))
+                {
+                    professorTable.Parameters.AddWithValue("@a", professor.Name);
+                    professorTable.Parameters.AddWithValue("@b", professor.Surname);
+                    professorTable.Parameters.AddWithValue("@c", professor.Username);
+                    professorTable.Parameters.AddWithValue("@d", professor.Password);
 
-                        int rowsAffected = professorTable.ExecuteNonQuery();
-                    }
+                    int rowsAffected = professorTable.ExecuteNonQuery();
+                }
             }
             readDatabase();
         }
@@ -75,43 +75,12 @@ namespace University_Application
                 {
                     connection.Open();
                 }
-                    using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = ?", connection))
-                    {
-                        professorsTable.Parameters.AddWithValue("@id", professor.Id);
-                        int rowsAffected = professorsTable.ExecuteNonQuery();
-                    }
-                
-            }
-
-
-            /*string name = prof.Name;
-            string surname = prof.Surname;
-            for (int i = 0; i < professorList.Count; i++)
-            {
-                if (prof.Equals(professorList.ElementAt(i)))
+                using (OleDbCommand professorsTable = new OleDbCommand("DELETE FROM Professors WHERE Professor_ID = ?", connection))
                 {
-                    professorList.RemoveAt(i);
+                    professorsTable.Parameters.AddWithValue("@id", professor.Id);
+                    int rowsAffected = professorsTable.ExecuteNonQuery();
                 }
             }
-            for (int j = 0; j < coursesList.Count; j++)
-            {
-                if (coursesList.ElementAt(j).Professor.Equals(name + " " + surname))
-                {
-                    for (int k = 0; k < studentList.Count; k++)
-                    {
-                        if (studentList.ElementAt(k).Courses.Count > 0)
-                        {
-                            for (int x = 0; x < studentList.ElementAt(k).Courses.Count; x++)
-                            {
-                                if (coursesList.ElementAt(j).Subject.Equals(studentList.ElementAt(k).Courses[x]))
-                                    studentList.ElementAt(k).Courses.RemoveAt(x);
-                            }
-                        }
-                    }
-                    coursesList.RemoveAt(j);
-                    j--;
-                }
-            }*/
         }
 
         // DONE
@@ -123,19 +92,17 @@ namespace University_Application
                 {
                     connection.Open();
                 }
-                        using (OleDbCommand studentsTable = new OleDbCommand("INSERT INTO Students ([First_Name], [Last_Name], [Username], [Password], [Major]) VALUES (?, ?, ?, ?, ?)", connection))
-                        {
-                            studentsTable.Parameters.AddWithValue("@a", student.Name);
-                            studentsTable.Parameters.AddWithValue("@b", student.Surname);
-                            studentsTable.Parameters.AddWithValue("@c", student.Username);
-                            studentsTable.Parameters.AddWithValue("@d", student.Password);
-                            studentsTable.Parameters.AddWithValue("@e", student.Major);
+                using (OleDbCommand studentsTable = new OleDbCommand("INSERT INTO Students ([First_Name], [Last_Name], [Username], [Password], [Major]) VALUES (@FirstName, @LastName, @Username, @Password, @Major)", connection))
+                {
+                    studentsTable.Parameters.AddWithValue("@FirstName", student.Name);
+                    studentsTable.Parameters.AddWithValue("@LastName", student.Surname);
+                    studentsTable.Parameters.AddWithValue("@Username", student.Username);
+                    studentsTable.Parameters.AddWithValue("@Password", student.Password);
+                    studentsTable.Parameters.AddWithValue("@Major", student.Major);
 
-                            int rowsAffected = studentsTable.ExecuteNonQuery();
-
-                        }
-                    }
-           
+                    int rowsAffected = studentsTable.ExecuteNonQuery();
+                }
+            }
             readDatabase();
         }
 
@@ -146,25 +113,16 @@ namespace University_Application
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                if(connection.State != System.Data.ConnectionState.Open)
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
                     connection.Open();
                 }
-                using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = ?", connection))
+                using (OleDbCommand studentsTable = new OleDbCommand("DELETE FROM Students WHERE Student_ID = @id", connection))
                 {
                     studentsTable.Parameters.AddWithValue("@id", student.Id);
                     int rowsAffected = studentsTable.ExecuteNonQuery();
                 }
             }
-
-            /*for (int i = 0; i < studentList.Count; i++)
-            {
-                if (student.Equals(studentList.ElementAt(i)))
-                {
-                    studentList.RemoveAt(i);
-                    break;
-                }
-            }*/
         }
 
 
@@ -179,65 +137,58 @@ namespace University_Application
                 {
                     connection.Open();
                 }
-                    using (OleDbCommand coursesTable = new OleDbCommand("INSERT INTO Courses (Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection))
-                    {
-                        coursesTable.Parameters.AddWithValue("@a", course.CourseName);
-                        coursesTable.Parameters.AddWithValue("@b", course.Credits);
-                        coursesTable.Parameters.AddWithValue("@c", course.Hours);
-                        int rowsAffected = coursesTable.ExecuteNonQuery();
-                    }
+                using (OleDbCommand coursesTable = new OleDbCommand("INSERT INTO Courses (Course_Name, Credits, Hours) VALUES (?, ?, ?)", connection))
+                {
+                    coursesTable.Parameters.AddWithValue("@a", course.CourseName);
+                    coursesTable.Parameters.AddWithValue("@b", course.Credits);
+                    coursesTable.Parameters.AddWithValue("@c", course.Hours);
+                    int rowsAffected = coursesTable.ExecuteNonQuery();
+                }
 
-                    using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection))
-                    {
-                        coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
+                using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection))
+                {
+                    coursesTable1.Parameters.AddWithValue("@CourseName", course.CourseName);
 
-                        using (OleDbDataReader reader = coursesTable1.ExecuteReader())
-                        {
+                    using (OleDbDataReader reader = coursesTable1.ExecuteReader())
+                    {
                         reader.Read();
-                            courseId = Convert.ToInt32(reader["Course_ID"].ToString());
-                        }
+                        courseId = Convert.ToInt32(reader["Course_ID"].ToString());
                     }
+                }
 
-                    using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = ?", connection))
+                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = ?", connection))
+                {
+                    professorsTable.Parameters.AddWithValue("@Username", professorUsername);
+
+                    using (OleDbDataReader reader = professorsTable.ExecuteReader())
                     {
-                        professorsTable.Parameters.AddWithValue("@Username", professorUsername);
-
-                        using (OleDbDataReader reader = professorsTable.ExecuteReader())
-                        {
                         reader.Read();
-                            professorId = Convert.ToInt32(reader["Professor_ID"].ToString());
+                        professorId = Convert.ToInt32(reader["Professor_ID"].ToString());
                     }
-                    }
+                }
 
-                    using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
-                    {
-                        professorsStudentsTable.Parameters.AddWithValue("@a", professorId);
-                        professorsStudentsTable.Parameters.AddWithValue("@b", courseId);
+                using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
+                {
+                    professorsStudentsTable.Parameters.AddWithValue("@a", professorId);
+                    professorsStudentsTable.Parameters.AddWithValue("@b", courseId);
 
-                        int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
-                    }
+                    int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
+                }
             }
 
             readDatabase();
-            /*
-            for (int i = 0; i < professorList.Count; i++)
-            {
-                if (course.Professor.Equals(professorList.ElementAt(i).Name + " " + professorList.ElementAt(i).Surname))
-                    professorList.ElementAt(i).Courses.Add(course.Subject);
-            }
-            */
         }
 
         public void removeCourse(Courses course)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                if(connection.State != System.Data.ConnectionState.Open)
+                if (connection.State != System.Data.ConnectionState.Open)
                 {
                     connection.Open();
                 }
 
-                    using (OleDbCommand coursesTable = new OleDbCommand("DELETE FROM Courses WHERE Courses_ID = ?", connection))
+                using (OleDbCommand coursesTable = new OleDbCommand("DELETE FROM Courses WHERE Course_ID = ?", connection))
                 {
                     coursesTable.Parameters.AddWithValue("@id", course.Id);
                     int rowsAffected = coursesTable.ExecuteNonQuery();
@@ -250,86 +201,6 @@ namespace University_Application
             studentList = new Student().readStudents();
             professorList = new Professor().readProfessors();
             coursesList = new Courses().readCourses();
-            /*
-
-            string ProffesorInput, StudentInput, CoursesInput;
-            
-
-
-
-            StreamReader ProfessorFile = new StreamReader(path[0] + "ProfessorFile.txt");
-
-            while ((ProffesorInput = ProfessorFile.ReadLine()) != null)
-            {
-                string[] data = ProffesorInput.Split(',');
-
-                Professor prof = new Professor(data[0], data[1], data[2], data[3]);
-
-                if (data.Length > 4)
-                {
-                    for (int i = 4; i < data.Length; i++)
-                        prof.Courses.Add(data[i]);
-                }
-
-                professorList.Add(prof);
-            }
-
-            StreamReader StudentFile = new StreamReader(path[0] + "StudentFile.txt");
-            while ((StudentInput = StudentFile.ReadLine()) != null)
-            {
-                string[] data = StudentInput.Split(',');
-
-                Student stud = new Student(data[0], data[1], data[2], data[3], data[4], data[5]);
-
-                if (data.Length > 6)
-                {
-                    for (int i = 6; i < data.Length; i++)
-                        stud.Courses.Add(data[i]);
-                }
-                studentList.Add(stud);
-            }
-
-            StreamReader CoursesFile = new StreamReader(path[0] + "CoursesFile.txt");
-            while ((CoursesInput = CoursesFile.ReadLine()) != null)
-            {
-                string[] data = CoursesInput.Split(',');
-                Course course = new Courses(data[0], data[1], Convert.ToDouble(data[2]), data[3]);
-                coursesList.Add(course);
-            }
-
-            ProfessorFile.Close();
-            StudentFile.Close();
-            CoursesFile.Close();
-            */
         }
-        /*
-        public void writeFiles()
-        {
-            using (StreamWriter ProfessorFile = new StreamWriter(path[0] + "ProfessorFile.txt", false))
-            {
-
-                for (int i = 0; i < professorList.Count; i++)
-                {
-                    string profData = professorList.ElementAt(i).ToString();
-                    ProfessorFile.WriteLine(profData);
-                }
-            }
-
-            using (StreamWriter StudentFile = new StreamWriter(path[0] + "StudentFile.txt", false))
-            {
-                for (int i = 0; i < studentList.Count; i++)
-                {
-                    StudentFile.WriteLine(studentList.ElementAt(i).ToString());
-                }
-            }
-
-            using (StreamWriter CoursesFile = new StreamWriter(path[0] + "CoursesFile.txt", false))
-            {
-                for (int i = 0; i < coursesList.Count; i++)
-                {
-                    CoursesFile.WriteLine(coursesList.ElementAt(i).ToString());
-                }
-            }
-        }*/
     }
 }

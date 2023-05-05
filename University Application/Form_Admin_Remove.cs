@@ -24,84 +24,95 @@ namespace University_Application
 
             if (index == 4)
             {
-                this.label1.Text = "Select professor to remove: ";
+                this.lblRemove.Text = "Remove Professor";
+                comboBoxRemove.Text = "Select a Professor to Remove";
                 for (int i = 0; i < admin.professorList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.professorList.ElementAt(i).Name + " " + admin.professorList.ElementAt(i).Surname);
+                    comboBoxRemove.Items.Add(admin.professorList.ElementAt(i).Name + " " + admin.professorList.ElementAt(i).Surname);
                 }
             }
 
             if (index == 5)
             {
-                this.label1.Text = "Select student to remove: ";
+                this.lblRemove.Text = "Remove Student";
+                comboBoxRemove.Text = "Select a Professor to Remove";
                 for (int i = 0; i < admin.studentList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.studentList.ElementAt(i).Name + " " + admin.studentList.ElementAt(i).Surname);
+                    comboBoxRemove.Items.Add(admin.studentList.ElementAt(i).Name + " " + admin.studentList.ElementAt(i).Surname);
                 }
             }
 
             if (index == 6)
             {
-                this.label1.Text = "Select course to remove: ";
+                this.lblRemove.Text = "Remove Course";
+                comboBoxRemove.Text = "Select a Professor to Remove";
                 for (int i = 0; i < admin.coursesList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.coursesList.ElementAt(i).CourseName);
+                    comboBoxRemove.Items.Add(admin.coursesList.ElementAt(i).CourseName);
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
             if (index == 4)
             {
-                if (comboBox1.SelectedItem == null)
+                if (comboBoxRemove.SelectedItem == null)
                 {
-                    MessageBox.Show("Select a professor!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Select a Professor!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    admin.removeProfessor(admin.professorList.ElementAt(comboBox1.SelectedIndex));
-                    MessageBox.Show("Professor removed successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    admin.removeProfessor(admin.professorList.ElementAt(comboBoxRemove.SelectedIndex));
+                    MessageBox.Show("Professor Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin_Form = new Form_Admin();
                     this.Close();
+                    admin_Form.Show();
                 }
             }
             if (index == 5)
             {
-                if (comboBox1.SelectedItem == null)
+                if (comboBoxRemove.SelectedItem == null)
                 {
-                    MessageBox.Show("Select a Student!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Select a Student!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
-                    admin.removeStudent(admin.studentList.ElementAt(comboBox1.SelectedIndex));
-                    MessageBox.Show("Student removed successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    admin.removeStudent(admin.studentList.ElementAt(comboBoxRemove.SelectedIndex));
+                    MessageBox.Show("Student Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin_Form = new Form_Admin();
                     this.Close();
+                    admin_Form.Show();
                 }
             }
             if (index == 6)
             {
-                if (comboBox1.SelectedItem == null)
+                if (comboBoxRemove.SelectedItem == null)
                 {
-                    MessageBox.Show("Select a Course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    admin.removeCourse(admin.coursesList.ElementAt(comboBox1.SelectedIndex));
-                    MessageBox.Show("Course removed successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    admin.removeCourse(admin.coursesList.ElementAt(comboBoxRemove.SelectedIndex));
+                    MessageBox.Show("Course Removed Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin_Form = new Form_Admin();
                     this.Close();
+                    admin_Form.Show();
                 }
             }
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form_Admin admin = new Form_Admin();
+            this.Hide();
+            admin.Show();
         }
     }
 }

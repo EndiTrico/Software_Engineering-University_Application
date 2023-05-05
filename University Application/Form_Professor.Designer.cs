@@ -74,7 +74,7 @@ namespace University_Application
             this.comboBox_Course.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.comboBox_Course.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.comboBox_Course.FormattingEnabled = true;
-            this.comboBox_Course.Location = new System.Drawing.Point(75, 14);
+            this.comboBox_Course.Location = new System.Drawing.Point(82, 14);
             this.comboBox_Course.Name = "comboBox_Course";
             this.comboBox_Course.Size = new System.Drawing.Size(153, 25);
             this.comboBox_Course.TabIndex = 19;
@@ -90,7 +90,7 @@ namespace University_Application
             this.button_Grades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Grades.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_Grades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_Grades.Location = new System.Drawing.Point(15, 38);
+            this.button_Grades.Location = new System.Drawing.Point(10, 39);
             this.button_Grades.Name = "button_Grades";
             this.button_Grades.Size = new System.Drawing.Size(152, 36);
             this.button_Grades.TabIndex = 1;
@@ -138,7 +138,7 @@ namespace University_Application
             this.button_Students.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Students.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_Students.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_Students.Location = new System.Drawing.Point(15, 76);
+            this.button_Students.Location = new System.Drawing.Point(10, 76);
             this.button_Students.Name = "button_Students";
             this.button_Students.Size = new System.Drawing.Size(168, 31);
             this.button_Students.TabIndex = 14;
@@ -156,9 +156,9 @@ namespace University_Application
             this.button_HighestScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_HighestScore.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_HighestScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_HighestScore.Location = new System.Drawing.Point(12, 194);
+            this.button_HighestScore.Location = new System.Drawing.Point(10, 184);
             this.button_HighestScore.Name = "button_HighestScore";
-            this.button_HighestScore.Size = new System.Drawing.Size(189, 50);
+            this.button_HighestScore.Size = new System.Drawing.Size(199, 50);
             this.button_HighestScore.TabIndex = 15;
             this.button_HighestScore.Text = "5. Show student with highest score";
             this.button_HighestScore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -174,9 +174,9 @@ namespace University_Application
             this.button_LowestScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_LowestScore.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_LowestScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_LowestScore.Location = new System.Drawing.Point(10, 240);
+            this.button_LowestScore.Location = new System.Drawing.Point(10, 228);
             this.button_LowestScore.Name = "button_LowestScore";
-            this.button_LowestScore.Size = new System.Drawing.Size(189, 52);
+            this.button_LowestScore.Size = new System.Drawing.Size(199, 52);
             this.button_LowestScore.TabIndex = 16;
             this.button_LowestScore.Text = "6. Show student with lowest score";
             this.button_LowestScore.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -192,9 +192,9 @@ namespace University_Application
             this.button_Average.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Average.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_Average.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_Average.Location = new System.Drawing.Point(12, 150);
+            this.button_Average.Location = new System.Drawing.Point(10, 140);
             this.button_Average.Name = "button_Average";
-            this.button_Average.Size = new System.Drawing.Size(180, 48);
+            this.button_Average.Size = new System.Drawing.Size(199, 48);
             this.button_Average.TabIndex = 17;
             this.button_Average.Text = "4. Show course score average";
             this.button_Average.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -211,9 +211,9 @@ namespace University_Application
             this.button_PassingStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_PassingStudents.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button_PassingStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button_PassingStudents.Location = new System.Drawing.Point(15, 113);
+            this.button_PassingStudents.Location = new System.Drawing.Point(10, 103);
             this.button_PassingStudents.Name = "button_PassingStudents";
-            this.button_PassingStudents.Size = new System.Drawing.Size(186, 41);
+            this.button_PassingStudents.Size = new System.Drawing.Size(194, 41);
             this.button_PassingStudents.TabIndex = 18;
             this.button_PassingStudents.Text = "3. Show passing students";
             this.button_PassingStudents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,7 +247,7 @@ namespace University_Application
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.button1.Location = new System.Drawing.Point(10, 286);
+            this.button1.Location = new System.Drawing.Point(10, 275);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 45);
             this.button1.TabIndex = 20;

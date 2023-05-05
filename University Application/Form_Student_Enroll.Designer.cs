@@ -76,7 +76,7 @@ namespace University_Application
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 34);
             this.btnAdd.TabIndex = 8;
-            this.btnAdd.Text = "ADD";
+            this.btnAdd.Text = "Add";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -120,7 +120,7 @@ namespace University_Application
             // comboBoxChooseCourse
             // 
             this.comboBoxChooseCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxChooseCourse.Font = new System.Drawing.Font("Corbel", 11F, System.Drawing.FontStyle.Bold);
+            this.comboBoxChooseCourse.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseCourse.FormattingEnabled = true;
             this.comboBoxChooseCourse.Location = new System.Drawing.Point(277, 75);
             this.comboBoxChooseCourse.Name = "comboBoxChooseCourse";

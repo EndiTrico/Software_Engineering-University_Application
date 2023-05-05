@@ -80,20 +80,18 @@ namespace University_Application
 
         private void btnDrop_Click(object sender, EventArgs e)
         {
-            Student stud = new Student();
 
             if (comboBoxChooseCourse.SelectedIndex == -1)
             {
-
-                MessageBox.Show("You need to select a course", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Need to Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("The course is dropped successfully.", "Done ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The Course Is Dropped Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 new Student(studentID, name, surname, username, password, major).drop(comboBoxChooseCourse.Text, StudentID);
-                Form_Student student = new Form_Student(username, password);
-                this.Hide();
-                student.Show();
+                Form_Student form_Student = new Form_Student(username, password);
+                this.Close();
+                form_Student.Show();
             }
         }
 

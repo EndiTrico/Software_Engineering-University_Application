@@ -41,7 +41,7 @@ namespace University_Application
         {
             Form_Admin_Add child1 = new Form_Admin_Add(1, ref admin);
             //child1.MdiParent = this;
-
+            this.Hide();
             child1.Show();
         }
 
@@ -49,7 +49,7 @@ namespace University_Application
         {
             Form_Admin_Add child1 = new Form_Admin_Add(2, ref admin);
             //child1.MdiParent = this;
-
+            this.Hide();
             child1.Show();
         }
 
@@ -57,7 +57,7 @@ namespace University_Application
         {
             Form_Admin_Add child1 = new Form_Admin_Add(3, ref admin);
             //child1.MdiParent = this;
-
+            this.Hide();
             child1.Show();
         }
 
@@ -65,7 +65,7 @@ namespace University_Application
         {
             Form_Admin_Remove child1 = new Form_Admin_Remove(4, ref admin);
             //child1.MdiParent = this;
-            
+            this.Hide();
             child1.Show();           
         }
 
@@ -73,7 +73,7 @@ namespace University_Application
         {
             Form_Admin_Remove child1 = new Form_Admin_Remove(5, ref admin);
             //child1.MdiParent = this;
-
+            this.Hide();
             child1.Show();
         }
 
@@ -81,7 +81,7 @@ namespace University_Application
         {
             Form_Admin_Remove child1 = new Form_Admin_Remove(6, ref admin);
             //child1.MdiParent = this;
-
+            this.Hide();
             child1.Show();
         }
     }

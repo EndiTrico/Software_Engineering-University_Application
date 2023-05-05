@@ -105,7 +105,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("You are not registered in any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Are Not Registered in any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -124,7 +124,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("You do not have any grade in the system!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Do Not Have any Grade in the System!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnShowAllCourses_Click(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("The university does not have any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The University Does Not Have any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnShowCreditsOfAllCourses_Click(object sender, EventArgs e)
@@ -162,7 +162,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("The university does not have any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The University Does Not Have any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnShowMyCredits_Click(object sender, EventArgs e)
@@ -181,7 +181,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("The student is not enrolled in any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Student Is Not Enrolled in any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnShowMyGPA_Click(object sender, EventArgs e)
@@ -190,7 +190,7 @@ namespace University_Application
 
             if (new Student(studentID, name, surname, username, password, major, courses).showGPA() == -1)
             {
-                MessageBox.Show("There is not any grade to calculate", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There Is Not Any Grade to Calculate!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 richTxtBoxResult.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);

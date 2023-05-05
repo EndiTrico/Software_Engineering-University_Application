@@ -30,30 +30,33 @@ namespace University_Application
                 lblWelcome.Text = "Add Professor";
                 label6.Hide();
                 comboBox1.Hide();
-                lblFirstName.Text = "First Name: ";
-                lblLast_Name.Text = "Last Name: ";
-                lbl3.Text = "Username: ";
-                lbl4.Text = "Password: ";
+                lblFirstName.Text = "First Name:";
+                lblLast_Name.Text = "Last Name:";
+                lbl3.Text = "Username:";
+                lbl4.Text = "Password:";
             }
             if (index == 2)
             {
                 lblWelcome.Text = "Add Student";
-                lblFirstName.Text = "First Name: ";
-                lblLast_Name.Text = "Last Name: ";
-                lbl3.Text = "Username: ";
-                lbl4.Text = "Password: ";
-                label6.Text = "Major: ";
+                lblFirstName.Text = "First Name:";
+                lblLast_Name.Text = "Last Name:";
+                lbl3.Text = "Username:";
+                lbl4.Text = "Password:";
+                label6.Text = "Major:";
+                comboBox1.Text = "Select a Major";
+
             }
             if (index == 3)
             {
                 lblWelcome.Text = "Add Course";
-                lblFirstName.Text = "Course Name: ";
-                lblLast_Name.Text = "Credits: ";
-                lbl3.Text = "Hours: ";
+                lblFirstName.Text = "Course Name:";
+                lblLast_Name.Text = "Credits:";
+                lbl3.Text = "Hours:";
                 lbl4.Hide();
-                label6.Text = "Professor: ";
+                label6.Text = "Professor:";
                 textBox4.Hide();
                 comboBox1.Items.Clear();
+                comboBox1.Text = "Select a Professor";
                 for (int i = 0; i < admin.professorList.Count; i++)
                 {
                     comboBox1.Items.Add(admin.professorList.ElementAt(i).Username);
@@ -77,47 +80,59 @@ namespace University_Application
             admin.addCourse(course, comboBox1.SelectedItem.ToString());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (index == 1)
             {
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
-                    MessageBox.Show("Input all data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addProfessor();
-                    MessageBox.Show("Professor added successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin = new Form_Admin();
                     this.Close();
+                    admin.Show();
                 }
             }
             if (index == 2)
             {
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || comboBox1.SelectedItem == null)
-                    MessageBox.Show("Input all data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addStudent();
-                    MessageBox.Show("Student added successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin = new Form_Admin();
                     this.Close();
+                    admin.Show();
                 }
             }
             if (index == 3)
             {
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox1.SelectedItem == null)
-                    MessageBox.Show("Input all data!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addCourse();
-                    MessageBox.Show("Course added successfully!", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    Form_Admin admin = new Form_Admin();
                     this.Close();
+                    admin.Show();
                 }
             }
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Form_Admin admin = new Form_Admin();
+            this.Hide();
+            admin.Show();
+        }
     }
 }

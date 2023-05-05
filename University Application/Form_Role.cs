@@ -24,7 +24,7 @@ namespace University_Application
         {
             if (comboBoxRole.SelectedIndex == -1)
             {
-                MessageBox.Show("You have not selected a role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select a Role!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else

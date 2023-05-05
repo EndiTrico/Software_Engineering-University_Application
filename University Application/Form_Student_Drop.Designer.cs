@@ -67,7 +67,7 @@ namespace University_Application
             // 
             this.comboBoxChooseCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxChooseCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxChooseCourse.Font = new System.Drawing.Font("Corbel", 11F, System.Drawing.FontStyle.Bold);
+            this.comboBoxChooseCourse.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxChooseCourse.FormattingEnabled = true;
             this.comboBoxChooseCourse.Location = new System.Drawing.Point(277, 75);
             this.comboBoxChooseCourse.Name = "comboBoxChooseCourse";
@@ -88,7 +88,7 @@ namespace University_Application
             this.btnDrop.Name = "btnDrop";
             this.btnDrop.Size = new System.Drawing.Size(127, 34);
             this.btnDrop.TabIndex = 26;
-            this.btnDrop.Text = "DROP";
+            this.btnDrop.Text = "Drop";
             this.btnDrop.UseVisualStyleBackColor = false;
             this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
             // 

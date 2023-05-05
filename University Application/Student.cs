@@ -109,15 +109,14 @@ namespace University_Application
         // DONE Method to read the Student File
         public List<Student> readStudents()
         {
-
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
                 connection.Open();
 
                 string sql = @"
                 SELECT s.Student_ID, s.First_Name, s.Last_Name, s.Username, s.Password, s.Major, c.Course_Name
-                FROM (Students s INNER JOIN Students_Courses sc ON s.Student_ID = sc.Student_ID)
-                INNER JOIN Courses c ON sc.Course_ID = c.Course_ID";
+                FROM (Students s LEFT JOIN Students_Courses sc ON s.Student_ID = sc.Student_ID)
+                LEFT JOIN Courses c ON sc.Course_ID = c.Course_ID";
 
                 var students = new Dictionary<int, Student>();
 

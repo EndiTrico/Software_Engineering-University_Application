@@ -36,7 +36,7 @@ namespace University_Application
         {
             if (textBox_Input.TextLength == 0)
             {
-                MessageBox.Show("Missing Input!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
@@ -46,12 +46,12 @@ namespace University_Application
                 try
                 {
                     Professor.getRecentProfessor().AddGrades(data);
-                    MessageBox.Show("Grades entered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Grades Entered Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
 
                 catch (InvalidInputException ex)
                 {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

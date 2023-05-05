@@ -35,19 +35,19 @@ namespace University_Application
 
                 if (scores.Count == 0)
                 {
-                    MessageBox.Show("There are no grades in the system for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Grades in the System for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no students for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Students for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 richTextBox1.Text = $"The student with the lowest score is {Professor.getRecentProfessor().showLowestScoringStudent()}.\nThey have a score of {Professor.getRecentProfessor().showMinGrade()}.";
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Have Not Selected a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -62,19 +62,19 @@ namespace University_Application
 
                 if (scores.Count == 0)
                 {
-                    MessageBox.Show("There are no grades in the system for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Grades in the System for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no students for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Students for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 richTextBox1.Text = $"The student with the highest score is {Professor.getRecentProfessor().showHighestScoringStudent()}.\nThey have a score of {Professor.getRecentProfessor().showMaxGrade()}.";
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button_Back_Click(object sender, EventArgs e)
@@ -100,7 +100,7 @@ namespace University_Application
                 form.Show();
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button_Students_Click(object sender, EventArgs e)
@@ -112,14 +112,14 @@ namespace University_Application
 
                 if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no students enrolled for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Students Enrolled for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 foreach (Student student in students)
                     richTextBox1.AppendText(student.Name + " " + student.Surname + "\n");
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
@@ -141,19 +141,19 @@ namespace University_Application
 
                 if (scores.Count == 0)
                 {
-                    MessageBox.Show("There are no grades in the system for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Grades in the System for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no students for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Students for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 richTextBox1.AppendText($"The course score average is {Professor.getRecentProfessor().showAverage():F1}.");
 
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Have Not Selected a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button_PassingStudents_Click(object sender, EventArgs e)
@@ -165,14 +165,14 @@ namespace University_Application
 
                 if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no passing students for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Passing Students for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 foreach (Student student in students)
                     richTextBox1.AppendText(student.Name + " " + student.Surname + "\n");
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("You Have Not Selected a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void button_FailingStudents_Click(object sender, EventArgs e)
@@ -193,14 +193,14 @@ namespace University_Application
 
                 if (students.Count == 0)
                 {
-                    MessageBox.Show("There are no failing students for this course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("There Are No Failing Students for This Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 foreach (Student student in students)
                     richTextBox1.AppendText(student.Name + " " + student.Surname + "\n");
             }
             else
-                MessageBox.Show("You have not selected a course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Select a Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
     }
