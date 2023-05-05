@@ -33,8 +33,6 @@ namespace University_Application
                 label2.Text = "Last Name: ";
                 label3.Text = "Username: ";
                 label4.Text = "Password: ";
-                textBox5.Hide();
-                label5.Hide();
             }
             if (index == 2)
             {
@@ -42,8 +40,6 @@ namespace University_Application
                 label2.Text = "Surname: ";
                 label3.Text = "Username: ";
                 label4.Text = "Password: ";
-                label5.Hide() ;
-                textBox5.Hide();
                 label6.Text = "Major: ";
             }
             if (index == 3)
@@ -52,8 +48,6 @@ namespace University_Application
                 label2.Text = "Credits: ";
                 label3.Text = "Hours: ";
                 label4.Hide();
-                label5.Hide();
-                textBox5.Hide();
                 label6.Text = "Professor: ";
                 textBox4.Hide();
                 comboBox1.Items.Clear();

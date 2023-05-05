@@ -243,13 +243,14 @@ namespace University_Application
                 connection.Open();
 
                 string excludedCourseNameString = string.Join(",", Courses.Select(x => $"'{x}'"));
-                OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
+                OleDbCommand coursesTable = new OleDbCommand($"SELECT Course_Name FROM Courses WHERE Course_Name NOT IN ({excludedCourseNameString})", connection);
 
                 using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
                 {
+
                     while (readerCoursesTable.Read())
                     {
-                        availableCourses.Add(readerCoursesTable["Course_Name"].ToString());
+                        availableCourses.Add(readerCoursesTable.GetString(0));
                     }
                 }
             }
@@ -302,29 +303,90 @@ namespace University_Application
         // DONE
         public double showGPA()
         {
-            double gpa = 0;
+            double[] gradeCredits = new double[2];
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
                 connection.Open();
 
                 OleDbCommand command = new OleDbCommand(
-                    @"SELECT SUM(g.Grade_Score * c.Credits) / SUM(c.Credits) AS GPA
-              FROM Grades g
-              INNER JOIN Courses c ON g.Course_ID = c.Course_ID
-              WHERE g.Student_ID = @StudentID", connection);
+                    @"SELECT g.Grade_Score, c.Credits FROM Grades g
+                    INNER JOIN Courses c ON g.Course_ID = c.Course_ID
+                    WHERE g.Student_ID = @StudentID", connection);
 
                 command.Parameters.AddWithValue("@StudentID", Id);
+                OleDbDataReader gradesReader = command.ExecuteReader();
+                double grade = 0.00;
 
-                object result = command.ExecuteScalar();
-
-                if (result != null && result != DBNull.Value)
+                if (gradesReader.HasRows)
                 {
-                    gpa = Convert.ToDouble(result);
-                }
-            }
+                    while (gradesReader.Read())
+                    {
+                        grade = Convert.ToInt32(gradesReader["Grade_Score"].ToString());
 
-            return Math.Round(gpa, 2);
+                        if (grade < 59.5)
+                        {
+                            grade = 0.00;
+                        }
+                        else if (grade < 62.5)
+                        {
+                            grade = 0.67;
+                        }
+                        else if (grade < 66.5)
+                        {
+                            grade = 1.00;
+                        }
+                        else if (grade < 69.5)
+                        {
+                            grade = 1.33;
+                        }
+                        else if (grade < 72.5)
+                        {
+                            grade = 1.67;
+                        }
+                        else if (grade < 76.5)
+                        {
+                            grade = 2.00;
+                        }
+                        else if (grade < 79.5)
+                        {
+                            grade = 2.33;
+                        }
+                        else if (grade < 82.5)
+                        {
+                            grade = 2.67;
+                        }
+                        else if (grade < 86.5)
+                        {
+                            grade = 3.00;
+                        }
+                        else if (grade < 89.5)
+                        {
+                            grade = 3.33;
+                        }
+                        else if (grade < 95.5)
+                        {
+                            grade = 3.67;
+                        }
+                        else
+                        {
+                            grade = 4.00;
+                        }
+
+                        gradeCredits[0] += grade;
+                        gradeCredits[1] += Convert.ToInt32(gradesReader["Credits"].ToString());
+                    }
+                }
+
+                gradesReader.Close();
+
+                if (gradeCredits[1] != 0)
+                {
+                    return Math.Round(gradeCredits[0] / gradeCredits[1], 2);
+                }
+
+                return -1;
+            }
         }
 
         public override string ToString()

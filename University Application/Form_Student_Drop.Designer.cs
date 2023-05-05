@@ -30,13 +30,13 @@ namespace University_Application
         private void InitializeComponent()
         {
             this.lblDrop = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblCourseName = new System.Windows.Forms.Label();
+            this.comboBoxChooseCourse = new System.Windows.Forms.ComboBox();
+            this.btnDrop = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDrop
@@ -44,58 +44,57 @@ namespace University_Application
             this.lblDrop.AutoSize = true;
             this.lblDrop.BackColor = System.Drawing.Color.Transparent;
             this.lblDrop.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
-            this.lblDrop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.lblDrop.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblDrop.Location = new System.Drawing.Point(254, 9);
             this.lblDrop.Name = "lblDrop";
             this.lblDrop.Size = new System.Drawing.Size(178, 33);
             this.lblDrop.TabIndex = 6;
             this.lblDrop.Text = "Drop a Course";
-            this.lblDrop.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label3
+            // lblCourseName
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.label3.Location = new System.Drawing.Point(148, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 22);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Course Name: ";
+            this.lblCourseName.AutoSize = true;
+            this.lblCourseName.BackColor = System.Drawing.Color.Transparent;
+            this.lblCourseName.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
+            this.lblCourseName.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblCourseName.Location = new System.Drawing.Point(148, 76);
+            this.lblCourseName.Name = "lblCourseName";
+            this.lblCourseName.Size = new System.Drawing.Size(123, 22);
+            this.lblCourseName.TabIndex = 7;
+            this.lblCourseName.Text = "Course Name: ";
             // 
-            // comboBox1
+            // comboBoxChooseCourse
             // 
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Corbel", 11F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(277, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(261, 26);
-            this.comboBox1.TabIndex = 25;
-            this.comboBox1.Text = "Choose a Course";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxChooseCourse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxChooseCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxChooseCourse.Font = new System.Drawing.Font("Corbel", 11F, System.Drawing.FontStyle.Bold);
+            this.comboBoxChooseCourse.FormattingEnabled = true;
+            this.comboBoxChooseCourse.Location = new System.Drawing.Point(277, 75);
+            this.comboBoxChooseCourse.Name = "comboBoxChooseCourse";
+            this.comboBoxChooseCourse.Size = new System.Drawing.Size(261, 26);
+            this.comboBoxChooseCourse.TabIndex = 25;
+            this.comboBoxChooseCourse.Text = "Choose a Course";
+            this.comboBoxChooseCourse.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button1
+            // btnDrop
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Snow;
-            this.button1.Location = new System.Drawing.Point(411, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 34);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "DROP";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnDrop.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnDrop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDrop.FlatAppearance.BorderSize = 0;
+            this.btnDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDrop.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
+            this.btnDrop.ForeColor = System.Drawing.Color.Snow;
+            this.btnDrop.Location = new System.Drawing.Point(411, 135);
+            this.btnDrop.Name = "btnDrop";
+            this.btnDrop.Size = new System.Drawing.Size(127, 34);
+            this.btnDrop.TabIndex = 26;
+            this.btnDrop.Text = "DROP";
+            this.btnDrop.UseVisualStyleBackColor = false;
+            this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -109,11 +108,11 @@ namespace University_Application
             this.btnExit.TabIndex = 27;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.buttonExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnBack.BackColor = System.Drawing.Color.DarkBlue;
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -127,18 +126,18 @@ namespace University_Application
             this.btnBack.TabIndex = 28;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.button_Back_Click);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // pictureBox1
+            // pictureBoxLogo
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.pictureBox1.Image = global::University_Application.Properties.Resources.White_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 191);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.DarkBlue;
+            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.White_Logo;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(142, 191);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxLogo.TabIndex = 30;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Form_Student_Drop
             // 
@@ -148,17 +147,17 @@ namespace University_Application
             this.ClientSize = new System.Drawing.Size(574, 190);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.btnDrop);
+            this.Controls.Add(this.comboBoxChooseCourse);
+            this.Controls.Add(this.lblCourseName);
             this.Controls.Add(this.lblDrop);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Student_Drop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Student_Drop";
             this.Load += new System.EventHandler(this.Form_Student_Drop_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,11 +165,11 @@ namespace University_Application
 
         #endregion
         private System.Windows.Forms.Label lblDrop;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblCourseName;
+        private System.Windows.Forms.ComboBox comboBoxChooseCourse;
+        private System.Windows.Forms.Button btnDrop;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }

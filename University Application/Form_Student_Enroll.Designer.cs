@@ -44,20 +44,19 @@ namespace University_Application
             this.lblEnroll.AutoSize = true;
             this.lblEnroll.BackColor = System.Drawing.Color.Transparent;
             this.lblEnroll.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
-            this.lblEnroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.lblEnroll.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblEnroll.Location = new System.Drawing.Point(254, 9);
             this.lblEnroll.Name = "lblEnroll";
             this.lblEnroll.Size = new System.Drawing.Size(216, 33);
             this.lblEnroll.TabIndex = 5;
             this.lblEnroll.Text = "Enroll in a Course";
-            this.lblEnroll.Click += new System.EventHandler(this.label2_Click);
             // 
             // lblCourseName
             // 
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.BackColor = System.Drawing.Color.Transparent;
             this.lblCourseName.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.lblCourseName.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblCourseName.Location = new System.Drawing.Point(148, 76);
             this.lblCourseName.Name = "lblCourseName";
             this.lblCourseName.Size = new System.Drawing.Size(123, 22);
@@ -66,7 +65,7 @@ namespace University_Application
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnAdd.BackColor = System.Drawing.Color.DarkBlue;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Snow;
@@ -80,11 +79,11 @@ namespace University_Application
             this.btnAdd.Text = "ADD";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -98,11 +97,11 @@ namespace University_Application
             this.btnExit.TabIndex = 22;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.buttonExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnBack.BackColor = System.Drawing.Color.DarkBlue;
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -116,7 +115,7 @@ namespace University_Application
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.button_Back_Click);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // comboBoxChooseCourse
             // 
@@ -129,11 +128,10 @@ namespace University_Application
             this.comboBoxChooseCourse.TabIndex = 24;
             this.comboBoxChooseCourse.Tag = "";
             this.comboBoxChooseCourse.Text = "Choose a Course";
-            this.comboBoxChooseCourse.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.DarkBlue;
             this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.White_Logo;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";

@@ -37,8 +37,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonExit = new System.Windows.Forms.Button();
@@ -148,28 +146,6 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "label4";
             // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Yu Gothic", 12F);
-            this.textBox5.ForeColor = System.Drawing.Color.MediumBlue;
-            this.textBox5.Location = new System.Drawing.Point(156, 180);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(226, 33);
-            this.textBox5.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.DarkBlue;
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Yu Gothic", 12F);
-            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(21, 191);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 23);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "label5";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -177,7 +153,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Yu Gothic", 12F);
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(21, 226);
+            this.label6.Location = new System.Drawing.Point(21, 189);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 23);
             this.label6.TabIndex = 11;
@@ -189,7 +165,6 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(0, -1);
@@ -234,7 +209,7 @@
             "Computer Science",
             "Information Systems",
             "Telecommunication and Network Engineering"});
-            this.comboBox1.Location = new System.Drawing.Point(156, 219);
+            this.comboBox1.Location = new System.Drawing.Point(156, 184);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(226, 29);
             this.comboBox1.TabIndex = 16;
@@ -247,7 +222,6 @@
             this.ClientSize = new System.Drawing.Size(464, 307);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonExit);
-            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -277,8 +251,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonExit;

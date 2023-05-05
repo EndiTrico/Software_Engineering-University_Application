@@ -29,130 +29,125 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblSelectRole = new System.Windows.Forms.Label();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.comboBoxRole = new System.Windows.Forms.ComboBox();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblEmpire = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblSelectRole
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(10, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 24);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Select a Role: ";
+            this.lblSelectRole.AutoSize = true;
+            this.lblSelectRole.BackColor = System.Drawing.Color.Transparent;
+            this.lblSelectRole.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
+            this.lblSelectRole.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblSelectRole.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblSelectRole.Location = new System.Drawing.Point(12, 129);
+            this.lblSelectRole.Name = "lblSelectRole";
+            this.lblSelectRole.Size = new System.Drawing.Size(131, 24);
+            this.lblSelectRole.TabIndex = 7;
+            this.lblSelectRole.Text = "Select a Role: ";
             // 
-            // button1
+            // btnContinue
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.Snow;
-            this.button1.Location = new System.Drawing.Point(317, 162);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 38);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Continue";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnContinue.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnContinue.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinue.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
+            this.btnContinue.ForeColor = System.Drawing.Color.Snow;
+            this.btnContinue.Location = new System.Drawing.Point(317, 160);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(160, 38);
+            this.btnContinue.TabIndex = 8;
+            this.btnContinue.Text = "Continue";
+            this.btnContinue.UseVisualStyleBackColor = false;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
-            // comboBox1
+            // comboBoxRole
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.Snow;
-            this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxRole.BackColor = System.Drawing.Color.Snow;
+            this.comboBoxRole.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBoxRole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxRole.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
+            this.comboBoxRole.FormattingEnabled = true;
+            this.comboBoxRole.Items.AddRange(new object[] {
             "Admin",
             "Professor",
             "Student"});
-            this.comboBox1.Location = new System.Drawing.Point(166, 127);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(133, 26);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Text = "Choose a Role";
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBoxRole.Location = new System.Drawing.Point(149, 127);
+            this.comboBoxRole.Name = "comboBoxRole";
+            this.comboBoxRole.Size = new System.Drawing.Size(133, 26);
+            this.comboBoxRole.TabIndex = 3;
+            this.comboBoxRole.Text = "Choose a Role";
             // 
-            // pictureBox1
+            // pictureBoxLogo
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(322, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 115);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.Empire_State_College_logo;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(317, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(160, 113);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 9;
+            this.pictureBoxLogo.TabStop = false;
             // 
-            // label2
+            // lblWelcome
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(10, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(280, 40);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Welcome to SUNY";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
+            this.lblWelcome.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
+            this.lblWelcome.ForeColor = System.Drawing.Color.Snow;
+            this.lblWelcome.Location = new System.Drawing.Point(7, 9);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(280, 40);
+            this.lblWelcome.TabIndex = 10;
+            this.lblWelcome.Text = "Welcome to SUNY";
             // 
-            // label3
+            // lblEmpire
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(10, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(315, 40);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Empire State College";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.lblEmpire.AutoSize = true;
+            this.lblEmpire.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmpire.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
+            this.lblEmpire.ForeColor = System.Drawing.Color.Snow;
+            this.lblEmpire.Location = new System.Drawing.Point(7, 49);
+            this.lblEmpire.Name = "lblEmpire";
+            this.lblEmpire.Size = new System.Drawing.Size(315, 40);
+            this.lblEmpire.TabIndex = 11;
+            this.lblEmpire.Text = "Empire State College";
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.buttonExit);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.Controls.Add(this.btnExit);
+            this.panel1.Controls.Add(this.lblEmpire);
+            this.panel1.Controls.Add(this.lblWelcome);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(517, 93);
             this.panel1.TabIndex = 12;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // buttonExit
+            // btnExit
             // 
-            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonExit.FlatAppearance.BorderSize = 0;
-            this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
-            this.buttonExit.ForeColor = System.Drawing.Color.Snow;
-            this.buttonExit.Location = new System.Drawing.Point(477, 0);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(40, 29);
-            this.buttonExit.TabIndex = 13;
-            this.buttonExit.Text = "X";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
+            this.btnExit.ForeColor = System.Drawing.Color.Snow;
+            this.btnExit.Location = new System.Drawing.Point(477, 0);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(40, 29);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "X";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form_Role
             // 
@@ -160,16 +155,17 @@ namespace University_Application
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(516, 226);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxRole);
+            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.lblSelectRole);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Location = new System.Drawing.Point(276, 91);
             this.Name = "Form_Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Select_Role";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -178,13 +174,13 @@ namespace University_Application
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblSelectRole;
+        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.ComboBox comboBoxRole;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblEmpire;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonExit;
+        private System.Windows.Forms.Button btnExit;
     }
 }

@@ -39,7 +39,7 @@ namespace University_Application
 
             foreach (string s in stud.showStudentCourses())
             {
-                comboBox1.Items.Add(s);
+                comboBoxChooseCourse.Items.Add(s);
             }
 
         }
@@ -57,23 +57,18 @@ namespace University_Application
 
             foreach (string s in new Student(studentID, name, surname, username, password, major, courses).showStudentCourses())
             {
-                comboBox1.Items.Add(s);
+                comboBoxChooseCourse.Items.Add(s);
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void button_Back_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             Form_Student student = new Form_Student(studentID, name, surname, username, password, major, courses);
             this.Hide();
             student.Show();
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -83,11 +78,11 @@ namespace University_Application
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDrop_Click(object sender, EventArgs e)
         {
             Student stud = new Student();
 
-            if (comboBox1.SelectedIndex == -1)
+            if (comboBoxChooseCourse.SelectedIndex == -1)
             {
 
                 MessageBox.Show("You need to select a course", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -95,31 +90,10 @@ namespace University_Application
             else
             {
                 MessageBox.Show("The course is dropped successfully.", "Done ", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new Student(studentID, name, surname, username, password, major).drop(comboBox1.Text, StudentID);
+                new Student(studentID, name, surname, username, password, major).drop(comboBoxChooseCourse.Text, StudentID);
                 Form_Student student = new Form_Student(username, password);
                 this.Hide();
                 student.Show();
-            }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            using (LinearGradientBrush brush = new LinearGradientBrush(this.ClientRectangle,
-                                                                       Color.WhiteSmoke,
-                                                                       Color.WhiteSmoke,
-                                                                       135F))
-            {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
             }
         }
 

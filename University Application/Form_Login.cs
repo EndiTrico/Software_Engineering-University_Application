@@ -26,16 +26,9 @@ namespace University_Application
             InitializeComponent();
         }
 
-        private void checkBox_Show_Hide_ChangedChecked(Object sender, EventArgs e)
+        private void btnLogIn_Click(object sender, EventArgs e)
         {
-
-
-        }
-
-
-        private void button_Continue_Click(object sender, EventArgs e)
-        {
-            if (textBox_Pass.TextLength == 0 || textBox_Username.TextLength == 0)
+            if (txtBoxPassword.TextLength == 0 || txtBoxUsername.TextLength == 0)
             {
                 MessageBox.Show("You did not enter the required credentials!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -49,7 +42,7 @@ namespace University_Application
                     {
                         Admin admin = new Admin();
 
-                        if (admin.isUsernameAndPasswordValid(textBox_Username.Text, textBox_Pass.Text))
+                        if (admin.isUsernameAndPasswordValid(txtBoxUsername.Text, txtBoxPassword.Text))
                         {
                             Form_Admin formAdmin = new Form_Admin();
                             this.Hide();
@@ -65,7 +58,7 @@ namespace University_Application
                 {
                     try
                     {
-                        Professor prof = new Professor(textBox_Username.Text, textBox_Pass.Text);
+                        Professor prof = new Professor(txtBoxUsername.Text, txtBoxPassword.Text);
                         Professor.LoggedProfessors.Add(prof);
                         Form_Professor formProf = new Form_Professor();
                         this.Hide();
@@ -80,9 +73,9 @@ namespace University_Application
                 {
                     try
                     {
-                        Student student = new Student(textBox_Username.Text, textBox_Pass.Text);
+                        Student student = new Student(txtBoxUsername.Text, txtBoxPassword.Text);
 
-                        Form_Student formStud = new Form_Student(textBox_Username.Text, textBox_Pass.Text);
+                        Form_Student formStud = new Form_Student(txtBoxUsername.Text, txtBoxPassword.Text);
                         this.Hide();
                         formStud.Show();
                     }
@@ -97,94 +90,46 @@ namespace University_Application
             }
         }
 
-
-        private void comboBox_Role_SelectedIndexChanged(object sender, EventArgs e)
+        private void CheckBoxShow_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void label_Login_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void textBox_Pass_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Show_CheckedChanged(object sender, EventArgs e)
-        {
-            if (CheckBox_Show.Checked)
-                textBox_Pass.UseSystemPasswordChar = false;
+            if (checkBoxShow.Checked)
+                txtBoxPassword.UseSystemPasswordChar = false;
             else
-                textBox_Pass.UseSystemPasswordChar = true;
+                txtBoxPassword.UseSystemPasswordChar = true;
         }
 
-        private void textBox_Pass_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button_Back_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             Form_Role role = new Form_Role();
             this.Hide();
             role.Show();
         }
 
-        private void label_Role_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label_Role_Name()
         {
             if (number == 0)
             {
-                label_Role.Text = "Admin";
+                lblRole.Text = "Log In as Admin";
             }
             else if (number == 1)
             {
-                label_Role.Text = "Professor";
+                lblRole.Text = "Log In as Professor";
 
             }
             else if (number == 2)
             {
-                label_Role.Text = "Student";
+                lblRole.Text = "Log In as Student";
 
             }
             else
-                label_Role.Text = "Error";
+                lblRole.Text = "Error";
 
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            this.Close();
         }
     }
-
-
 }

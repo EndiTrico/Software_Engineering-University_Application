@@ -22,9 +22,6 @@ namespace University_Application
         private string major;
         private List<string> courses;
 
-        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
-
-
         public new string Name { get => name; set => name = value; }
         public string Surname { get => surname; set => surname = value; }
         public string Username { get => username; set => username = value; }
@@ -42,15 +39,15 @@ namespace University_Application
         {
             InitializeComponent();
 
-            Student stud = new Student(username, password);
-            this.Name = stud.Name;
-            this.Surname = stud.Surname;
-            this.Username = stud.Username;
-            this.Password = stud.Password;
-            this.StudentID = stud.Id;
-            this.Major = stud.Major;
-            this.Courses = stud.Courses;
-            lblMyName.Text = Name + " " + Surname;
+            Student student = new Student(username, password);
+            this.Name = student.Name;
+            this.Surname = student.Surname;
+            this.Username = student.Username;
+            this.Password = student.Password;
+            this.StudentID = student.Id;
+            this.Major = student.Major;
+            this.Courses = student.Courses;
+            lblMyName.Text = "Welcome " + Name + " " + Surname;
 
         }
 
@@ -64,41 +61,21 @@ namespace University_Application
             this.StudentID = studentID;
             this.Major = major;
             this.Courses = courses;
-            lblMyName.Text = Name + " " + Surname;
+            lblMyName.Text = "Welcome " + Name + " " + Surname;
         }
 
-        private void Form_Student_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void btnEnroll_Click(object sender, EventArgs e)
         {
             Form_Student_Enroll form = new Form_Student_Enroll(studentID, name, surname, username, password, major, courses);
             this.Hide();
             form.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnDrop_Click(object sender, EventArgs e)
         {
             Form_Student_Drop form = new Form_Student_Drop(studentID, name, surname, username, password, major, courses);
             this.Hide();
             form.Show();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button_Back_Click(object sender, EventArgs e)
@@ -113,12 +90,7 @@ namespace University_Application
             this.Close();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
+        private void btnShowMyCourses_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
             List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).showStudentCourses();
@@ -137,17 +109,7 @@ namespace University_Application
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
+        private void btnShowMyGrades_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
             List<string> grades = new Student(studentID, name, surname, username, password, major, courses).showGrades();
@@ -165,7 +127,7 @@ namespace University_Application
                 MessageBox.Show("You do not have any grade in the system!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnShowAllCourses_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
 
@@ -182,11 +144,9 @@ namespace University_Application
             }
             else
                 MessageBox.Show("The university does not have any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnShowCreditsOfAllCourses_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
 
@@ -205,7 +165,7 @@ namespace University_Application
                 MessageBox.Show("The university does not have any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void btnShowMyCredits_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
 
@@ -224,10 +184,9 @@ namespace University_Application
                 MessageBox.Show("The student is not enrolled in any course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btnShowMyGPA_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
-
 
             if (new Student(studentID, name, surname, username, password, major, courses).showGPA() == -1)
             {
@@ -235,17 +194,6 @@ namespace University_Application
             }
             else
                 richTxtBoxResult.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

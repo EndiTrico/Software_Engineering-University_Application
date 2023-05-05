@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 namespace University_Application
 {
     partial class Form_Student
@@ -39,7 +41,6 @@ namespace University_Application
             this.richTxtBoxResult = new System.Windows.Forms.RichTextBox();
             this.lblResult = new System.Windows.Forms.Label();
             this.btnShowAllCourses = new System.Windows.Forms.Button();
-            this.lblWelcome = new System.Windows.Forms.Label();
             this.btnShowMyGPA = new System.Windows.Forms.Button();
             this.btnShowMyCredits = new System.Windows.Forms.Button();
             this.btnShowCreditsOfAllCourses = new System.Windows.Forms.Button();
@@ -49,16 +50,15 @@ namespace University_Application
             // 
             // lblMyName
             // 
-            this.lblMyName.AutoSize = true;
             this.lblMyName.BackColor = System.Drawing.Color.Transparent;
             this.lblMyName.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
             this.lblMyName.ForeColor = System.Drawing.Color.Snow;
-            this.lblMyName.Location = new System.Drawing.Point(205, 8);
+            this.lblMyName.Location = new System.Drawing.Point(31, 0);
             this.lblMyName.Name = "lblMyName";
-            this.lblMyName.Size = new System.Drawing.Size(182, 33);
+            this.lblMyName.Size = new System.Drawing.Size(369, 33);
             this.lblMyName.TabIndex = 0;
             this.lblMyName.Text = "Student Menu";
-            this.lblMyName.Click += new System.EventHandler(this.label1_Click);
+            this.lblMyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnEnroll
             // 
@@ -75,7 +75,7 @@ namespace University_Application
             this.btnEnroll.TabIndex = 2;
             this.btnEnroll.Text = "1. Enroll in a Class";
             this.btnEnroll.UseVisualStyleBackColor = false;
-            this.btnEnroll.Click += new System.EventHandler(this.button1_Click);
+            this.btnEnroll.Click += new System.EventHandler(this.btnEnroll_Click);
             // 
             // btnDrop
             // 
@@ -92,7 +92,7 @@ namespace University_Application
             this.btnDrop.TabIndex = 3;
             this.btnDrop.Text = "2. Drop a Class";
             this.btnDrop.UseVisualStyleBackColor = false;
-            this.btnDrop.Click += new System.EventHandler(this.button2_Click);
+            this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
             // 
             // btnShowMyCourses
             // 
@@ -109,7 +109,7 @@ namespace University_Application
             this.btnShowMyCourses.TabIndex = 4;
             this.btnShowMyCourses.Text = "3. Show My Courses";
             this.btnShowMyCourses.UseVisualStyleBackColor = false;
-            this.btnShowMyCourses.Click += new System.EventHandler(this.button3_Click);
+            this.btnShowMyCourses.Click += new System.EventHandler(this.btnShowMyCourses_Click);
             // 
             // btnShowMyGrades
             // 
@@ -126,7 +126,7 @@ namespace University_Application
             this.btnShowMyGrades.TabIndex = 5;
             this.btnShowMyGrades.Text = "4. Show All Your Grades";
             this.btnShowMyGrades.UseVisualStyleBackColor = false;
-            this.btnShowMyGrades.Click += new System.EventHandler(this.button4_Click);
+            this.btnShowMyGrades.Click += new System.EventHandler(this.btnShowMyGrades_Click);
             // 
             // btnBack
             // 
@@ -148,7 +148,7 @@ namespace University_Application
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.btnClose.BackColor = System.Drawing.Color.DarkBlue;
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -172,7 +172,6 @@ namespace University_Application
             this.richTxtBoxResult.Size = new System.Drawing.Size(276, 169);
             this.richTxtBoxResult.TabIndex = 22;
             this.richTxtBoxResult.Text = "";
-            this.richTxtBoxResult.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // lblResult
             // 
@@ -180,13 +179,12 @@ namespace University_Application
             this.lblResult.BackColor = System.Drawing.Color.Transparent;
             this.lblResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblResult.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
-            this.lblResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.lblResult.ForeColor = System.Drawing.Color.DarkBlue;
             this.lblResult.Location = new System.Drawing.Point(524, 45);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(71, 24);
             this.lblResult.TabIndex = 23;
             this.lblResult.Text = "Result:";
-            this.lblResult.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnShowAllCourses
             // 
@@ -203,20 +201,7 @@ namespace University_Application
             this.btnShowAllCourses.TabIndex = 24;
             this.btnShowAllCourses.Text = "5. Show All Courses";
             this.btnShowAllCourses.UseVisualStyleBackColor = false;
-            this.btnShowAllCourses.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // lblWelcome
-            // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.BackColor = System.Drawing.Color.Transparent;
-            this.lblWelcome.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
-            this.lblWelcome.ForeColor = System.Drawing.Color.Snow;
-            this.lblWelcome.Location = new System.Drawing.Point(68, 8);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(124, 33);
-            this.lblWelcome.TabIndex = 25;
-            this.lblWelcome.Text = "Welcome";
-            this.lblWelcome.Click += new System.EventHandler(this.label3_Click);
+            this.btnShowAllCourses.Click += new System.EventHandler(this.btnShowAllCourses_Click);
             // 
             // btnShowMyGPA
             // 
@@ -233,7 +218,7 @@ namespace University_Application
             this.btnShowMyGPA.TabIndex = 31;
             this.btnShowMyGPA.Text = "8. Show My GPA";
             this.btnShowMyGPA.UseVisualStyleBackColor = false;
-            this.btnShowMyGPA.Click += new System.EventHandler(this.button8_Click);
+            this.btnShowMyGPA.Click += new System.EventHandler(this.btnShowMyGPA_Click);
             // 
             // btnShowMyCredits
             // 
@@ -250,7 +235,7 @@ namespace University_Application
             this.btnShowMyCredits.TabIndex = 30;
             this.btnShowMyCredits.Text = "7. Show Credits of My Courses";
             this.btnShowMyCredits.UseVisualStyleBackColor = false;
-            this.btnShowMyCredits.Click += new System.EventHandler(this.button7_Click);
+            this.btnShowMyCredits.Click += new System.EventHandler(this.btnShowMyCredits_Click);
             // 
             // btnShowCreditsOfAllCourses
             // 
@@ -267,19 +252,17 @@ namespace University_Application
             this.btnShowCreditsOfAllCourses.TabIndex = 29;
             this.btnShowCreditsOfAllCourses.Text = "6. Show Credits of All Courses";
             this.btnShowCreditsOfAllCourses.UseVisualStyleBackColor = false;
-            this.btnShowCreditsOfAllCourses.Click += new System.EventHandler(this.button6_Click);
+            this.btnShowCreditsOfAllCourses.Click += new System.EventHandler(this.btnShowCreditsOfAllCourses_Click);
             // 
             // panelBlue
             // 
-            this.panelBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(67)))), ((int)(((byte)(140)))));
+            this.panelBlue.BackColor = System.Drawing.Color.DarkBlue;
             this.panelBlue.Controls.Add(this.lblMyName);
-            this.panelBlue.Controls.Add(this.lblWelcome);
             this.panelBlue.Controls.Add(this.btnBack);
             this.panelBlue.Location = new System.Drawing.Point(0, 0);
             this.panelBlue.Name = "panelBlue";
             this.panelBlue.Size = new System.Drawing.Size(400, 283);
             this.panelBlue.TabIndex = 32;
-            this.panelBlue.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Form_Student
             // 
@@ -303,13 +286,12 @@ namespace University_Application
             this.Name = "Form_Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
-            this.Load += new System.EventHandler(this.Form_Student_Load);
             this.panelBlue.ResumeLayout(false);
-            this.panelBlue.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 
@@ -323,7 +305,6 @@ namespace University_Application
         private System.Windows.Forms.RichTextBox richTxtBoxResult;
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Button btnShowAllCourses;
-        private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Button btnShowMyGPA;
         private System.Windows.Forms.Button btnShowMyCredits;
         private System.Windows.Forms.Button btnShowCreditsOfAllCourses;
