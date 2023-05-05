@@ -38,11 +38,11 @@ namespace University_Application
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblRole = new System.Windows.Forms.Label();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -50,7 +50,7 @@ namespace University_Application
             this.lblUsername.AutoSize = true;
             this.lblUsername.BackColor = System.Drawing.Color.Transparent;
             this.lblUsername.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblUsername.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblUsername.Location = new System.Drawing.Point(10, 66);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(101, 23);
@@ -61,7 +61,7 @@ namespace University_Application
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Font = new System.Drawing.Font("Corbel", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblPassword.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblPassword.Location = new System.Drawing.Point(15, 104);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(96, 23);
@@ -70,7 +70,7 @@ namespace University_Application
             // 
             // btnLogIn
             // 
-            this.btnLogIn.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnLogIn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogIn.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
@@ -98,7 +98,7 @@ namespace University_Application
             this.checkBoxShow.AutoSize = true;
             this.checkBoxShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxShow.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.checkBoxShow.ForeColor = System.Drawing.Color.DarkBlue;
+            this.checkBoxShow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.checkBoxShow.Location = new System.Drawing.Point(276, 105);
             this.checkBoxShow.Name = "checkBoxShow";
             this.checkBoxShow.Size = new System.Drawing.Size(61, 23);
@@ -120,7 +120,7 @@ namespace University_Application
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatAppearance.BorderSize = 0;
@@ -131,7 +131,7 @@ namespace University_Application
             this.btnBack.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.Location = new System.Drawing.Point(0, -2);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 32);
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -141,29 +141,17 @@ namespace University_Application
             // 
             this.lblRole.BackColor = System.Drawing.Color.Transparent;
             this.lblRole.Font = new System.Drawing.Font("Corbel", 24.75F, System.Drawing.FontStyle.Bold);
-            this.lblRole.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblRole.Location = new System.Drawing.Point(39, 1);
+            this.lblRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
+            this.lblRole.Location = new System.Drawing.Point(40, -2);
             this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(305, 40);
+            this.lblRole.Size = new System.Drawing.Size(297, 40);
             this.lblRole.TabIndex = 21;
             this.lblRole.Text = "Role";
             this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.DarkBlue;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.Empire_State_College_logo_removebg_preview__3_;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(-1, 3);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(254, 195);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 13;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.pictureBoxLogo);
             this.panel1.Location = new System.Drawing.Point(343, -2);
@@ -181,13 +169,25 @@ namespace University_Application
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.Snow;
-            this.btnExit.Location = new System.Drawing.Point(213, 3);
+            this.btnExit.Location = new System.Drawing.Point(216, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 29);
+            this.btnExit.Size = new System.Drawing.Size(40, 40);
             this.btnExit.TabIndex = 23;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.Empire_State_College_White_Logo1;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(-1, 3);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(254, 195);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 13;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Form_Login
             // 
@@ -209,8 +209,8 @@ namespace University_Application
             this.Name = "Form_Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "University System";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

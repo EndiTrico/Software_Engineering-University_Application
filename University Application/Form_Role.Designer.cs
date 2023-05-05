@@ -29,16 +29,17 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Role));
             this.lblSelectRole = new System.Windows.Forms.Label();
             this.btnContinue = new System.Windows.Forms.Button();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.lblEmpire = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSelectRole
@@ -46,7 +47,7 @@ namespace University_Application
             this.lblSelectRole.AutoSize = true;
             this.lblSelectRole.BackColor = System.Drawing.Color.Transparent;
             this.lblSelectRole.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
-            this.lblSelectRole.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblSelectRole.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblSelectRole.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblSelectRole.Location = new System.Drawing.Point(12, 129);
             this.lblSelectRole.Name = "lblSelectRole";
@@ -56,7 +57,7 @@ namespace University_Application
             // 
             // btnContinue
             // 
-            this.btnContinue.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnContinue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnContinue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinue.Font = new System.Drawing.Font("Corbel", 18F, System.Drawing.FontStyle.Bold);
@@ -86,16 +87,6 @@ namespace University_Application
             this.comboBoxRole.TabIndex = 3;
             this.comboBoxRole.Text = "Choose a Role";
             // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.Empire_State_College_logo;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(317, 0);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(160, 113);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxLogo.TabIndex = 9;
-            this.pictureBoxLogo.TabStop = false;
-            // 
             // lblWelcome
             // 
             this.lblWelcome.AutoSize = true;
@@ -122,7 +113,7 @@ namespace University_Application
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel1.Controls.Add(this.btnExit);
             this.panel1.Controls.Add(this.lblEmpire);
             this.panel1.Controls.Add(this.lblWelcome);
@@ -143,11 +134,21 @@ namespace University_Application
             this.btnExit.ForeColor = System.Drawing.Color.Snow;
             this.btnExit.Location = new System.Drawing.Point(477, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(40, 29);
+            this.btnExit.Size = new System.Drawing.Size(40, 40);
             this.btnExit.TabIndex = 13;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(317, 0);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(160, 113);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 9;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Form_Role
             // 
@@ -165,9 +166,9 @@ namespace University_Application
             this.Name = "Form_Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Select_Role";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

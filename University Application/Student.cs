@@ -373,7 +373,7 @@ namespace University_Application
                             grade = 4.00;
                         }
 
-                        gradeCredits[0] += grade;
+                        gradeCredits[0] += grade * Convert.ToInt32(gradesReader["Credits"].ToString());
                         gradeCredits[1] += Convert.ToInt32(gradesReader["Credits"].ToString());
                     }
                 }

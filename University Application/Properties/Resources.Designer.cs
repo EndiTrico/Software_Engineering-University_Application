@@ -63,6 +63,16 @@ namespace University_Application.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Empire_State_College_Blue_Logo {
+            get {
+                object obj = ResourceManager.GetObject("Empire_State_College_Blue_Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Empire_State_College_logo {
             get {
                 object obj = ResourceManager.GetObject("Empire_State_College_logo", resourceCulture);
@@ -73,9 +83,9 @@ namespace University_Application.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Empire_State_College_logo_removebg_preview__3_ {
+        internal static System.Drawing.Bitmap Empire_State_College_White_Logo {
             get {
-                object obj = ResourceManager.GetObject("Empire_State_College_logo-removebg-preview (3)", resourceCulture);
+                object obj = ResourceManager.GetObject("Empire_State_College_White_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +93,9 @@ namespace University_Application.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Empire_State_College_logo1 {
+        internal static System.Drawing.Bitmap Empire_State_College_White_Logo1 {
             get {
-                object obj = ResourceManager.GetObject("Empire_State_College_logo1", resourceCulture);
+                object obj = ResourceManager.GetObject("Empire_State_College_White_Logo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,39 +103,9 @@ namespace University_Application.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Icon {
+        internal static System.Drawing.Bitmap SUNY_White_Logo {
             get {
-                object obj = ResourceManager.GetObject("Icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SUNY_Logo_removebg_preview {
-            get {
-                object obj = ResourceManager.GetObject("SUNY_Logo-removebg-preview", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Webp_net_resizeimage__3_ {
-            get {
-                object obj = ResourceManager.GetObject("Webp.net-resizeimage (3)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap White_Logo {
-            get {
-                object obj = ResourceManager.GetObject("White Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("SUNY_White_Logo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

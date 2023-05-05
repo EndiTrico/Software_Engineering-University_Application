@@ -47,7 +47,7 @@ namespace University_Application
             // 
             // panel_Output
             // 
-            this.panel_Output.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel_Output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel_Output.Controls.Add(this.richTextBox1);
             this.panel_Output.Controls.Add(this.comboBox_Course);
             this.panel_Output.Location = new System.Drawing.Point(215, 31);
@@ -72,7 +72,7 @@ namespace University_Application
             // 
             this.comboBox_Course.BackColor = System.Drawing.Color.WhiteSmoke;
             this.comboBox_Course.Font = new System.Drawing.Font("Yu Gothic UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.comboBox_Course.ForeColor = System.Drawing.Color.DarkBlue;
+            this.comboBox_Course.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.comboBox_Course.FormattingEnabled = true;
             this.comboBox_Course.Location = new System.Drawing.Point(75, 14);
             this.comboBox_Course.Name = "comboBox_Course";
@@ -89,7 +89,7 @@ namespace University_Application
             this.button_Grades.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Grades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Grades.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_Grades.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_Grades.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Grades.Location = new System.Drawing.Point(15, 38);
             this.button_Grades.Name = "button_Grades";
             this.button_Grades.Size = new System.Drawing.Size(152, 36);
@@ -108,7 +108,7 @@ namespace University_Application
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Font = new System.Drawing.Font("Lucida Console", 12.75F, System.Drawing.FontStyle.Bold);
-            this.buttonExit.ForeColor = System.Drawing.Color.DarkBlue;
+            this.buttonExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.buttonExit.Location = new System.Drawing.Point(477, 0);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(42, 26);
@@ -121,7 +121,7 @@ namespace University_Application
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Impact", 13F);
-            this.label1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.label1.Location = new System.Drawing.Point(155, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 22);
@@ -137,7 +137,7 @@ namespace University_Application
             this.button_Students.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Students.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Students.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_Students.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_Students.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Students.Location = new System.Drawing.Point(15, 76);
             this.button_Students.Name = "button_Students";
             this.button_Students.Size = new System.Drawing.Size(168, 31);
@@ -155,7 +155,7 @@ namespace University_Application
             this.button_HighestScore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_HighestScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_HighestScore.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_HighestScore.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_HighestScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_HighestScore.Location = new System.Drawing.Point(12, 194);
             this.button_HighestScore.Name = "button_HighestScore";
             this.button_HighestScore.Size = new System.Drawing.Size(189, 50);
@@ -173,7 +173,7 @@ namespace University_Application
             this.button_LowestScore.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_LowestScore.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_LowestScore.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_LowestScore.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_LowestScore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_LowestScore.Location = new System.Drawing.Point(10, 240);
             this.button_LowestScore.Name = "button_LowestScore";
             this.button_LowestScore.Size = new System.Drawing.Size(189, 52);
@@ -191,7 +191,7 @@ namespace University_Application
             this.button_Average.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Average.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Average.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_Average.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_Average.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Average.Location = new System.Drawing.Point(12, 150);
             this.button_Average.Name = "button_Average";
             this.button_Average.Size = new System.Drawing.Size(180, 48);
@@ -210,7 +210,7 @@ namespace University_Application
             this.button_PassingStudents.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_PassingStudents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_PassingStudents.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button_PassingStudents.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_PassingStudents.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_PassingStudents.Location = new System.Drawing.Point(15, 113);
             this.button_PassingStudents.Name = "button_PassingStudents";
             this.button_PassingStudents.Size = new System.Drawing.Size(186, 41);
@@ -229,7 +229,7 @@ namespace University_Application
             this.button_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold);
-            this.button_Back.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_Back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Back.Location = new System.Drawing.Point(0, -3);
             this.button_Back.Name = "button_Back";
             this.button_Back.Size = new System.Drawing.Size(33, 32);
@@ -246,7 +246,7 @@ namespace University_Application
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Yu Gothic UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.button1.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button1.Location = new System.Drawing.Point(10, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 45);

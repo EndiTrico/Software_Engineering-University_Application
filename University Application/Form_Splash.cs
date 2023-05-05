@@ -15,12 +15,8 @@ namespace University_Application
     {
         public Form_Splash()
         {
-
             InitializeComponent();
-
         }
-
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -38,16 +34,6 @@ namespace University_Application
         private void Form_Splash_Load(object sender, EventArgs e)
         {
             timer1.Start();
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

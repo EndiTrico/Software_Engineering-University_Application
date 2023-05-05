@@ -53,7 +53,7 @@ namespace University_Application
             this.lblMyName.BackColor = System.Drawing.Color.Transparent;
             this.lblMyName.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
             this.lblMyName.ForeColor = System.Drawing.Color.Snow;
-            this.lblMyName.Location = new System.Drawing.Point(31, 0);
+            this.lblMyName.Location = new System.Drawing.Point(28, 9);
             this.lblMyName.Name = "lblMyName";
             this.lblMyName.Size = new System.Drawing.Size(369, 33);
             this.lblMyName.TabIndex = 0;
@@ -140,7 +140,7 @@ namespace University_Application
             this.btnBack.ForeColor = System.Drawing.Color.Snow;
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 33);
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
             this.btnBack.TabIndex = 20;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -148,7 +148,7 @@ namespace University_Application
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -156,9 +156,9 @@ namespace University_Application
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.btnClose.ForeColor = System.Drawing.Color.Snow;
-            this.btnClose.Location = new System.Drawing.Point(672, 0);
+            this.btnClose.Location = new System.Drawing.Point(665, 0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(33, 33);
+            this.btnClose.Size = new System.Drawing.Size(40, 40);
             this.btnClose.TabIndex = 21;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -179,7 +179,7 @@ namespace University_Application
             this.lblResult.BackColor = System.Drawing.Color.Transparent;
             this.lblResult.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblResult.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
-            this.lblResult.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblResult.Location = new System.Drawing.Point(524, 45);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(71, 24);
@@ -256,7 +256,7 @@ namespace University_Application
             // 
             // panelBlue
             // 
-            this.panelBlue.BackColor = System.Drawing.Color.DarkBlue;
+            this.panelBlue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panelBlue.Controls.Add(this.lblMyName);
             this.panelBlue.Controls.Add(this.btnBack);
             this.panelBlue.Location = new System.Drawing.Point(0, 0);

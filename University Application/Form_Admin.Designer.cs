@@ -43,7 +43,7 @@ namespace University_Application
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Impact", 13F);
-            this.label4.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.label4.Location = new System.Drawing.Point(12, 120);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 22);
@@ -52,7 +52,7 @@ namespace University_Application
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.buttonExit);
             this.panel2.Controls.Add(this.checkedListBox_Admin);
@@ -100,7 +100,7 @@ namespace University_Application
             // 
             // checkedListBox_Admin
             // 
-            this.checkedListBox_Admin.BackColor = System.Drawing.Color.DarkBlue;
+            this.checkedListBox_Admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.checkedListBox_Admin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox_Admin.CheckOnClick = true;
             this.checkedListBox_Admin.Font = new System.Drawing.Font("Yu Gothic UI", 13.8F, System.Drawing.FontStyle.Bold);
@@ -121,7 +121,7 @@ namespace University_Application
             // 
             // button_select
             // 
-            this.button_select.BackColor = System.Drawing.Color.DarkBlue;
+            this.button_select.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_select.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button_select.Location = new System.Drawing.Point(50, 215);
             this.button_select.Name = "button_select";
@@ -139,7 +139,7 @@ namespace University_Application
             this.button_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold);
-            this.button_Back.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_Back.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Back.Location = new System.Drawing.Point(-5, 0);
             this.button_Back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button_Back.Name = "button_Back";

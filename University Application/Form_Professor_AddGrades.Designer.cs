@@ -65,7 +65,7 @@ namespace University_Application
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.button_Add);
             this.panel1.Controls.Add(this.textBox_Input);
@@ -77,7 +77,7 @@ namespace University_Application
             // 
             // buttonExit
             // 
-            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.DarkBlue;
+            this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
@@ -110,7 +110,7 @@ namespace University_Application
             // 
             // button_Back
             // 
-            this.button_Back.BackColor = System.Drawing.Color.DarkBlue;
+            this.button_Back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button_Back.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button_Back.FlatAppearance.BorderSize = 0;
             this.button_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;

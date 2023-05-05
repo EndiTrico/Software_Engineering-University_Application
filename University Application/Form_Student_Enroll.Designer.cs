@@ -44,7 +44,7 @@ namespace University_Application
             this.lblEnroll.AutoSize = true;
             this.lblEnroll.BackColor = System.Drawing.Color.Transparent;
             this.lblEnroll.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
-            this.lblEnroll.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblEnroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblEnroll.Location = new System.Drawing.Point(254, 9);
             this.lblEnroll.Name = "lblEnroll";
             this.lblEnroll.Size = new System.Drawing.Size(216, 33);
@@ -56,7 +56,7 @@ namespace University_Application
             this.lblCourseName.AutoSize = true;
             this.lblCourseName.BackColor = System.Drawing.Color.Transparent;
             this.lblCourseName.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
-            this.lblCourseName.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblCourseName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.lblCourseName.Location = new System.Drawing.Point(148, 76);
             this.lblCourseName.Name = "lblCourseName";
             this.lblCourseName.Size = new System.Drawing.Size(123, 22);
@@ -65,7 +65,7 @@ namespace University_Application
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Snow;
@@ -83,7 +83,7 @@ namespace University_Application
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnExit.FlatAppearance.BorderSize = 0;
             this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -91,9 +91,9 @@ namespace University_Application
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Corbel", 13F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.Snow;
-            this.btnExit.Location = new System.Drawing.Point(541, 0);
+            this.btnExit.Location = new System.Drawing.Point(535, 0);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(33, 33);
+            this.btnExit.Size = new System.Drawing.Size(40, 40);
             this.btnExit.TabIndex = 22;
             this.btnExit.Text = "X";
             this.btnExit.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@ namespace University_Application
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -111,7 +111,7 @@ namespace University_Application
             this.btnBack.ForeColor = System.Drawing.Color.Snow;
             this.btnBack.Location = new System.Drawing.Point(0, 0);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(33, 33);
+            this.btnBack.Size = new System.Drawing.Size(40, 40);
             this.btnBack.TabIndex = 23;
             this.btnBack.Text = "<";
             this.btnBack.UseVisualStyleBackColor = false;
@@ -131,8 +131,8 @@ namespace University_Application
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.BackColor = System.Drawing.Color.DarkBlue;
-            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.White_Logo;
+            this.pictureBoxLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
+            this.pictureBoxLogo.Image = global::University_Application.Properties.Resources.SUNY_White_Logo;
             this.pictureBoxLogo.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(142, 191);
