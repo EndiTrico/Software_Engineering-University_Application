@@ -59,7 +59,7 @@ namespace University_Application
                 comboBox1.Text = "Select a Professor";
                 for (int i = 0; i < admin.professorList.Count; i++)
                 {
-                    comboBox1.Items.Add(admin.professorList.ElementAt(i).Username);
+                    comboBox1.Items.Add(admin.professorList.ElementAt(i).Id + " " + admin.professorList.ElementAt(i).Username);
                 }
             }
         }
@@ -77,7 +77,7 @@ namespace University_Application
         public void addCourse()
         {
             Courses course = new Courses(textBox1.Text, Convert.ToInt32(textBox2.Text), Convert.ToInt32(textBox3.Text));
-            admin.addCourse(course, comboBox1.SelectedItem.ToString());
+            admin.addCourse(course, Convert.ToInt32(comboBox1.SelectedItem.ToString().Split(' ')[0]));
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

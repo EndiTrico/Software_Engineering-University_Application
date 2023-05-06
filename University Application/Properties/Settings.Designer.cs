@@ -33,5 +33,16 @@ namespace University_Application.Properties {
                 return ((string)(this["Database_University_Connection"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\bin\\Debug\\Database_" +
+            "University.mdb")]
+        public string Database_UniversityConnectionString {
+            get {
+                return ((string)(this["Database_UniversityConnectionString"]));
+            }
+        }
     }
 }

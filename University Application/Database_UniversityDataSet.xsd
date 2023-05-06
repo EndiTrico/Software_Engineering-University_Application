@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="Database_University_DataSet" targetNamespace="http://tempuri.org/Database_University_DataSet.xsd" xmlns:mstns="http://tempuri.org/Database_University_DataSet.xsd" xmlns="http://tempuri.org/Database_University_DataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="Database_UniversityDataSet" targetNamespace="http://tempuri.org/Database_UniversityDataSet.xsd" xmlns:mstns="http://tempuri.org/Database_UniversityDataSet.xsd" xmlns="http://tempuri.org/Database_UniversityDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Database_University_Connection" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Database_University_Connection (Settings)" PropertyReference="ApplicationSettings.University_Application.Properties.Settings.GlobalReference.Default.Database_University_Connection" Provider="System.Data.OleDb" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="Database_UniversityConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="Database_UniversityConnectionString (Settings)" PropertyReference="ApplicationSettings.University_Application.Properties.Settings.GlobalReference.Default.Database_UniversityConnectionString" Provider="System.Data.OleDb" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CoursesTableAdapter" GeneratorDataComponentClassName="CoursesTableAdapter" Name="Courses" UserDataComponentName="CoursesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Courses` WHERE ((`Course_ID` = ?) AND ((? = 1 AND `Credits` IS NULL) OR (`Credits` = ?)) AND ((? = 1 AND `Hours` IS NULL) OR (`Hours` = ?)))</CommandText>
@@ -65,7 +65,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GradesTableAdapter" GeneratorDataComponentClassName="GradesTableAdapter" Name="Grades" UserDataComponentName="GradesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Grades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Grades" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Grades` WHERE ((`Grade_ID` = ?) AND ((? = 1 AND `Course_ID` IS NULL) OR (`Course_ID` = ?)) AND ((? = 1 AND `Student_ID` IS NULL) OR (`Student_ID` = ?)) AND ((? = 1 AND `Grade_Score` IS NULL) OR (`Grade_Score` = ?)))</CommandText>
@@ -125,7 +125,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProfessorsTableAdapter" GeneratorDataComponentClassName="ProfessorsTableAdapter" Name="Professors" UserDataComponentName="ProfessorsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Professors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Professors" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Professors` WHERE ((`Professor_ID` = ?))</CommandText>
@@ -176,7 +176,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Professors_CoursesTableAdapter" GeneratorDataComponentClassName="Professors_CoursesTableAdapter" Name="Professors_Courses" UserDataComponentName="Professors_CoursesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Professors_Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Professors_Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Professors_Courses` WHERE ((`Professor_ID` = ?) AND (`Course_ID` = ?))</CommandText>
@@ -222,7 +222,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="StudentsTableAdapter" GeneratorDataComponentClassName="StudentsTableAdapter" Name="Students" UserDataComponentName="StudentsTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Students" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Students" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Students` WHERE ((`Student_ID` = ?))</CommandText>
@@ -276,7 +276,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Students_CoursesTableAdapter" GeneratorDataComponentClassName="Students_CoursesTableAdapter" Name="Students_Courses" UserDataComponentName="Students_CoursesTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="Database_University_Connection (Settings)" DbObjectName="Students_Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="Database_UniversityConnectionString (Settings)" DbObjectName="Students_Courses" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM `Students_Courses` WHERE ((`Student_ID` = ?) AND (`Course_ID` = ?))</CommandText>
@@ -325,7 +325,7 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="Database_University_DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="Database_University_DataSet" msprop:Generator_DataSetName="Database_University_DataSet">
+  <xs:element name="Database_UniversityDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="Database_UniversityDataSet" msprop:Generator_DataSetName="Database_UniversityDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Courses" msprop:Generator_RowEvHandlerName="CoursesRowChangeEventHandler" msprop:Generator_RowDeletedName="CoursesRowDeleted" msprop:Generator_RowDeletingName="CoursesRowDeleting" msprop:Generator_RowEvArgName="CoursesRowChangeEvent" msprop:Generator_TablePropName="Courses" msprop:Generator_RowChangedName="CoursesRowChanged" msprop:Generator_RowChangingName="CoursesRowChanging" msprop:Generator_TableClassName="CoursesDataTable" msprop:Generator_RowClassName="CoursesRow" msprop:Generator_TableVarName="tableCourses" msprop:Generator_UserTableName="Courses">

@@ -181,7 +181,7 @@ namespace University_Application
                 }
             }
             else
-                MessageBox.Show("The Student Is Not Enrolled in any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Student is Not Enrolled in any Course!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnShowMyGPA_Click(object sender, EventArgs e)
@@ -190,7 +190,7 @@ namespace University_Application
 
             if (new Student(studentID, name, surname, username, password, major, courses).showGPA() == -1)
             {
-                MessageBox.Show("There Is Not Any Grade to Calculate!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There is Not Any Grade to Calculate!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
                 richTxtBoxResult.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);

@@ -83,7 +83,7 @@ namespace University_Application
             else
             {
                 new Student(studentID, name, surname, username, password, major).enroll(comboBoxChooseCourse.Text, StudentID);
-                MessageBox.Show("The Course Is Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("The Course is Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 Form_Student form_Student = new Form_Student(username, password);
                 this.Close();
                 form_Student.Show();

@@ -20,9 +20,9 @@ namespace University_Application {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Database_University_DataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Database_UniversityDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Database_University_DataSet : global::System.Data.DataSet {
+    public partial class Database_UniversityDataSet : global::System.Data.DataSet {
         
         private CoursesDataTable tableCourses;
         
@@ -52,7 +52,7 @@ namespace University_Application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public Database_University_DataSet() {
+        public Database_UniversityDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -63,7 +63,7 @@ namespace University_Application {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected Database_University_DataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Database_UniversityDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -214,7 +214,7 @@ namespace University_Application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Database_University_DataSet cln = ((Database_University_DataSet)(base.Clone()));
+            Database_UniversityDataSet cln = ((Database_UniversityDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -337,9 +337,9 @@ namespace University_Application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Database_University_DataSet";
+            this.DataSetName = "Database_UniversityDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Database_University_DataSet.xsd";
+            this.Namespace = "http://tempuri.org/Database_UniversityDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableCourses = new CoursesDataTable();
@@ -427,7 +427,7 @@ namespace University_Application {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Database_University_DataSet ds = new Database_University_DataSet();
+            Database_UniversityDataSet ds = new Database_UniversityDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -734,7 +734,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1043,7 +1043,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1364,7 +1364,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1644,7 +1644,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1980,7 +1980,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2260,7 +2260,7 @@ namespace University_Application {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Database_University_DataSet ds = new Database_University_DataSet();
+                Database_UniversityDataSet ds = new Database_UniversityDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -3254,7 +3254,7 @@ namespace University_Application {
         }
     }
 }
-namespace University_Application.Database_University_DataSetTableAdapters {
+namespace University_Application.Database_UniversityDataSetTableAdapters {
     
     
     /// <summary>
@@ -3420,7 +3420,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3437,7 +3437,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.CoursesDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.CoursesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3450,9 +3450,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.CoursesDataTable GetData() {
+        public virtual Database_UniversityDataSet.CoursesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.CoursesDataTable dataTable = new Database_University_DataSet.CoursesDataTable();
+            Database_UniversityDataSet.CoursesDataTable dataTable = new Database_UniversityDataSet.CoursesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3460,14 +3460,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.CoursesDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.CoursesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Courses");
         }
         
@@ -3786,7 +3786,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3803,7 +3803,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.GradesDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.GradesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3816,9 +3816,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.GradesDataTable GetData() {
+        public virtual Database_UniversityDataSet.GradesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.GradesDataTable dataTable = new Database_University_DataSet.GradesDataTable();
+            Database_UniversityDataSet.GradesDataTable dataTable = new Database_UniversityDataSet.GradesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3826,14 +3826,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.GradesDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.GradesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Grades");
         }
         
@@ -4159,7 +4159,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4176,7 +4176,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.ProfessorsDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.ProfessorsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4189,9 +4189,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.ProfessorsDataTable GetData() {
+        public virtual Database_UniversityDataSet.ProfessorsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.ProfessorsDataTable dataTable = new Database_University_DataSet.ProfessorsDataTable();
+            Database_UniversityDataSet.ProfessorsDataTable dataTable = new Database_UniversityDataSet.ProfessorsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4199,14 +4199,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.ProfessorsDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.ProfessorsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Professors");
         }
         
@@ -4491,7 +4491,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4508,7 +4508,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.Professors_CoursesDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.Professors_CoursesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4521,9 +4521,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.Professors_CoursesDataTable GetData() {
+        public virtual Database_UniversityDataSet.Professors_CoursesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.Professors_CoursesDataTable dataTable = new Database_University_DataSet.Professors_CoursesDataTable();
+            Database_UniversityDataSet.Professors_CoursesDataTable dataTable = new Database_UniversityDataSet.Professors_CoursesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4531,14 +4531,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.Professors_CoursesDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.Professors_CoursesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Professors_Courses");
         }
         
@@ -4797,7 +4797,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4815,7 +4815,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.StudentsDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.StudentsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -4828,9 +4828,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.StudentsDataTable GetData() {
+        public virtual Database_UniversityDataSet.StudentsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.StudentsDataTable dataTable = new Database_University_DataSet.StudentsDataTable();
+            Database_UniversityDataSet.StudentsDataTable dataTable = new Database_UniversityDataSet.StudentsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -4838,14 +4838,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.StudentsDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.StudentsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Students");
         }
         
@@ -5141,7 +5141,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.OleDb.OleDbConnection();
-            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_University_Connection;
+            this._connection.ConnectionString = global::University_Application.Properties.Settings.Default.Database_UniversityConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5158,7 +5158,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Database_University_DataSet.Students_CoursesDataTable dataTable) {
+        public virtual int Fill(Database_UniversityDataSet.Students_CoursesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -5171,9 +5171,9 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Database_University_DataSet.Students_CoursesDataTable GetData() {
+        public virtual Database_UniversityDataSet.Students_CoursesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Database_University_DataSet.Students_CoursesDataTable dataTable = new Database_University_DataSet.Students_CoursesDataTable();
+            Database_UniversityDataSet.Students_CoursesDataTable dataTable = new Database_UniversityDataSet.Students_CoursesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -5181,14 +5181,14 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet.Students_CoursesDataTable dataTable) {
+        public virtual int Update(Database_UniversityDataSet.Students_CoursesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Database_University_DataSet dataSet) {
+        public virtual int Update(Database_UniversityDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Students_Courses");
         }
         
@@ -5493,7 +5493,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(Database_University_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(Database_UniversityDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._coursesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -5557,7 +5557,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(Database_University_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(Database_UniversityDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._coursesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Courses.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -5615,7 +5615,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(Database_University_DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(Database_UniversityDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._students_CoursesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Students_Courses.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -5697,7 +5697,7 @@ namespace University_Application.Database_University_DataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(Database_University_DataSet dataSet) {
+        public virtual int UpdateAll(Database_UniversityDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

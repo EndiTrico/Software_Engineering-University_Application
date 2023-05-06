@@ -42,6 +42,7 @@ namespace University_Application
             // 
             // comboBoxRemove
             // 
+            this.comboBoxRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxRemove.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRemove.ForeColor = System.Drawing.Color.Black;
             this.comboBoxRemove.FormattingEnabled = true;
@@ -53,6 +54,7 @@ namespace University_Application
             // btnRemove
             // 
             this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
+            this.btnRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.btnRemove.FlatAppearance.BorderSize = 0;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -81,6 +83,7 @@ namespace University_Application
             // buttonExit
             // 
             this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
+            this.buttonExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
@@ -111,6 +114,7 @@ namespace University_Application
             // btnBack
             // 
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnBack.FlatAppearance.BorderSize = 0;
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;

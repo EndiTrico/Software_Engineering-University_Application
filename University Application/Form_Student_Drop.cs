@@ -87,7 +87,7 @@ namespace University_Application
             }
             else
             {
-                MessageBox.Show("The Course Is Dropped Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("The Course is Dropped Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 new Student(studentID, name, surname, username, password, major).drop(comboBoxChooseCourse.Text, StudentID);
                 Form_Student form_Student = new Form_Student(username, password);
                 this.Close();

@@ -18,7 +18,6 @@ namespace University_Application
         public List<Student> studentList = new List<Student>();
         public List<Courses> coursesList = new List<Courses>();
 
-
         public Admin()
         {
             this.readDatabase();
@@ -126,11 +125,9 @@ namespace University_Application
             }
         }
 
-
-        public void addCourse(Courses course, String professorUsername)
+        public void addCourse(Courses course, int professorID)
         {
             int courseId;
-            int professorId;
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
@@ -143,7 +140,8 @@ namespace University_Application
                     coursesTable.Parameters.AddWithValue("@a", course.CourseName);
                     coursesTable.Parameters.AddWithValue("@b", course.Credits);
                     coursesTable.Parameters.AddWithValue("@c", course.Hours);
-                    int rowsAffected = coursesTable.ExecuteNonQuery();
+
+                    int row = coursesTable.ExecuteNonQuery();
                 }
 
                 using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection))
@@ -157,20 +155,9 @@ namespace University_Application
                     }
                 }
 
-                using (OleDbCommand professorsTable = new OleDbCommand("SELECT Professor_ID from Professors WHERE Username = ?", connection))
-                {
-                    professorsTable.Parameters.AddWithValue("@Username", professorUsername);
-
-                    using (OleDbDataReader reader = professorsTable.ExecuteReader())
-                    {
-                        reader.Read();
-                        professorId = Convert.ToInt32(reader["Professor_ID"].ToString());
-                    }
-                }
-
                 using (OleDbCommand professorsStudentsTable = new OleDbCommand("INSERT INTO Professors_Courses Values (?, ?)", connection))
                 {
-                    professorsStudentsTable.Parameters.AddWithValue("@a", professorId);
+                    professorsStudentsTable.Parameters.AddWithValue("@a", professorID);
                     professorsStudentsTable.Parameters.AddWithValue("@b", courseId);
 
                     int rowsAffected = professorsStudentsTable.ExecuteNonQuery();
