@@ -195,5 +195,10 @@ namespace University_Application
             else
                 richTxtBoxResult.AppendText("My GPA is: " + new Student(studentID, name, surname, username, password, major, courses).showGPA() + Environment.NewLine);
         }
+
+        private void Form_Student_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

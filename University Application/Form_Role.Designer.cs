@@ -162,6 +162,7 @@ namespace University_Application
             this.Controls.Add(this.btnContinue);
             this.Controls.Add(this.lblSelectRole);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(276, 91);
             this.Name = "Form_Role";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -31,6 +31,7 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Student));
             this.lblMyName = new System.Windows.Forms.Label();
             this.btnEnroll = new System.Windows.Forms.Button();
             this.btnDrop = new System.Windows.Forms.Button();
@@ -53,9 +54,9 @@ namespace University_Application
             this.lblMyName.BackColor = System.Drawing.Color.Transparent;
             this.lblMyName.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
             this.lblMyName.ForeColor = System.Drawing.Color.Snow;
-            this.lblMyName.Location = new System.Drawing.Point(28, 9);
+            this.lblMyName.Location = new System.Drawing.Point(46, 9);
             this.lblMyName.Name = "lblMyName";
-            this.lblMyName.Size = new System.Drawing.Size(369, 33);
+            this.lblMyName.Size = new System.Drawing.Size(351, 33);
             this.lblMyName.TabIndex = 0;
             this.lblMyName.Text = "Student Menu";
             this.lblMyName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -283,9 +284,11 @@ namespace University_Application
             this.Controls.Add(this.btnEnroll);
             this.Controls.Add(this.panelBlue);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Student";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.Form_Student_Load);
             this.panelBlue.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

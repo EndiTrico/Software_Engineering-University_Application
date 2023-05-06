@@ -29,6 +29,7 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Admin_Remove));
             this.comboBoxRemove = new System.Windows.Forms.ComboBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblRemove = new System.Windows.Forms.Label();
@@ -41,7 +42,7 @@ namespace University_Application
             // 
             // comboBoxRemove
             // 
-            this.comboBoxRemove.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxRemove.Font = new System.Drawing.Font("Corbel", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxRemove.ForeColor = System.Drawing.Color.Black;
             this.comboBoxRemove.FormattingEnabled = true;
             this.comboBoxRemove.Location = new System.Drawing.Point(93, 85);
@@ -100,6 +101,7 @@ namespace University_Application
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.panel1.Controls.Add(this.btnBack);
+            this.panel1.Controls.Add(this.buttonExit);
             this.panel1.Controls.Add(this.lblRemove);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -142,12 +144,12 @@ namespace University_Application
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(466, 183);
             this.Controls.Add(this.lblRemove1);
-            this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.comboBoxRemove);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Admin_Remove";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel1.ResumeLayout(false);

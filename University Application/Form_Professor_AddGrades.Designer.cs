@@ -42,24 +42,25 @@ namespace University_Application
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Impact", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Impact", 16F);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(176, 50);
+            this.label1.Location = new System.Drawing.Point(132, 32);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 34);
+            this.label1.Size = new System.Drawing.Size(112, 27);
             this.label1.TabIndex = 1;
             this.label1.Text = "Add Grades";
             // 
             // textBox_Input
             // 
             this.textBox_Input.AcceptsReturn = true;
-            this.textBox_Input.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox_Input.Font = new System.Drawing.Font("Yu Gothic UI", 9F);
             this.textBox_Input.ForeColor = System.Drawing.Color.Black;
-            this.textBox_Input.Location = new System.Drawing.Point(37, 107);
+            this.textBox_Input.Location = new System.Drawing.Point(28, 70);
+            this.textBox_Input.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox_Input.Multiline = true;
             this.textBox_Input.Name = "textBox_Input";
-            //this.textBox_Input.PlaceholderText = "Enter grades here in the format:\nSTUDENT ID,GRADE";
-            this.textBox_Input.Size = new System.Drawing.Size(257, 301);
+            this.textBox_Input.Size = new System.Drawing.Size(194, 197);
             this.textBox_Input.TabIndex = 2;
             this.textBox_Input.TextChanged += new System.EventHandler(this.textBox_Input_TextChanged);
             // 
@@ -70,24 +71,26 @@ namespace University_Application
             this.panel1.Controls.Add(this.button_Add);
             this.panel1.Controls.Add(this.textBox_Input);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(-9, -38);
+            this.panel1.Location = new System.Drawing.Point(-7, -25);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(460, 422);
+            this.panel1.Size = new System.Drawing.Size(345, 274);
             this.panel1.TabIndex = 3;
             // 
             // buttonExit
             // 
+            this.buttonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.buttonExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Lucida Console", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonExit.Font = new System.Drawing.Font("Lucida Console", 12.75F, System.Drawing.FontStyle.Bold);
             this.buttonExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.buttonExit.Location = new System.Drawing.Point(407, 39);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonExit.Location = new System.Drawing.Point(305, 25);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(56, 40);
+            this.buttonExit.Size = new System.Drawing.Size(42, 26);
             this.buttonExit.TabIndex = 14;
             this.buttonExit.Text = "X";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -98,11 +101,12 @@ namespace University_Application
             this.button_Add.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.button_Add.FlatAppearance.BorderSize = 2;
             this.button_Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Add.Font = new System.Drawing.Font("Oswald", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button_Add.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button_Add.Location = new System.Drawing.Point(333, 226);
+            this.button_Add.Location = new System.Drawing.Point(250, 147);
+            this.button_Add.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button_Add.Name = "button_Add";
-            this.button_Add.Size = new System.Drawing.Size(102, 50);
+            this.button_Add.Size = new System.Drawing.Size(76, 32);
             this.button_Add.TabIndex = 4;
             this.button_Add.Text = "ADD";
             this.button_Add.UseVisualStyleBackColor = true;
@@ -116,12 +120,12 @@ namespace University_Application
             this.button_Back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.WhiteSmoke;
             this.button_Back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button_Back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_Back.Font = new System.Drawing.Font("Lucida Console", 13F, System.Drawing.FontStyle.Bold);
             this.button_Back.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.button_Back.Location = new System.Drawing.Point(-2, 0);
-            this.button_Back.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button_Back.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_Back.Name = "button_Back";
-            this.button_Back.Size = new System.Drawing.Size(45, 49);
+            this.button_Back.Size = new System.Drawing.Size(34, 32);
             this.button_Back.TabIndex = 20;
             this.button_Back.Text = "<";
             this.button_Back.UseVisualStyleBackColor = false;
@@ -129,14 +133,16 @@ namespace University_Application
             // 
             // Form_Professor_AddGrades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.buttonExit;
-            this.ClientSize = new System.Drawing.Size(449, 382);
+            this.ClientSize = new System.Drawing.Size(337, 248);
             this.Controls.Add(this.button_Back);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form_Professor_AddGrades";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Professor_AddGrades";

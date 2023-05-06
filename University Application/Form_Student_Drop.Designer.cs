@@ -29,6 +29,7 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Student_Drop));
             this.lblDrop = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
             this.comboBoxChooseCourse = new System.Windows.Forms.ComboBox();
@@ -153,6 +154,7 @@ namespace University_Application
             this.Controls.Add(this.lblDrop);
             this.Controls.Add(this.pictureBoxLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Student_Drop";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Student_Drop";

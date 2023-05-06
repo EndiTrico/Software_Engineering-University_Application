@@ -169,6 +169,9 @@
     <EmbeddedResource Include="Form_Professor.resx">
       <DependentUpon>Form_Professor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_Professor_AddGrades.resx">
+      <DependentUpon>Form_Professor_AddGrades.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_Role.resx">
       <DependentUpon>Form_Role.cs</DependentUpon>
     </EmbeddedResource>

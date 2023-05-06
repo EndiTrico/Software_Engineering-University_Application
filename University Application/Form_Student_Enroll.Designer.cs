@@ -29,6 +29,7 @@ namespace University_Application
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Student_Enroll));
             this.lblEnroll = new System.Windows.Forms.Label();
             this.lblCourseName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -45,7 +46,7 @@ namespace University_Application
             this.lblEnroll.BackColor = System.Drawing.Color.Transparent;
             this.lblEnroll.Font = new System.Drawing.Font("Corbel", 20F, System.Drawing.FontStyle.Bold);
             this.lblEnroll.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.lblEnroll.Location = new System.Drawing.Point(254, 9);
+            this.lblEnroll.Location = new System.Drawing.Point(241, 9);
             this.lblEnroll.Name = "lblEnroll";
             this.lblEnroll.Size = new System.Drawing.Size(216, 33);
             this.lblEnroll.TabIndex = 5;
@@ -158,6 +159,7 @@ namespace University_Application
             this.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_Student_Enroll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add or Drop a Course";

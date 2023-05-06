@@ -12,7 +12,7 @@ namespace University_Application
     {
         private static string username = "admin";
         private static string password = "admin123";
-        private String connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
+        private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
         public List<Professor> professorList = new List<Professor>();
         public List<Student> studentList = new List<Student>();
