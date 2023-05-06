@@ -103,6 +103,7 @@ namespace University_Application
                     int rowsAffected = studentsTable.ExecuteNonQuery();
                 }
             }
+            
             readDatabase();
         }
 
