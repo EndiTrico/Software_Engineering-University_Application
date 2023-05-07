@@ -18,25 +18,18 @@ namespace University_Application
         public List<Student> studentList = new List<Student>();
         public List<Courses> coursesList = new List<Courses>();
 
+        public static string Username { get => username; set => username = value; }
+        public static string Password { get => password; set => password = value; }
+
         public Admin()
         {
             this.readDatabase();
         }
 
-        public string getUsername()
-        {
-            return username;
-        }
-
-        public string getPassword()
-        {
-            return password;
-        }
-
         //check the validity of the username and the password of the admin
         public bool isUsernameAndPasswordValid(string username, string password)
         {
-            if (username.Equals(this.getUsername()) && password.Equals(this.getPassword()))
+            if (username.Equals(Username) && password.Equals(Password))
                 return true;
             throw new InvalidLoginInfoException("Username and Password do not match!");
         }
@@ -189,6 +182,11 @@ namespace University_Application
             studentList = new Student().readStudents();
             professorList = new Professor().readProfessors();
             coursesList = new Courses().readCourses();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
         }
     }
 }

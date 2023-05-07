@@ -37,7 +37,7 @@ namespace University_Application
             InitializeComponent();
             Student stud = new Student();
 
-            foreach (string s in stud.showStudentCourses())
+            foreach (string s in stud.Courses)
             {
                 comboBoxChooseCourse.Items.Add(s);
             }
@@ -55,7 +55,7 @@ namespace University_Application
             this.Major = major;
             this.Courses = courses;
 
-            foreach (string s in new Student(studentID, name, surname, username, password, major, courses).showStudentCourses())
+            foreach (string s in new Student(studentID, name, surname, username, password, major, courses).Courses)
             {
                 comboBoxChooseCourse.Items.Add(s);
             }

@@ -93,7 +93,7 @@ namespace University_Application
         private void btnShowMyCourses_Click(object sender, EventArgs e)
         {
             richTxtBoxResult.Clear();
-            List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).showStudentCourses();
+            List<string> myCourses = new Student(studentID, name, surname, username, password, major, courses).Courses;
 
             if (myCourses.Count != 0)
             {
