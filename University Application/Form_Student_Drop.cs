@@ -35,11 +35,11 @@ namespace University_Application
         public Form_Student_Drop()
         {
             InitializeComponent();
-            Student stud = new Student();
+            Student student = new Student();
 
-            foreach (string s in stud.Courses)
+            foreach (string stud in student.Courses)
             {
-                comboBoxChooseCourse.Items.Add(s);
+                comboBoxChooseCourse.Items.Add(stud);
             }
 
         }

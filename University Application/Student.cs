@@ -256,12 +256,6 @@ namespace University_Application
             return availableCourses;
         }
 
-        // Method to check all student courses
-        public List<string> showStudentCourses()
-        {
-            return Courses;
-        }
-
         // DONE
         public List<string> showStudentCredits()
         {
