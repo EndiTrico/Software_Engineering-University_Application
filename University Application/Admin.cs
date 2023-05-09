@@ -56,7 +56,6 @@ namespace University_Application
             readDatabase();
         }
 
-        // DONE
         public void removeProfessor(Professor professor)
         {
             professorList.RemoveAt(professorList.IndexOf(professor));
@@ -75,7 +74,6 @@ namespace University_Application
             }
         }
 
-        // DONE
         public void addStudent(Student student)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -99,7 +97,6 @@ namespace University_Application
             readDatabase();
         }
 
-        // DONE
         public void removeStudent(Student student)
         {
             studentList.RemoveAt(studentList.IndexOf(student));

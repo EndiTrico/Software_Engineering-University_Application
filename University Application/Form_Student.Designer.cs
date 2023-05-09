@@ -68,7 +68,7 @@ namespace University_Application
             this.btnEnroll.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnEnroll.FlatAppearance.BorderSize = 0;
             this.btnEnroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEnroll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnEnroll.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnEnroll.ForeColor = System.Drawing.Color.Black;
             this.btnEnroll.Location = new System.Drawing.Point(10, 72);
             this.btnEnroll.Name = "btnEnroll";
@@ -85,7 +85,7 @@ namespace University_Application
             this.btnDrop.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnDrop.FlatAppearance.BorderSize = 0;
             this.btnDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDrop.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnDrop.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnDrop.ForeColor = System.Drawing.Color.Black;
             this.btnDrop.Location = new System.Drawing.Point(10, 114);
             this.btnDrop.Name = "btnDrop";
@@ -102,7 +102,7 @@ namespace University_Application
             this.btnShowMyCourses.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowMyCourses.FlatAppearance.BorderSize = 0;
             this.btnShowMyCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMyCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowMyCourses.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowMyCourses.ForeColor = System.Drawing.Color.Black;
             this.btnShowMyCourses.Location = new System.Drawing.Point(10, 159);
             this.btnShowMyCourses.Name = "btnShowMyCourses";
@@ -119,7 +119,7 @@ namespace University_Application
             this.btnShowMyGrades.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowMyGrades.FlatAppearance.BorderSize = 0;
             this.btnShowMyGrades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMyGrades.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowMyGrades.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowMyGrades.ForeColor = System.Drawing.Color.Black;
             this.btnShowMyGrades.Location = new System.Drawing.Point(10, 203);
             this.btnShowMyGrades.Name = "btnShowMyGrades";
@@ -196,7 +196,7 @@ namespace University_Application
             this.btnShowAllCourses.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowAllCourses.FlatAppearance.BorderSize = 0;
             this.btnShowAllCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowAllCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowAllCourses.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowAllCourses.ForeColor = System.Drawing.Color.Black;
             this.btnShowAllCourses.Location = new System.Drawing.Point(211, 72);
             this.btnShowAllCourses.Name = "btnShowAllCourses";
@@ -213,7 +213,7 @@ namespace University_Application
             this.btnShowMyGPA.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowMyGPA.FlatAppearance.BorderSize = 0;
             this.btnShowMyGPA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMyGPA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowMyGPA.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowMyGPA.ForeColor = System.Drawing.Color.Black;
             this.btnShowMyGPA.Location = new System.Drawing.Point(211, 203);
             this.btnShowMyGPA.Name = "btnShowMyGPA";
@@ -230,7 +230,7 @@ namespace University_Application
             this.btnShowMyCredits.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowMyCredits.FlatAppearance.BorderSize = 0;
             this.btnShowMyCredits.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowMyCredits.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowMyCredits.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowMyCredits.ForeColor = System.Drawing.Color.Black;
             this.btnShowMyCredits.Location = new System.Drawing.Point(211, 159);
             this.btnShowMyCredits.Name = "btnShowMyCredits";
@@ -247,7 +247,7 @@ namespace University_Application
             this.btnShowCreditsOfAllCourses.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnShowCreditsOfAllCourses.FlatAppearance.BorderSize = 0;
             this.btnShowCreditsOfAllCourses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowCreditsOfAllCourses.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowCreditsOfAllCourses.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowCreditsOfAllCourses.ForeColor = System.Drawing.Color.Black;
             this.btnShowCreditsOfAllCourses.Location = new System.Drawing.Point(211, 114);
             this.btnShowCreditsOfAllCourses.Name = "btnShowCreditsOfAllCourses";

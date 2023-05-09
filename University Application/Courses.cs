@@ -41,7 +41,6 @@ namespace University_Application
             this.Hours = hours;
         }
 
-        // DONE
         public List<Courses> readCourses()
         {
             OleDbConnection connection = new OleDbConnection(connectionString);

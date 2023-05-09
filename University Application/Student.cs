@@ -106,7 +106,6 @@ namespace University_Application
 
         }
 
-        // DONE Method to read the Student File
         public List<Student> readStudents()
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -152,7 +151,6 @@ namespace University_Application
             }
         }
 
-        // DONE Method to show all the university courses
         public List<string> showAllCourses()
         {
             List<string> allCourses = new List<string>();
@@ -164,8 +162,6 @@ namespace University_Application
             return allCourses;
         }
 
-        // DONE
-        // Method to show the grades for the student
         public List<string> showGrades()
         {
             List<string> myGrades = new List<string>();
@@ -190,7 +186,6 @@ namespace University_Application
             return myGrades;
         }
 
-        // DONE Write the course in the file
         public void enroll(string courseName, int studID)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -211,7 +206,6 @@ namespace University_Application
             }
         }
 
-        // DONE Drop a course
         public void drop(string courseName, int studid)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
@@ -232,7 +226,6 @@ namespace University_Application
             }
         }
 
-        // DONE Method to show all courses, except the courses that he is in
         public List<string> allCoursesExcludingStudentCourses()
         {
             List<string> availableCourses = new List<string>();
@@ -256,7 +249,6 @@ namespace University_Application
             return availableCourses;
         }
 
-        // DONE
         public List<string> showStudentCredits()
         {
             List<string> myCredits = new List<string>();
@@ -280,7 +272,6 @@ namespace University_Application
             return myCredits;
         }
 
-        // DONE
         public List<string> showAllCredits()
         {    
             List<string> allCourses = new List<string>();
@@ -292,8 +283,6 @@ namespace University_Application
             return allCourses;
         }
 
-
-        // DONE
         public double showGPA()
         {
             double[] gradeCredits = new double[2];
