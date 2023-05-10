@@ -84,7 +84,7 @@ namespace University_Application
             this.btnAddProfessor.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnAddProfessor.FlatAppearance.BorderSize = 0;
             this.btnAddProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddProfessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddProfessor.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddProfessor.ForeColor = System.Drawing.Color.Snow;
             this.btnAddProfessor.Location = new System.Drawing.Point(34, 70);
             this.btnAddProfessor.Name = "btnAddProfessor";
@@ -101,7 +101,7 @@ namespace University_Application
             this.btnAddStudent.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnAddStudent.FlatAppearance.BorderSize = 0;
             this.btnAddStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddStudent.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddStudent.ForeColor = System.Drawing.Color.Snow;
             this.btnAddStudent.Location = new System.Drawing.Point(34, 118);
             this.btnAddStudent.Name = "btnAddStudent";
@@ -118,7 +118,7 @@ namespace University_Application
             this.btnAddCourse.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnAddCourse.FlatAppearance.BorderSize = 0;
             this.btnAddCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddCourse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnAddCourse.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnAddCourse.ForeColor = System.Drawing.Color.Snow;
             this.btnAddCourse.Location = new System.Drawing.Point(34, 168);
             this.btnAddCourse.Name = "btnAddCourse";
@@ -161,7 +161,7 @@ namespace University_Application
             this.btnRemoveCourse.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnRemoveCourse.FlatAppearance.BorderSize = 0;
             this.btnRemoveCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveCourse.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveCourse.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnRemoveCourse.ForeColor = System.Drawing.Color.Black;
             this.btnRemoveCourse.Location = new System.Drawing.Point(37, 168);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
@@ -197,7 +197,7 @@ namespace University_Application
             this.btnRemoveStudent.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnRemoveStudent.FlatAppearance.BorderSize = 0;
             this.btnRemoveStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveStudent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveStudent.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnRemoveStudent.ForeColor = System.Drawing.Color.Black;
             this.btnRemoveStudent.Location = new System.Drawing.Point(37, 118);
             this.btnRemoveStudent.Name = "btnRemoveStudent";
@@ -214,7 +214,7 @@ namespace University_Application
             this.btnRemoveProfessor.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.btnRemoveProfessor.FlatAppearance.BorderSize = 0;
             this.btnRemoveProfessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveProfessor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveProfessor.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Bold);
             this.btnRemoveProfessor.ForeColor = System.Drawing.Color.Black;
             this.btnRemoveProfessor.Location = new System.Drawing.Point(37, 70);
             this.btnRemoveProfessor.Name = "btnRemoveProfessor";

@@ -54,7 +54,7 @@ namespace University_Application
             
             reader.Read();
                   
-            this.id = Convert.ToInt32(reader["Professor_ID"].ToString());
+            this.Id = Convert.ToInt32(reader["Professor_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
 

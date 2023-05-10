@@ -57,7 +57,7 @@ namespace University_Application
 
             OleDbDataReader reader = isUsernameAndPasswordValid(username, password);
             reader.Read();
-            this.id = Convert.ToInt32(reader["Student_ID"].ToString());
+            this.Id = Convert.ToInt32(reader["Student_ID"].ToString());
             this.Name = reader["First_Name"].ToString();
             this.Surname = reader["Last_Name"].ToString();
 

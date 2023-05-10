@@ -12,10 +12,10 @@ namespace University_Application
     {
         private string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\Database_University.mdb";
 
-        int id;
-        string courseName;
-        int credits;
-        int hours;
+        private int id;
+        private string courseName;
+        private int credits;
+        private int hours;
 
         public int Id { get => id; set => id = value; }
         public string CourseName { get => courseName; set => courseName = value; }
