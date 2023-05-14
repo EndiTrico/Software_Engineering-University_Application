@@ -193,33 +193,37 @@ namespace University_Application
                  if (getStudentFromID(Convert.ToInt32(inputs[0])) == null)
                         throw new InvalidInputException("The student whose ID you entered is not enrolled in the course!");
 
-                OleDbConnection con = new OleDbConnection(connection);
-
-                if (con.State != System.Data.ConnectionState.Open)
+                using (OleDbConnection con = new OleDbConnection(connection))
                 {
-                    con.Open();
-                }
-                OleDbCommand command = new OleDbCommand("select count(*) from Grades where Student_ID = ? AND Course_ID = ?", con);
-                
-                OleDbParameterCollection paramCollection = command.Parameters;
-                paramCollection.Add(new OleDbParameter("Student_ID", inputs[0]));
-                paramCollection.Add(new OleDbParameter("Course_ID", activeCourseId));
-                int result = Convert.ToInt32(command.ExecuteScalar());
 
-                string sql;
-                if (result == 0) {
-                     sql = "INSERT INTO Grades (Grade_Score, Student_ID, Course_ID) VALUES (?, ?, ?)";   
-                } else {
-                    sql = "UPDATE Grades SET Grade_Score = ? WHERE Student_ID = ? AND Course_ID = ?";
-                }
+                    if (con.State != System.Data.ConnectionState.Open)
+                    {
+                        con.Open();
+                    }
+                    OleDbCommand command = new OleDbCommand("select count(*) from Grades where Student_ID = ? AND Course_ID = ?", con);
 
-                OleDbCommand cmd = new OleDbCommand(sql, con);
-                cmd.Parameters.AddWithValue("@Grade_Score", inputs[1]);
-                cmd.Parameters.AddWithValue("@Student_ID", inputs[0]);
-                cmd.Parameters.AddWithValue("@Course_ID", activeCourseId);
-                cmd.ExecuteNonQuery();
+                    OleDbParameterCollection paramCollection = command.Parameters;
+                    paramCollection.Add(new OleDbParameter("Student_ID", inputs[0]));
+                    paramCollection.Add(new OleDbParameter("Course_ID", activeCourseId));
+                    int result = Convert.ToInt32(command.ExecuteScalar());
+
+                    string sql;
+                    if (result == 0)
+                    {
+                        sql = "INSERT INTO Grades (Grade_Score, Student_ID, Course_ID) VALUES (?, ?, ?)";
+                    }
+                    else
+                    {
+                        sql = "UPDATE Grades SET Grade_Score = ? WHERE Student_ID = ? AND Course_ID = ?";
+                    }
+
+                    OleDbCommand cmd = new OleDbCommand(sql, con);
+                    cmd.Parameters.AddWithValue("@Grade_Score", inputs[1]);
+                    cmd.Parameters.AddWithValue("@Student_ID", inputs[0]);
+                    cmd.Parameters.AddWithValue("@Course_ID", activeCourseId);
+                    cmd.ExecuteNonQuery();
+                }
             }
-
         }
 
         // method to show passing students
@@ -354,85 +358,91 @@ namespace University_Application
         {
             if (ActiveCourse != null)
             {
-                OleDbConnection con = new OleDbConnection(connection);
-                if (con.State != System.Data.ConnectionState.Open)
+                using (OleDbConnection con = new OleDbConnection(connection))
                 {
-                    con.Open();
-                }
-
-                String sql = "SELECT * FROM Courses WHERE Course_Name = ?";
-
-
-                OleDbCommand cmd = new OleDbCommand(sql, con);
-                OleDbParameterCollection paramCollection = cmd.Parameters;
-                paramCollection.Add(new OleDbParameter("Course_Name", activeCourse));
-                OleDbDataReader reader = cmd.ExecuteReader();
-
-
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
+                    if (con.State != System.Data.ConnectionState.Open)
                     {
-                        activeCourseId = reader.GetInt32(0);
+                        con.Open();
+                    }
+
+                    String sql = "SELECT * FROM Courses WHERE Course_Name = ?";
+
+
+                    OleDbCommand cmd = new OleDbCommand(sql, con);
+                    OleDbParameterCollection paramCollection = cmd.Parameters;
+                    paramCollection.Add(new OleDbParameter("Course_Name", activeCourse));
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
+                    {
+
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                activeCourseId = reader.GetInt32(0);
+                            }
+                        }
                     }
                 }
             }
-
         }
 
         public List<Professor> readProfessors()
         {
             List<Professor> professors = new List<Professor>();
-            OleDbConnection con = new OleDbConnection(connection);
 
-            if (con.State != System.Data.ConnectionState.Open)
+            using (OleDbConnection con = new OleDbConnection(connection))
             {
-                con.Open();
-            }
-            String sql = "SELECT * FROM Professors";
 
-            OleDbCommand cmd = new OleDbCommand(sql, con);
-            OleDbDataReader reader = cmd.ExecuteReader();
-
-
-            if (reader.HasRows)
-
-                while (reader.Read())
-                 {
-                int professorId = Convert.ToInt32(reader["Professor_ID"]);
-                string table_firstName = reader["First_Name"].ToString();
-                string table_lastName = reader["Last_Name"].ToString();
-                string table_username = reader["Username"].ToString();
-                string table_password = reader["Password"].ToString();;
-
-                Professor prof = new Professor(professorId, table_firstName, table_lastName, table_username,
-                    table_password);
-
-                OleDbCommand professorCoursesTable = new OleDbCommand
-                ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", con);
-                    
-                OleDbParameterCollection paramCollection = professorCoursesTable.Parameters;
-                paramCollection.Add(new OleDbParameter("Professor_ID", professorId));
-                OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader();
-
-                while (readerProfessorCoursesTable.Read())
+                if (con.State != System.Data.ConnectionState.Open)
                 {
-                    int table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
-
-                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", con);
-                    OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
-                    coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
-                    OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-                    readerCoursesTable.Read();
-                        prof.Courses.Add(readerCoursesTable["Course_Name"].ToString());
-                    readerCoursesTable.Close();
+                    con.Open();
                 }
-                readerProfessorCoursesTable.Close();
-                professors.Add(prof);
-            }
+                String sql = "SELECT * FROM Professors";
 
-            reader.Close();
-            con.Close();
+                OleDbCommand cmd = new OleDbCommand(sql, con);
+                using (OleDbDataReader reader = cmd.ExecuteReader())
+                {
+
+                    if (reader.HasRows)
+
+                        while (reader.Read())
+                        {
+                            int professorId = Convert.ToInt32(reader["Professor_ID"]);
+                            string table_firstName = reader["First_Name"].ToString();
+                            string table_lastName = reader["Last_Name"].ToString();
+                            string table_username = reader["Username"].ToString();
+                            string table_password = reader["Password"].ToString(); ;
+
+                            Professor prof = new Professor(professorId, table_firstName, table_lastName, table_username,
+                                table_password);
+
+                            OleDbCommand professorCoursesTable = new OleDbCommand
+                            ("SELECT Course_ID FROM Professors_Courses WHERE Professor_ID = ?", con);
+
+                            OleDbParameterCollection paramCollection = professorCoursesTable.Parameters;
+                            paramCollection.Add(new OleDbParameter("Professor_ID", professorId));
+                            using (OleDbDataReader readerProfessorCoursesTable = professorCoursesTable.ExecuteReader())
+                            {
+
+                                while (readerProfessorCoursesTable.Read())
+                                {
+                                    int table_courseID = Convert.ToInt32(readerProfessorCoursesTable["Course_ID"]);
+
+                                    OleDbCommand coursesTable = new OleDbCommand("SELECT Course_Name FROM Courses WHERE Course_ID = ?", con);
+                                    OleDbParameterCollection coursesParamCollection = coursesTable.Parameters;
+                                    coursesParamCollection.Add(new OleDbParameter("Course_ID", table_courseID));
+                                    using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                                    {
+                                        readerCoursesTable.Read();
+                                        prof.Courses.Add(readerCoursesTable["Course_Name"].ToString());
+                                    }
+                                }
+                            }
+                            professors.Add(prof);
+                        }
+
+                }
+            }
             return professors;
         }
 

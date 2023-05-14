@@ -43,26 +43,25 @@ namespace University_Application
 
         public List<Courses> readCourses()
         {
-            OleDbConnection connection = new OleDbConnection(connectionString);
-            connection.Open();
-
-            OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses", connection);
-            OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader();
-
             List<Courses> coursesList = new List<Courses>();
 
-            while (readerCoursesTable.Read())
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                Courses course = new Courses(Convert.ToInt32(readerCoursesTable["Course_ID"]),
-                    readerCoursesTable["Course_Name"].ToString(), Convert.ToInt32(readerCoursesTable["Credits"]),
-                    Convert.ToInt32(readerCoursesTable["Hours"]));
+                connection.Open();
 
-                coursesList.Add(course);
+                OleDbCommand coursesTable = new OleDbCommand("SELECT * FROM Courses", connection);
+                using (OleDbDataReader readerCoursesTable = coursesTable.ExecuteReader())
+                {
+                    while (readerCoursesTable.Read())
+                    {
+                        Courses course = new Courses(Convert.ToInt32(readerCoursesTable["Course_ID"]),
+                            readerCoursesTable["Course_Name"].ToString(), Convert.ToInt32(readerCoursesTable["Credits"]),
+                            Convert.ToInt32(readerCoursesTable["Hours"]));
+
+                        coursesList.Add(course);
+                    }
+                }
             }
-
-            readerCoursesTable.Close();
-            connection.Close();
-
             return coursesList;
         }
 

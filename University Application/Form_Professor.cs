@@ -125,7 +125,7 @@ namespace University_Application
 
         private void Form_Professor_Load(object sender, EventArgs e)
         {
-            label1.Text = $"Welcome Professor {Professor.getRecentProfessor().Name} !";
+            label2.Text = $"{Professor.getRecentProfessor().Name}!";
 
             foreach (string course in Professor.getRecentProfessor().Courses)
                 comboBox_Course.Items.Add(course);

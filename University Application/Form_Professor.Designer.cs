@@ -62,11 +62,11 @@ namespace University_Application
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Snow;
-            this.label2.Location = new System.Drawing.Point(5, 7);
+            this.label2.Location = new System.Drawing.Point(5, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 33);
+            this.label2.Size = new System.Drawing.Size(91, 24);
             this.label2.TabIndex = 22;
             this.label2.Text = "Professor";
             // 
@@ -139,13 +139,13 @@ namespace University_Application
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Corbel", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Corbel", 15F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
-            this.label1.Location = new System.Drawing.Point(90, 7);
+            this.label1.Location = new System.Drawing.Point(40, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 33);
+            this.label1.Size = new System.Drawing.Size(174, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome";
+            this.label1.Text = "Welcome Professor";
             this.label1.Click += new System.EventHandler(this.button_FailingStudents_Click);
             // 
             // button_Students
