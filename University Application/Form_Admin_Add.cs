@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using University_Application;
 
 namespace University_Application
 {
@@ -84,41 +75,54 @@ namespace University_Application
         {
             if (index == 1)
             {
+                int indexProfessor = admin.professorList.Count;
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
                     MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addProfessor();
-                    MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Form_Admin admin = new Form_Admin();
-                    this.Close();
-                    admin.Show();
+                    if (admin.professorList.Count == indexProfessor + 1)
+                    {
+                        MessageBox.Show("Professor Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Form_Admin admin = new Form_Admin();
+                        this.Close();
+                        admin.Show();
+                    }
                 }
             }
             if (index == 2)
             {
+                int indexStudent = admin.studentList.Count;
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "" || comboBox1.SelectedItem == null)
                     MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addStudent();
-                    MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Form_Admin admin = new Form_Admin();
-                    this.Close();
-                    admin.Show();
+                    if (admin.studentList.Count == indexStudent + 1)
+                    {
+                        MessageBox.Show("Student Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Form_Admin admin = new Form_Admin();
+                        this.Close();
+                        admin.Show();
+                    }
                 }
             }
+
             if (index == 3)
             {
+                int indexNumber = admin.coursesList.Count;
                 if (textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || comboBox1.SelectedItem == null)
                     MessageBox.Show("Enter All Data!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                 {
                     this.addCourse();
-                    MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    Form_Admin admin = new Form_Admin();
-                    this.Close();
-                    admin.Show();
+                    if (admin.coursesList.Count == indexNumber + 1)
+                    {
+                        MessageBox.Show("Course Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        Form_Admin admin = new Form_Admin();
+                        this.Close();
+                        admin.Show();
+                    }
                 }
             }
         }

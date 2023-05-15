@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace University_Application
 {
@@ -50,7 +51,14 @@ namespace University_Application
                     professorTable.Parameters.AddWithValue("@c", professor.Username);
                     professorTable.Parameters.AddWithValue("@d", professor.Password);
 
-                    int rowsAffected = professorTable.ExecuteNonQuery();
+                    try
+                    {
+                        int rowsAffected = professorTable.ExecuteNonQuery();
+                    }
+                    catch (OleDbException)
+                    {
+                        MessageBox.Show("This Username is Used by Another Professor!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             readDatabase();
@@ -90,7 +98,14 @@ namespace University_Application
                     studentsTable.Parameters.AddWithValue("@Password", student.Password);
                     studentsTable.Parameters.AddWithValue("@Major", student.Major);
 
-                    int rowsAffected = studentsTable.ExecuteNonQuery();
+                    try
+                    {
+                        int rowsAffected = studentsTable.ExecuteNonQuery();
+                    }
+                    catch (OleDbException)
+                    {
+                        MessageBox.Show("This Username is Used by Another Student!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
             
@@ -131,7 +146,15 @@ namespace University_Application
                     coursesTable.Parameters.AddWithValue("@b", course.Credits);
                     coursesTable.Parameters.AddWithValue("@c", course.Hours);
 
-                    int row = coursesTable.ExecuteNonQuery();
+                    try
+                    {
+                        int rowsAffected = coursesTable.ExecuteNonQuery();
+                    }
+                    catch (OleDbException)
+                    {
+                        MessageBox.Show("This Course Name is Used by Another Course!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                 using (OleDbCommand coursesTable1 = new OleDbCommand("SELECT Course_ID from Courses WHERE Course_Name = ?", connection))
