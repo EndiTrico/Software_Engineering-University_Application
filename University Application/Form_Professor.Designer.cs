@@ -281,7 +281,7 @@ namespace University_Application
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(34)))), ((int)(((byte)(87)))));
             this.button1.Location = new System.Drawing.Point(0, 306);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 29);
+            this.button1.Size = new System.Drawing.Size(214, 29);
             this.button1.TabIndex = 20;
             this.button1.Text = "7. Show failing students";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
